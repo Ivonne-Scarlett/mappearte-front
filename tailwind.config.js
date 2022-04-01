@@ -1,5 +1,3 @@
-const defaultTheme = require('tailwindcss/defaultTheme')
-
 module.exports = {
   purge: ["./pages/**/*.{js,ts,jsx,tsx}", "./components/**/*.{js,ts,jsx,tsx}"],
   content: [
@@ -18,9 +16,6 @@ module.exports = {
         "pinkP": "#E217F3",
         "orangeP": "#F39B17",
         "greenP": "#D4D809",      
-      },     
-      fontFamily: {
-        cursive: ['Bubblegum Sans', ...defaultTheme.fontFamily.cursive]
       },
     },
   },
