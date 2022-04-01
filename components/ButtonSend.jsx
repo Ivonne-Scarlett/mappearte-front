@@ -2,15 +2,15 @@ import React from 'react'
 
 export default function ButtonSend({color, nameButton, OnClick}) {
   const buttonConfig = {
-    Blue: "bg-blueP hover:border-blueP",
-    Aqua: "bg-aquaP hover:border-aquaP",
-    Pink: "bg-rosaP hover:border-rosaP",
-    Green: "bg-greenP hover:border-greenP",
+    Blue: "bg-blueP border-blueP",
+    Aqua: "bg-aquaP border-aquaP",
+    Pink: "bg-rosaP border-rosaP",
+    Green: "bg-greenP border-greenP",
   };
 
   return (
     <button 
-    className={`${colorConfig[color]} bg-aquaP border-2 border-aquaP 
+    className={`${buttonConfig[color]} border-2 
     rounded font-semibold  
     opacity-6 px-2 py-2 w-auto text-sm`} 
     onClick={OnClick}
