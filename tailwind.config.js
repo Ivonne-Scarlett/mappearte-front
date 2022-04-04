@@ -1,14 +1,17 @@
-module.exports = {
-  purge: ["./pages/**/*.{js,ts,jsx,tsx}", "./components/**/*.{js,ts,jsx,tsx}"],
+module.exports = {  
   content: [
     "./pages/**/*.{js,ts,jsx,tsx}",
     "./components/**/*.{js,ts,jsx,tsx}",
   ],
-  theme: {
+  theme: {    
     extend: {
       backgroundImage: {
         "test": "url('https://manomaticestudio.com/wp-content/uploads/2020/11/principal_codac.jpg')"
-      },
+      }, 
+      fontFamily: {
+        'Mali': ['Mali', 'cursive'],
+        'Mochiy': ['Mochiy Pop One', 'sans-serif'],
+      },    
       colors: {
         "backgroundP": "#04032E",
         "blueP": "#043BFF",
