@@ -1,8 +1,6 @@
 import React from 'react';
-import ButtonToGo from "../components/ButtonGoTo";
-import ButtonSend from "../components/ButtonSend";
-
-
+import ButtonToGo from '../components/ButtonGoTo';
+import ButtonSend from '../components/ButtonSend';
 
 export default function Home() {
   const sayHi = () => {
