@@ -10,9 +10,9 @@ export default function ButtonSend({color, nameButton, OnClick}) {
 
   return (
     <button 
-    className={`${buttonConfig[color]} border-2 
+    className={`${buttonConfig[color]} w-full border-2 
     rounded font-semibold uppercase
-    opacity-6 px-2 py-2 w-auto text-sm`} 
+    opacity-6 px-2 py-2 text-sm`} 
     onClick={OnClick}
     >
       {nameButton}

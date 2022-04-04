@@ -14,9 +14,9 @@ export default function ButtonToGo({color, nameButton, route}) {
   return (
     <div>
       <button 
-      className={`${buttonConfig[color]}  border-2
+      className={`${buttonConfig[color]} w-full border-2
       rounded font-semibold hover:bg-backgroundP 
-      px-2 py-2 w-auto text-sm uppercase`} 
+      px-2 py-2 text-sm uppercase`} 
       onClick={onClick}
       >
         {nameButton}
