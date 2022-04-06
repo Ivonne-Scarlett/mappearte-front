@@ -1,7 +1,9 @@
 import React from 'react';
+import ButtonCamera from '../components/ButtonCamera';
+import ButtonEdit from '../components/ButtonEdit';
 import ButtonToGo from '../components/ButtonGoTo';
 import ButtonSend from '../components/ButtonSend';
-import OpacityCard from '../components/OpacityCard'
+import OpacityCard from '../components/OpacityCard';
 
 export default function Home() {
   const sayHi = () => {
@@ -11,14 +13,25 @@ export default function Home() {
     <>
         <ButtonToGo 
         color='Aqua'
-        nameButton='SUBIR FOTO'
-        route="/"
-        />
+        route='/' >
+          Subir Foto
+        </ButtonToGo>
+        
         <ButtonSend 
         color='Pink'
-        nameButton='registrarme'
         OnClick={sayHi}
-        />       
+        >
+          registrarme
+        </ButtonSend>
+             
+        <ButtonEdit
+        route='/'
+        />
+
+        <ButtonCamera
+        route='/'
+        />
+
       <div className='w-full h-screen bg-test '>
         <OpacityCard className='w-1/2 mt-5'>
           <h1 className='font-Mali text-4xl mt-3'>Artistas más populares 1</h1> <span className='text-base font-semibold font-Mochiy'>Alicia</span>

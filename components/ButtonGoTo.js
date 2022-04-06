@@ -1,14 +1,15 @@
 import React from 'react';
 import { useRouter } from 'next/router'
 
-export default function ButtonToGo({color, nameButton, route}) {
+export default function ButtonToGo({color, children, route}) {
   const buttonConfig = {
-    Blue: "bg-blueP border-blueP",
-    Aqua: "bg-aquaP border-aquaP",
-    Pink: "bg-rosaP border-rosaP",
-    Green: "bg-greenP border-greenP",
-  };
-  
+    Blue: 'bg-blueP border-blueP ',
+    Aqua: 'bg-aquaP border-aquaP opacity-6',
+    Pink: 'bg-pinkP border-pinkP',
+    Green: 'bg-greenP border-greenP',
+    White: 'bg-white border-white',
+  }; 
+   
   const router = useRouter();
   const onClick = () => router.push(route);
   return (
@@ -19,7 +20,7 @@ export default function ButtonToGo({color, nameButton, route}) {
       px-2 py-2 text-sm uppercase`} 
       onClick={onClick}
       >
-        {nameButton}
+        {children}
       </button>
     </div>
   )
