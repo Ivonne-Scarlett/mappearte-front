@@ -16,22 +16,23 @@ export default function div ({children }) {
   }
 
   return (
-    <div className='w-full fixed top-0 left-0'>
-      <div className='flex justify-between items-start  py-4 px-7 mdpx-10'>
+    <div className={` ${isMenuOpen ? 'h-20' :'h-auto' } w-full fixed top-0 left-0 bg-backgroundP bg-opacity-80  md:h-24 `}>
+      <div className='flex justify-between items-start py-4 px-6 md:px-20  '>
         <div className='flex '>
           <img src='/icons/logoMobile.png' alt="logoMobile.png" className='block md:hidden justify-center items-center absolute'/>
           <img src='/icons/MappeArteMobile.png' alt="logoMobile.png" className='block md:hidden pl-12 justify-center items-center min-w-fit h-11 '/>
           <img src='/icons/logoDesktop.png' alt="logoMobile.png" className='hidden md:block justify-center items-center absolute'/>
           <img src='/icons/MappeArteDesktop.png' alt="logoMobile.png" className='hidden md:block pl-16 justify-center items-center absolute min-w-fit h-16' />
         </div>   
-        <div className='flex flex-col md:flex-row'>
+        <div className='flex flex-col md:flex-row items-center md:mt-4'>
           <button className='' onClick={() => setMenuOpen(!isMenuOpen)}>
-            <img src="/icons/menu.png" alt="" className='right-8 top-6 cursor-pointer md:hidden justify-center absolute '/>
+            <img src="/icons/menu.png" alt="" className='right-8  top-6 cursor-pointer md:hidden justify-center absolute '/>
           </button>
-          <div className={`${isMenuOpen ? 'max-h-full pt-8 divide-y-2 divide-slate-400/25 md:bg-backgroundP mt-4 w-64' : 'h-8'}  flex flex-col md:flex-row `}>
-            <img src="/icons/nofotocolor.png" alt="" className={`${isMenuOpen ? 'block' : 'hidden'} md:hidden object-none w-[5.5rem] h-[5.5rem] p-4`}/>      
+          <div className={`${isMenuOpen ? 'max-h-full pt-4 md:pt-0 divide-y-2 divide-slate-400/25 bg-backgroundP bg-opacity-80 mt-16 w-64 h-auto ' : 'h-8'}  flex flex-col md:flex-row `}>
+            <button className={` bg-aquaP border-2 border-aquaP hover:bg-backgroundP text-backgroundP hover:text-white rounded-sm px-1 mr-16 md:mt-0 md:mr-4 hidden md:block`} >SUBIR FOTO</button>
+            <img src="/icons/nofotocolor.png" alt="" className={`${isMenuOpen ? 'block' : 'hidden'} md:hidden object-none w-[5.5rem] h-[5.5rem] p-2`}/>      
             <Menu classChange={`${isMenuOpen ? 'block' : 'hidden'} md:flex`}/>
-            <img src="/icons/nofotocolor.png" alt="" className='ml-8 invisible md:visible'/>      
+            <img src="/icons/nofotocolor.png" alt="" className='ml-4 invisible md:visible h-12 '/>      
           </div>
         </div>  
       </div>
