@@ -1,24 +1,15 @@
 [
   { 
     "linkedIn": "https://www.linkedin.com/in/ivonne-scarlett/",
-    "image": "/icons/linkedIn.png",
-    "alt": "Logo LinkedIn Ivonne",
-    "width": "25px",
-    "height": "25px"
+    "alt": "Logo LinkedIn Ivonne"
   },  
   { 
     "linkedIn": "https://ca.linkedin.com/in/sara-reveles-b9557147",
-    "image": "/icons/linkedIn.png",
-    "alt": "Logo LinkedIn Sara",
-    "width": "25px",
-    "height": "25px"
+    "alt": "Logo LinkedIn Sara"
   }, 
   { 
     "linkedIn": "https://www.linkedin.com/in/job-lopez-arellano",
-    "image": "/icons/linkedIn.png",
-    "alt": "Logo LinkedIn Job",
-    "width": "25px",
-    "height": "25px"
+    "alt": "Logo LinkedIn Job"
   }  
 ]
 

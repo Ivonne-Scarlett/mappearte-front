@@ -1,10 +1,8 @@
 import React from 'react';
 import Image from 'next/image';
 
-const createdBy = require('../config/footer.json')
-console.log(createdBy)
-
 export default function Footer() {
+  const createdBy = require('../config/footer.json')  
   return (
     <footer className='absolute inset-x-0 bottom-0 bg-[#161644] w-100'>
       <div className='bg-gradient-to-r from-[#043BFF] via-pinkP to-greenP w-100 h-1'></div>
@@ -17,15 +15,10 @@ export default function Footer() {
         </div>
         <div className='text-sm mt-4 md:mt-0'>          
           <p className='text-center'>Creado por:</p>
-            <div className='flex flex-row justify-between mt-2 '>
-            {
-              createdBy.map( koder => {              
-                <a href={koder.linkedIn} className='pr-2'><Image src='/icons/linkedIn.png' alt={koder.alt} width='25px' height='25px' className='hover:bg-white'/></a>
-              })
-            }
-            {/* <a href='https://www.linkedin.com/in/ivonne-scarlett/' className='pr-2'><Image src='/icons/linkedIn.png' alt='Logo LinkedIn Ivonne' width='25px' height='25px' className='hover:bg-white'/></a>
-            <a href='https://ca.linkedin.com/in/sara-reveles-b9557147' className='pr-2'><Image src='/icons/linkedIn.png' alt="Logo LinkedIn Sara" width='25px' height='25px' className='hover:bg-white'/></a>
-            <a href='https://www.linkedin.com/in/job-lopez-arellano'><Image src='/icons/linkedIn.png' alt='Logo LinkedIn Job' width='25px' height='25px' className='hover:bg-white'/></a> */}
+            <div className='flex flex-row justify-between mt-2 '>              
+              {createdBy.map((koder,index) => { 
+                return <a href={koder.linkedIn} key={index} className='pr-2'><Image src='/icons/linkedIn.png' alt={koder.alt} width='25px' height='25px' className='hover:bg-white'/></a>
+              })}
             </div>
         </div>
         <div className='text-sm flex flex-col my-5 md:mt-4'>
@@ -34,6 +27,6 @@ export default function Footer() {
         </div>
       </div>
     </footer>    
-  )
+  )  
 }
 
