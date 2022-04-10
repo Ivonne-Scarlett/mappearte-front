@@ -6,8 +6,7 @@ export default function ButtonEdit({route}) {
   const router = useRouter();
   const onClick = () => router.push(route);
   return (
-    <>
-      <a 
+    <a 
     className={classNames(
       'bg-white',
       'border border-gray-500',
@@ -24,7 +23,6 @@ export default function ButtonEdit({route}) {
         alt='Icono de editar foto' 
         className='mx-auto my-auto' 
         />
-      </a>
-    </>
+    </a>
   )
 }
