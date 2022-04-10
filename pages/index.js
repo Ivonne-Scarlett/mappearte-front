@@ -6,6 +6,10 @@ let arrayImgProfile = [
   "https://visitpuertovallarta.com/uploads/11.png",
   "https://visitpuertovallarta.com/uploads/11.png",
   "https://visitpuertovallarta.com/uploads/11.png",
+  "https://visitpuertovallarta.com/uploads/11.png",
+  "https://mxcity.mx/wp-content/uploads/2016/09/murales-3.jpg",
+  "https://visitpuertovallarta.com/uploads/11.png",
+
 ]
 
 export default function Home() {
@@ -14,10 +18,7 @@ export default function Home() {
       <div>
         <GridProfile
           className=''
-          imageProfile="https://visitpuertovallarta.com/uploads/11.png"
-          imageProfile1="https://visitpuertovallarta.com/uploads/11.png"
-          imageProfile2="https://visitpuertovallarta.com/uploads/11.png"
-          imageProfile3="https://visitpuertovallarta.com/uploads/11.png"
+          images={arrayImgProfile}
         >
         </GridProfile>
       </div>
