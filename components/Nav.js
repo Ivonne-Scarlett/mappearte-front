@@ -4,7 +4,7 @@ import classNames from 'classnames';
 
 const menuItems = require('../config/nav.json');
 
-export default function div ({children, classChange}) {
+export default function div () {
   const [isMenuOpen, setMenuOpen] = useState(false);
 
   const menuOpenHandler = ()=> {
@@ -35,13 +35,13 @@ export default function div ({children, classChange}) {
             <button className={` bg-aquaP border-2 border-aquaP hover:bg-backgroundP text-backgroundP hover:text-white rounded-sm px-1 mr-16 md:mt-0 md:mr-4 hidden md:block`} >SUBIR FOTO</button>
             <img src="/icons/nofotocolor.png" alt="" className={`${isMenuOpen ? 'block' : 'hidden'} md:hidden object-none w-[5.5rem] h-[5.5rem] p-2`}/>               
             <ul className={`${isMenuOpen ? 'block md:hidden' : 'hidden md:block '}  md:flex flex-col md:flex-row items-start md:items-center  list-none`}>
-              {menuItems.map(({ link, underlineColor, label }, index) => (
+              {menuItems.map(({ link, linkColor, label }, index) => (
                 <li
                   className={`hover:underline hover:underline-offset-8 px-2 py-3`}
                   key={`menuItem-${index}`}
                 >
                   <Link href={link}>
-                    <a className={`${underlineColor}  duration-500`}>{label}</a>
+                    <a className={`${linkColor}  duration-500`}>{label}</a>
                   </Link>
                 </li>
               ))}
