@@ -1,5 +1,5 @@
 import React from 'react'
-import ButtonToGo from './ButtonGoTo'
+import ButtonToGo from './ButtonToGo'
 
 export default function ButtonEdit({route}) {
   return (
