@@ -4,7 +4,7 @@ import CreatedBy from '../config/footer.json';
 
 export default function Footer() {
   return (
-    <footer className=' inset-x-0 bottom-0 bg-[#161644] w-100'>
+    <footer className='absolute inset-x-0 bottom-0 bg-[#161644] w-100'>
       <div className='bg-gradient-to-r from-[#043BFF] via-pinkP to-greenP w-100 h-1'></div>
       <div className='bg-[#161644] px-6 md:px-20 py-1 flex flex-col md:flex-row justify-between items-center'>
         <div className='flex flex-row items-center mt-6 md:mt-0'>
