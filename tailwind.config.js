@@ -20,11 +20,6 @@ module.exports = {
         'orangeP': '#F39B17',
         'greenP': '#D4D809',  
       },
-      fontFamily: {        
-        Bubblegum: ['Bubblegum Sans', 'cursive'],
-        Gabriela: ['Gabriela', 'serif'],
-        Megrim: ['Megrim', 'cursive'],
-       },
     },
   },
   plugins: [],
