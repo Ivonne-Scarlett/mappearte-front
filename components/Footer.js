@@ -1,21 +1,33 @@
 import React from 'react';
+import classNames from 'classnames';
+
 import Image from 'next/image';
 import CreatedBy from '../config/footer.json';
 
+
 export default function Footer() {
   return (
-    <footer className='absolute inset-x-0 bottom-0 bg-[#161644] w-100'>
-      <div className='bg-gradient-to-r from-[#043BFF] via-pinkP to-greenP w-100 h-1'></div>
-      <div className='bg-[#161644] px-6 md:px-20 py-1 flex flex-col md:flex-row justify-between items-center'>
-        <div className='flex flex-row items-center mt-6 md:mt-0'>
-          <img src='/icons/logoMobile.png' alt='logoMobile.png' className='block md:hidden' />
-          <img src='/icons/MappeArteMobile.png' alt='logoMobile.png' className='block md:hidden pl-2' />
-          <img src='/icons/logoDesktop.png' alt='logoMobile.png' className='hidden md:block' />
-          <img src='/icons/MappeArteDesktop.png' alt='logoMobile.png' className='hidden md:block pl-4' />
+    <footer className='w-100'>
+      <div className={classNames(
+        'bg-gradient-to-r from-[#043BFF] via-pinkP to-greenP',
+        'h-1',
+        'w-100'
+      )} />
+      <div className={classNames(
+        'bg-[#161644]',
+        'flex flex-col md:flex-row justify-between items-center',
+        'px-6 md:px-20 py-1'
+      )}>
+        <div className={classNames(
+          'flex flex-row items-center',
+          'mt-6 md:mt-0'
+        )}>
+          <img src='/icons/logoDesktop.png' alt='Logotipo' className='w-[40px]' />
+          <img src='/icons/MappeArteDesktop.png' alt='MappeArte brand' className='pl-1 w-[120px]' /> 
         </div>
         <div className='text-sm mt-4 md:mt-0'>
           <p className='text-center'>Creado por:</p>
-          <div className='flex flex-row justify-between mt-2 '>
+          <div className='flex flex-row justify-between mt-2'>
             {
               CreatedBy.map((koder, index) => (
                 <a href={koder.linkedIn} key={index} className='pr-2'>
@@ -25,9 +37,23 @@ export default function Footer() {
             }
           </div>
         </div>
-        <div className='text-sm flex flex-col my-5 md:mt-4'>
-          <a className='my-1 md:mt-3 text-center md:text-right'>Aviso de privacidad</a>
-          <p className='my-1 md:mb-3 text-center md:text-right'>© 2022 Todos los derechos reservados</p>
+        <div className={classNames(
+          'text-sm',
+          'flex flex-col',
+          'my-5 md:mt-4'
+        )}>
+          <a className={classNames(
+            'text-center md:text-right',
+            'my-1 md:mt-3' 
+          )}>
+            Aviso de privacidad
+          </a>
+          <p className={classNames(
+            'text-center md:text-right',
+            'my-1 md:mb-3'
+          )}>
+            © 2022 Todos los derechos reservados
+          </p>
         </div>
       </div>
     </footer>
