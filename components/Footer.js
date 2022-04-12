@@ -23,7 +23,7 @@ export default function Footer() {
           'mt-6 md:mt-0'
         )}>
           <img src='/icons/logoDesktop.png' alt='Logotipo' className='w-[40px]' />
-          <img src='/icons/MappeArteDesktop.png' alt='MappeArte brand' className='pl-1 w-[120px]' /> 
+          <img src='/icons/MappeArteDesktop.png' alt='MappeArte brand' className='pl-1 w-[120px] hidden md:block' /> 
         </div>
         <div className='text-sm mt-4 md:mt-0'>
           <p className='text-center'>Creado por:</p>
