@@ -27,35 +27,18 @@ export default function Nav () {
       'md:mt-2',
       )}
       >
-        <img src='/icons/logoMobile.png' alt="Logotipo mappearte" 
-        className={classNames(
-          'absolute', 
-          'block md:hidden'
-        )}
-        />
-        <img src='/icons/MappeArteMobile.png' alt='Logotipo mappearte' 
-        className={classNames(
-          'min-w-fit h-6 pl-12 mt-2',
-          'block md:hidden'
-        )}
-        />
-        <img src='/icons/logoDesktop.png' alt='Logotipo mappearte' 
-        className={classNames(
-        'absolute', 
-        'hidden md:block',
-        )}
-        />
-        <img src='/icons/MappeArteDesktop.png' alt='Logotipo mappearte' 
-        className={classNames(
-        'absolute min-w-fit', 
-        'h-12 pl-16 ',
-        'hidden md:block', 
-        )}
-        />  
+        <Link href={'/'}>
+          <img src='/icons/logo.png' alt='Logotipo mappearte' 
+          className={classNames(
+            'min-w-fit mt-2 md:mt-1',
+            'md:w-64'
+          )}
+          />
+        </Link>
         <button className='' onClick={showMenu}>
           <img src="/icons/menu.png" alt="Icono de menu" 
           className={classNames(
-            'absolute right-8 mt-1 ', 
+            'absolute right-8 mt-4 ', 
             'cursor-pointer justify-center',
             'md:hidden',
           )}
@@ -69,7 +52,7 @@ export default function Nav () {
       )}
       >
         <ul className={classNames(
-        'md:mt-3 ml-3 md:ml-0',
+        'ml-3 md:ml-0 md:mt-8',
         'items-start md:items-center', 
         'list-none', 'h-auto w-60 md:w-96',
         'md:flex md:flex-row',
@@ -89,19 +72,20 @@ export default function Nav () {
             key={`menuItem-${index}`}
             >
               <Link href={link}>
-                <a className={`${linkColor}  duration-500`}>{label}</a>
+                <a className={`${linkColor} duration-500`}>{label}</a>
               </Link>
             </li>
           ))}
           <ButtonToGo
           bgColor='Cyan'
           borderColor='Cyan'
-          className='text-xs ml-4 px-2 py-2 mt-3 w-2/3 block md:hidden'
+          className='text-xs px-2 py-2 ml-4 mt-3 w-1/2 block md:hidden'
           route='/test' >
             Subir Foto
           </ButtonToGo>
         </ul>
-        <img src="/icons/nofotocolor.png" alt="" className='ml-4 md:mt-3 invisible md:visible'/>      
+        <img src="/icons/nofotocolor.png" alt="" className='ml-4 md:mt-8 invisible md:visible'
+        />      
        </div>  
       </div>
     </div>
