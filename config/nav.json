@@ -1,17 +1,14 @@
 [
     {
       "link": "/test",
-      "linkColor": "hover:decoration-pinkP hover:text-pinkP p-2 ",
       "label": "Arte"
     },
     {
       "link": "/test",
-      "linkColor": "hover:decoration-orangeP hover:text-orangeP p-2",
       "label": "Artista"
     },
     {
       "link": "/test",
-      "linkColor": "hover:decoration-greenP hover:text-greenP p-2",
       "label": "Mi Perfil"
     }
   ]
