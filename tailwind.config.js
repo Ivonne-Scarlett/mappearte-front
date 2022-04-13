@@ -28,11 +28,6 @@ module.exports = {
         'borange': '#F39B17',
         'bgreen': '#D4D809',
       },
-      fontFamily: {        
-        Bubblegum: ['Bubblegum Sans', 'cursive'],
-        Gabriela: ['Gabriela', 'serif'],
-        Megrim: ['Megrim', 'cursive'],
-       },
     },
   },
   plugins: [],
