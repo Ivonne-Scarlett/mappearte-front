@@ -1,4 +1,5 @@
 import React from 'react';
+import DarkBlueCard from '../components/DarkBlueCard';
 import ButtonCamera from '../components/ButtonCamera';
 import ButtonEdit from '../components/ButtonEdit';
 import ButtonToGo from '../components/ButtonToGo';
@@ -40,6 +41,10 @@ export default function Home() {
             />
           </div>     
         </OpacityCard>
+        <DarkBlueCard className='w-100 my-5 mx-6 md:mx-20'>
+          <label>Test</label>
+          <input/>
+        </DarkBlueCard>     
       </main>  
             
       <Footer />
