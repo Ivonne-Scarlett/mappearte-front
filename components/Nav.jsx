@@ -8,13 +8,12 @@ const menuItems = require('../config/nav.json');
 export default function Nav () {
   const [isMenuOpen, setMenuOpen] = useState(false);
   const showMenu = ()=> {
-    console.log('Esta abierto: ', isMenuOpen)
     setMenuOpen(!isMenuOpen)
   }
 
   return (
     <div className = {classNames(
-    'w-full fixed top-0 left-0 md:h-20 ',
+    'w-full fixed top-0 left-0 md:h-20',
     'bg-backgroundP/80 bg-opacity-80',  
     'py-2 px-6 md:px-20',
     isMenuOpen ? 
@@ -30,15 +29,15 @@ export default function Nav () {
         <Link href={'/'}>
           <img src='/icons/logo.png' alt='Logotipo mappearte' 
           className={classNames(
-            'min-w-fit mt-2 md:mt-1',
-            'md:w-64'
+            'min-w-fit',
+            'md:w-52'
           )}
           />
         </Link>
         <button className='' onClick={showMenu}>
           <img src="/icons/menu.png" alt="Icono de menu" 
           className={classNames(
-            'absolute right-8 mt-4 ', 
+            'absolute right-8 mt-2', 
             'cursor-pointer justify-center',
             'md:hidden',
           )}
@@ -47,18 +46,21 @@ export default function Nav () {
       <div className={classNames(
       'flex flex-col md:flex-row items-center',
       isMenuOpen ? 
-      'bg-backgroundP/90 divide-y-2 divide-slate-400/25 max-h-full h-auto mt-10 pt-4 md:pt-0 w-64' 
+      'bg-backgroundP/90 divide-y-2 divide-slate-400/25 mt-12 pt-4 md:pt-0 w-64' 
       : 'h-8'
       )}
       >
         <ul className={classNames(
-        'ml-3 md:ml-0 md:mt-8',
+        'ml-3 md:ml-0 md:mt-4',
         'items-start md:items-center', 
-        'list-none', 'h-auto w-60 md:w-96',
+        'list-none', 
+        'h-auto w-60 md:w-96',
         'md:flex md:flex-row',
         isMenuOpen ? 'block md:hidden' : 'hidden md:block'
         )}>
-          <img src="/icons/nofotocolor.png" alt="" className='ml-4 block md:hidden'/>      
+          <Link href={'/test'}>
+            <img src="/icons/nofotocolor.png" alt="" className='ml-4 block md:hidden'/>     
+          </Link> 
           <ButtonToGo
           bgColor='Cyan'
           borderColor='Cyan'
@@ -72,7 +74,13 @@ export default function Nav () {
             key={`menuItem-${index}`}
             >
               <Link href={link}>
-                <a className={`${linkColor} duration-500`}>{label}</a>
+                <a className={classNames(
+                'duration-500',
+                linkColor, 
+                )}
+                >
+                  {label}
+                </a>
               </Link>
             </li>
           ))}
@@ -84,8 +92,10 @@ export default function Nav () {
             Subir Foto
           </ButtonToGo>
         </ul>
-        <img src="/icons/nofotocolor.png" alt="" className='ml-4 md:mt-8 invisible md:visible'
-        />      
+        <Link href={'/test'}>
+          <img src="/icons/nofotocolor.png" alt="Imagen de perfil" className='ml-4 md:mt-4 invisible md:visible'/>
+        </Link>
+              
        </div>  
       </div>
     </div>
