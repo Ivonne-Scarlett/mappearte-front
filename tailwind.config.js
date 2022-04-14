@@ -17,6 +17,18 @@ module.exports = {
         "orangeP": "#F39B17",
         "greenP": "#D4D809",      
       },
+      borderColor: theme => ({
+        DEFAULT: theme('colors.gray.300', 'currentColor'),
+        'neon' : '#ccff00'
+      }),
+      backgroundColor: theme => ({
+        'neon': '#ccff00'
+      })
+    },
+  },
+  variants:{
+    extend: {
+      backgroundColor: ['checked']
     },
   },
   plugins: [],
