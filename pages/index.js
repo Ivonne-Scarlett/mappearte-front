@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import DarkBlueCard from '../components/DarkBlueCard';
 import ButtonCamera from '../components/ButtonCamera';
 import ButtonEdit from '../components/ButtonEdit';
@@ -6,8 +6,16 @@ import ButtonToGo from '../components/ButtonToGo';
 import ButtonSend from '../components/ButtonSend';
 import OpacityCard from '../components/OpacityCard';
 import Footer from '../components/Footer';
+import Input from '../components/Input'
+import classNames from 'classnames';
           
 export default function Home() {
+  const [name, setName] = useState('');
+
+  function handleChange(e) {
+    setName(e.target.value);
+  }
+
   const sayHi = () => {
     console.log('Hola')
   }
@@ -42,8 +50,17 @@ export default function Home() {
           </div>     
         </OpacityCard>
         <DarkBlueCard className='w-100 my-5 mx-6 md:mx-20'>
-          <label>Test</label>
-          <input/>
+          <Input
+          label='Nombre'
+          type='text'
+          id='name'
+          placeholder='Escribe tu nombre'
+          className={classNames(
+            'valid:border-green-500 invalid:border-red-500',
+          )}
+          value={name} 
+          onChange={handleChange}
+          />
         </DarkBlueCard>     
       </main>  
             
