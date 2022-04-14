@@ -23,7 +23,6 @@ export default function GridProfile({ images }) {
           "hover:opacity-70" 
         )} 
           key={index} 
-          // onClick={() => isImageClicked(item)}
           onClick={() => {
             setShowModal(true)
             isImageClicked(item)}}
@@ -34,25 +33,31 @@ export default function GridProfile({ images }) {
     })}
     {showModal ? (
         <>
-          <div
-            className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none backdrop-blur-md"
+          <div className={classNames("flex justify-center items-center",
+            "overflow-x-hidden overflow-y-auto fixed inset-0 z-50",
+            "outline-none focus:outline-none backdrop-blur-md")}
           >
             <div className="relative w-auto max-w-3xl my-6 mx-auto">
-              {/*content*/}
-              <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-backgroundP bg-opacity-70 outline-none focus:outline-none">
-                {/*body*/}
+              <div className={classNames("relative flex flex-col",
+              "bg-backgroundP bg-opacity-70 w-full lg:min-w-5/6 border-0 rounded-lg shadow-lg",
+              " outline-none focus:outline-none")}
+              >
                 <div className="flex items-center justify-end">
                   <button
                     className="background-transparent pt-2 pr-1.5"
                     type="button"
                     onClick={() => setShowModal(false)}
                   >
-                    <Image src='/icons/cancel.png' alt='boton cerrar' width='15px' height='15px'/>
+                    <Image src='/icons/cancel.png' alt='boton de cerrar' width='15px' height='15px'/>
                   </button>
                 </div>
                 <div className="relative px-6 flex-auto pb-6">
-                  <img src={imgShowData.imageURL} style={{width:'100%'}} className="border border-solid border-borange"/> 
-                  <div className='bg-orangeP'>
+                  <img 
+                    src={imgShowData.imageURL} 
+                    style={{width:'100%'}} 
+                    className="border border-solid border-borange"
+                  /> 
+                  <div className='bg-orangeP text-sm'>
                     <h3 className='pt-2 pl-6'>{imgShowData.nameArtist}</h3> 
                     <p className='pb-2 pl-6'>{imgShowData.adress}</p>  
                   </div>        
@@ -62,8 +67,7 @@ export default function GridProfile({ images }) {
           </div>
           <div className="opacity-25 fixed inset-0 z-40 bg-black"></div>
         </>
-      ) : null}
-    
+      ) : null}    
   </div>
   )
 }
