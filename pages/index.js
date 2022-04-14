@@ -7,21 +7,34 @@ import OpacityCard from '../components/OpacityCard';
 import Footer from '../components/Footer';
 import GridProfile from '../components/GridProfile';
 import DarkBlueCard from '../components/DarkBlueCard';
+
           
 let arrayImgProfile = [
-  "https://picsum.photos/id/237/200/300",
-  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSF0RU4LzhHoM_OQa-hO5sPRX30bdTNFHgfgA&usqp=CAU",
-  "https://visitpuertovallarta.com/uploads/11.png",
-  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBy8Gqgq7-yH1FBgqZtXvcvL10t-KXWjcbaQ&usqp=CAU",
-  "https://picsum.photos/id/237/200/300",
-  "https://visitpuertovallarta.com/uploads/11.png",
-  "https://visitpuertovallarta.com/uploads/11.png",
-  "https://visitpuertovallarta.com/uploads/11.png",
-  "https://picsum.photos/id/237/200/300",
-  "https://visitpuertovallarta.com/uploads/11.png",
-  "https://visitpuertovallarta.com/uploads/11.png",
-  "https://mxcity.mx/wp-content/uploads/2016/09/murales-3.jpg",
-  "https://visitpuertovallarta.com/uploads/11.png",
+  {
+    nameArtist: "Sara",
+    adress: "Casa",
+    imageURL: "https://img.etimg.com/photo/msid-62395797,quality-100/wall-art-in-delhi.jpg"
+  },
+  {
+    nameArtist: "Rose",
+    adress: "CDMX",
+    imageURL: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlfDUyWLYwQpGnyUI4qA_mAr9hjfGpbOKTNw&usqp=CAU"
+  },
+  {
+    nameArtist: "Nao",
+    adress: "Casa",
+    imageURL: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTg7LXkDaV-aEIDr-Kh1vFthTgJT1EKOgVMvHgplKZ1ljj5htXmwVzxGyb08LS9z-jBkVs&usqp=CAU"
+  },
+  {
+    nameArtist: "Job",
+    adress: "Interlomas",
+    imageURL: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0dvMHYURr8iS8M8hqULYoDzAtYtQB72Ffig&usqp=CAU"
+  },
+  {
+    nameArtist: "Migue",
+    adress: "Metepec",
+    imageURL: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRRAy6EGV4bG9bF4jc0IADbg2aU0Hw2jyzD6YjCvigB0PmTcqW_xh1Vq1KBYQLkI2mozyU&usqp=CAU"
+  }
 ]
 
 
