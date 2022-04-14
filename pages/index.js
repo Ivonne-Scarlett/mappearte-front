@@ -61,6 +61,22 @@ export default function Home() {
           value={name} 
           onChange={handleChange}
           />
+          <Input
+          label='Usuario'
+          type='text'
+          id='userName'
+          placeholder='Escribe tu nombre de Usuario'
+          className={classNames(
+            'valid:border-green-500 required:border-red-500',
+          )}
+          value={name} 
+          onChange={handleChange}
+          >
+          <p className='mt-2 hidden peer-focus:block text-pinkP text-xs pb-4 pl-4'>
+            Tu nombre de usuario no podrá ser modificado una vez registrado
+          </p>
+          </Input>
+         
         </DarkBlueCard>     
       </main>  
             
