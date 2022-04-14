@@ -6,6 +6,7 @@ import ButtonToGo from '../components/ButtonToGo';
 import ButtonSend from '../components/ButtonSend';
 import OpacityCard from '../components/OpacityCard';
 import Footer from '../components/Footer';
+import Category from '../components/Category';
           
 export default function Home() {
   const sayHi = () => {
@@ -44,6 +45,8 @@ export default function Home() {
         <DarkBlueCard className='w-100 my-5 mx-6 md:mx-20'>
           <label>Test</label>
           <input/>
+
+          <Category/>
         </DarkBlueCard>     
       </main>  
             
