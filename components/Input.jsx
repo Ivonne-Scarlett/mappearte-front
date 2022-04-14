@@ -14,6 +14,7 @@ export default function Input({label, type='text', id, value, placeholder, class
       </label>
       <input 
       className={classNames(
+        'cursor-text',
         'mt-1 pl-4 py-1',
         'outline-2 outline-sky-600',
         'text-gray-900',
