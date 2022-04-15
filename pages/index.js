@@ -1,5 +1,6 @@
 
 import OpacityCard from '../components/OpacityCard'
+import Map from '../components/Map'
 
 
 export default function Home() {
@@ -10,6 +11,7 @@ export default function Home() {
         <p className='text-white mt-5'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia maiores molestiae voluptatibus aliquam vel alias facilis blanditiis dolorum odit molestias ullam animi eos nulla, saepe tenetur voluptate vitae? Odit, ipsum.
         Temporibus labore reiciendis voluptate incidunt, assumenda rem? Aliquam, cumque cum neque provident quia temporibus inventore voluptatibus molestiae quas quis doloremque magni dolorum ab iure aut corporis blanditiis nulla sint ex!</p>
       </OpacityCard>
+      <Map></Map>
     </div>
   )
 }
