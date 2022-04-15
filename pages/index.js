@@ -92,7 +92,7 @@ export default function Home() {
   }
   return (
     <>
-      <main className='w-full bg-background bg-contain py-20 min-h-screen'>
+      <main className='w-full bg-backgroundP bg-contain py-20 min-h-screen'>
         <OpacityCard className='w-1/2 mt-5 h-[95%] flex flex-col justify-between'>
           <h1 className='font-Mali text-4xl mt-3'>Artistas más populares 1</h1> <span className='text-base font-semibold font-Mochiy'>Alicia</span>
           <p className='text-white my-5'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia maiores molestiae voluptatibus aliquam vel alias!</p>
