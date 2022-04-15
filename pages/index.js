@@ -1,4 +1,5 @@
 import React from 'react';
+import Nav from "../components/Nav"
 import DarkBlueCard from '../components/DarkBlueCard';
 import ButtonCamera from '../components/ButtonCamera';
 import ButtonEdit from '../components/ButtonEdit';
@@ -13,6 +14,7 @@ export default function Home() {
   }
   return (
     <>
+      <Nav />
       <main className='w-full bg-test bg-contain py-20 min-h-screen'>
         <OpacityCard className='w-1/2 mt-5 h-[95%] flex flex-col justify-between'>
           <h1 className='font-Mali text-4xl mt-3'>Artistas más populares 1</h1> <span className='text-base font-semibold font-Mochiy'>Alicia</span>
