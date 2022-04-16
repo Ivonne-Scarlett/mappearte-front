@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Nav from "../components/Nav"
 import DarkBlueCard from '../components/DarkBlueCard';
 import ButtonCamera from '../components/ButtonCamera';
@@ -7,11 +7,20 @@ import ButtonToGo from '../components/ButtonToGo';
 import ButtonSend from '../components/ButtonSend';
 import OpacityCard from '../components/OpacityCard';
 import Footer from '../components/Footer';
+import SearchByArtist from '../components/SearchByArtist';
+import SearchByCategory from '../components/SearchByCategory';
           
 export default function Home() {
+  const [searchArtist, setSearchArtist] = useState('')
+
   const sayHi = () => {
     console.log('Hola')
   }
+
+  function handleSearchArtist(event) {
+    setSearchArtist(event.target.value)
+  }
+  
   return (
     <>
       <Nav />
@@ -46,7 +55,17 @@ export default function Home() {
         <DarkBlueCard className='w-100 my-5 mx-6 md:mx-20'>
           <label>Test</label>
           <input/>
-        </DarkBlueCard>     
+        </DarkBlueCard>  
+
+        <DarkBlueCard className='w-100 my-5 mx-6 md:mx-20'>
+          <SearchByArtist
+          onChange={handleSearchArtist}
+          onClick={sayHi()}
+          />
+          <SearchByCategory
+          onClick={sayHi()}
+          />
+        </DarkBlueCard>    
       </main>  
             
       <Footer />
