@@ -1,4 +1,5 @@
 import React from 'react';
+import Nav from "../components/Nav"
 import DarkBlueCard from '../components/DarkBlueCard';
 import ButtonCamera from '../components/ButtonCamera';
 import ButtonEdit from '../components/ButtonEdit';
@@ -7,6 +8,7 @@ import ButtonSend from '../components/ButtonSend';
 import OpacityCard from '../components/OpacityCard';
 import Footer from '../components/Footer';
 import GridIndex from '../components/GridIndex';
+import GridProfile from '../components/GridProfile';
 
 let arrayImgProfile = [
   {
@@ -85,7 +87,8 @@ let arrayImgProfile = [
     imageURL: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0dvMHYURr8iS8M8hqULYoDzAtYtQB72Ffig&usqp=CAU"
   }
 ]
-          
+
+
 export default function Home() {
   const sayHi = () => {
     console.log('Hola')
@@ -120,11 +123,20 @@ export default function Home() {
             />
           </div>     
         </OpacityCard>
+        
         <DarkBlueCard className='w-100 my-5 mx-6 md:mx-20'>
           <label>Test</label>
           <input/>
         </DarkBlueCard>  
         <GridIndex images={arrayImgProfile} />   
+
+        <DarkBlueCard className='mt-5'>
+          <GridProfile
+            className=''
+            images={arrayImgProfile}
+          />       
+        </DarkBlueCard>
+
       </main>  
             
       <Footer />
