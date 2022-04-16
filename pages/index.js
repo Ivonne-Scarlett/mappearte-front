@@ -9,6 +9,7 @@ import ButtonSend from '../components/ButtonSend';
 import OpacityCard from '../components/OpacityCard';
 import Footer from '../components/Footer';
 import Input from '../components/Input';
+import InputFile from '../components/InputFile.jsx'
 import GridProfile from '../components/GridProfile';
 
           
@@ -106,6 +107,10 @@ export default function Home() {
             Tu nombre de usuario no podrá ser modificado una vez registrado
           </p>
           </Input>
+          <InputFile
+          id='avatar' name='avatar'
+          accept='image/png, image/jpeg'
+          />
          
         </DarkBlueCard>     
 
