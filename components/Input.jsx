@@ -20,6 +20,8 @@ export default function Input({label, type='text', id, value, placeholder, class
           'text-gray-900',
           'rounded-md w-full', 
           'placeholder-shown:border-gray-500',
+          'valid:border-green-500 required:border-red-500',
+          'invalid:border-red-600',
           {className}
         )}
         type={type}

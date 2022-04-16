@@ -99,9 +99,6 @@ export default function Home() {
           type='text'
           id='userName'
           placeholder='Escribe tu nombre de Usuario'
-          className={classNames(
-            'valid:border-green-500 required:border-red-500',
-          )}
           value={name} 
           onChange={handleChange}
           >
