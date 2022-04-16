@@ -25,7 +25,7 @@ a {
 
 #toggle-switch::after {
   content: '';
-  @apply h-4 w-4 md:h-8 md:w-8 rounded-full bg-neon absolute left-0 top-0 transform scale-110 transition duration-200;
+  @apply h-24 w-4 md:h-8 md:w-8 rounded-full bg-neonP absolute left-0 top-0 transform scale-110 transition duration-200;
 }
 
 #toggle-switch:checked::after {

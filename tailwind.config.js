@@ -15,15 +15,12 @@ module.exports = {
         "aquaP": "#00FFFF",
         "pinkP": "#E217F3",
         "orangeP": "#F39B17",
-        "greenP": "#D4D809",      
+        "greenP": "#D4D809",
+        "neonP": "#ccff00"      
       },
-      borderColor: theme => ({
-        DEFAULT: theme('colors.gray.300', 'currentColor'),
-        'neon' : '#ccff00'
-      }),
-      backgroundColor: theme => ({
-        'neon': '#ccff00'
-      })
+      borderColor: {
+        'bneon': '#ccff00'
+      },
     },
   },
   variants:{
