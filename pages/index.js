@@ -8,8 +8,39 @@ import ButtonToGo from '../components/ButtonToGo';
 import ButtonSend from '../components/ButtonSend';
 import OpacityCard from '../components/OpacityCard';
 import Footer from '../components/Footer';
-import Input from '../components/Input'
+import Input from '../components/Input';
+import GridProfile from '../components/GridProfile';
+
           
+let arrayImgProfile = [
+  {
+    nameArtist: "Sara",
+    adress: "Casa",
+    imageURL: "https://img.etimg.com/photo/msid-62395797,quality-100/wall-art-in-delhi.jpg"
+  },
+  {
+    nameArtist: "Rose",
+    adress: "CDMX",
+    imageURL: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlfDUyWLYwQpGnyUI4qA_mAr9hjfGpbOKTNw&usqp=CAU"
+  },
+  {
+    nameArtist: "Nao",
+    adress: "Casa",
+    imageURL: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTg7LXkDaV-aEIDr-Kh1vFthTgJT1EKOgVMvHgplKZ1ljj5htXmwVzxGyb08LS9z-jBkVs&usqp=CAU"
+  },
+  {
+    nameArtist: "Job",
+    adress: "Interlomas",
+    imageURL: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0dvMHYURr8iS8M8hqULYoDzAtYtQB72Ffig&usqp=CAU"
+  },
+  {
+    nameArtist: "Migue",
+    adress: "Metepec",
+    imageURL: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRRAy6EGV4bG9bF4jc0IADbg2aU0Hw2jyzD6YjCvigB0PmTcqW_xh1Vq1KBYQLkI2mozyU&usqp=CAU"
+  }
+]
+
+
 export default function Home() {
   const [name, setName] = useState('');
 
@@ -80,6 +111,14 @@ export default function Home() {
           </Input>
          
         </DarkBlueCard>     
+
+        <DarkBlueCard className='mt-5'>
+          <GridProfile
+            className=''
+            images={arrayImgProfile}
+          />       
+        </DarkBlueCard>
+
       </main>  
             
       <Footer />
