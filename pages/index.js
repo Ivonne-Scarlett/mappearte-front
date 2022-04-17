@@ -1,4 +1,5 @@
-import React from 'react';
+import React, {useState} from 'react';
+import classNames from 'classnames';
 import Nav from "../components/Nav"
 import DarkBlueCard from '../components/DarkBlueCard';
 import ButtonCamera from '../components/ButtonCamera';
@@ -7,6 +8,8 @@ import ButtonToGo from '../components/ButtonToGo';
 import ButtonSend from '../components/ButtonSend';
 import OpacityCard from '../components/OpacityCard';
 import Footer from '../components/Footer';
+import Input from '../components/Input';
+import InputFile from '../components/InputFile.jsx'
 import GridIndex from '../components/GridIndex';
 import GridProfile from '../components/GridProfile';
 
@@ -90,6 +93,12 @@ let arrayImgProfile = [
 
 
 export default function Home() {
+  const [name, setName] = useState('');
+
+  function handleChange(e) {
+    setName(e.target.value);
+  }
+
   const sayHi = () => {
     console.log('Hola')
   }
@@ -123,11 +132,36 @@ export default function Home() {
             />
           </div>     
         </OpacityCard>
-        
         <DarkBlueCard className='w-100 my-5 mx-6 md:mx-20'>
-          <label>Test</label>
-          <input/>
-        </DarkBlueCard>  
+          <Input
+          label='Nombre'
+          type='text'
+          id='name'
+          placeholder='Escribe tu nombre'
+          className={classNames(
+            'valid:border-green-500 invalid:border-red-500',
+          )}
+          value={name} 
+          onChange={handleChange}
+          />
+          <Input
+          label='Usuario'
+          type='text'
+          id='userName'
+          placeholder='Escribe tu nombre de Usuario'
+          value={name} 
+          onChange={handleChange}
+          >
+          <p className='mt-2 hidden peer-focus:block text-pinkP text-xs pb-4 pl-4'>
+            Tu nombre de usuario no podrá ser modificado una vez registrado
+          </p>
+          </Input>
+          <InputFile
+          id='avatar' name='avatar'
+          accept='image/png, image/jpeg'
+          />
+        </DarkBlueCard>     
+         
         <GridIndex images={arrayImgProfile} />   
 
         <DarkBlueCard className='mt-5'>
