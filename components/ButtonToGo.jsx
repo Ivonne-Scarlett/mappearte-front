@@ -2,7 +2,7 @@ import React from 'react';
 import { useRouter } from 'next/router';
 import classNames from 'classnames';
 
-export default function ButtonToGo({borderColor, bgColor, children, route}) {
+export default function ButtonToGo({borderColor, bgColor, children, className, route}) {
   const bgConfig = {
     Blue: 'hover:bg-gradient-to-br from-[#043BF3] via-[#009aff] to-[#031788]',
     Cyan: 'hover:bg-gradient-to-br from-cyan-400 via-cyan-600 to-cyan-800',
@@ -33,6 +33,7 @@ export default function ButtonToGo({borderColor, bgColor, children, route}) {
         'w-full',
         'transition duration-500 ease-in-out delay-75',
         bgConfig[bgColor],
+        className
     )}
     onClick={onClick}
     >
