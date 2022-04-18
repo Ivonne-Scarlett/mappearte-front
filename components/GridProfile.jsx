@@ -12,7 +12,7 @@ export default function GridProfile({ images }) {
     return (
     <div className={classNames(
       "columns-2 lg:columns-3",
-      "px-3"
+      "px-6 md:px-20 py-6 md:py-10"
       )}>
     {images.map((item, index)=> {
       return(
@@ -58,8 +58,8 @@ export default function GridProfile({ images }) {
                     className="border border-solid border-borange"
                   /> 
                   <div className='bg-orangeP text-sm'>
-                    <h3 className='pt-2 pl-6'>{imgShowData.nameArtist}</h3> 
-                    <p className='pb-2 pl-6'>{imgShowData.adress}</p>  
+                    <h3 className='pt-2 px-6'>{imgShowData.nameArtist}</h3> 
+                    <p className='pb-2 px-6'>{imgShowData.adress}</p>  
                   </div>        
                 </div> 
               </div>
