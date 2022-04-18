@@ -12,6 +12,66 @@ import Input from '../components/Input';
 import InputFile from '../components/InputFile.jsx'
 import GridIndex from '../components/GridIndex';
 import GridProfile from '../components/GridProfile';
+import GridAvatar from '../components/GridAvatar';
+
+let arrayArtistsPopular = [
+  {
+    nameArtist: "Sara",
+    avatarURL: "https://img.freepik.com/foto-gratis/foto-perfil-mujer-atractiva-maquillaje-brillante-manicura-negra-posando_197531-8302.jpg?w=2000"
+  },
+  {
+    nameArtist: "Migue",
+    avatar: "https://img.freepik.com/foto-gratis/foto-perfil-mujer-atractiva-maquillaje-brillante-manicura-negra-posando_197531-8302.jpg?w=2000"
+  },
+  {
+    nameArtist: "Sara",
+    avatarURL: "https://img.freepik.com/foto-gratis/foto-perfil-mujer-atractiva-maquillaje-brillante-manicura-negra-posando_197531-8302.jpg?w=2000"
+  },
+  {
+    nameArtist: "Migue",
+    avatar: "https://img.freepik.com/foto-gratis/foto-perfil-mujer-atractiva-maquillaje-brillante-manicura-negra-posando_197531-8302.jpg?w=2000"
+  },
+  {
+    nameArtist: "Sara",
+    avatarURL: "https://img.freepik.com/foto-gratis/foto-perfil-mujer-atractiva-maquillaje-brillante-manicura-negra-posando_197531-8302.jpg?w=2000"
+  },
+  {
+    nameArtist: "Migue",
+    avatar: "https://previews.123rf.com/images/goodluz/goodluz1511/goodluz151100229/47872805-retrato-de-hombre-guapo-de-30-a%C3%B1os-de-edad-.jpg"
+  },
+  {
+    nameArtist: "Sara",
+    avatarURL: "https://img.freepik.com/foto-gratis/foto-perfil-mujer-atractiva-maquillaje-brillante-manicura-negra-posando_197531-8302.jpg?w=2000"
+  },
+  {
+    nameArtist: "Migue",
+    avatar: "https://previews.123rf.com/images/goodluz/goodluz1511/goodluz151100229/47872805-retrato-de-hombre-guapo-de-30-a%C3%B1os-de-edad-.jpg"
+  },
+  {
+    nameArtist: "Sara",
+    avatarURL: "https://img.freepik.com/foto-gratis/foto-perfil-mujer-atractiva-maquillaje-brillante-manicura-negra-posando_197531-8302.jpg?w=2000"
+  },
+  {
+    nameArtist: "Migue",
+    avatar: "https://previews.123rf.com/images/goodluz/goodluz1511/goodluz151100229/47872805-retrato-de-hombre-guapo-de-30-a%C3%B1os-de-edad-.jpg"
+  },  
+  {
+    nameArtist: "Sara",
+    avatarURL: "https://img.freepik.com/foto-gratis/foto-perfil-mujer-atractiva-maquillaje-brillante-manicura-negra-posando_197531-8302.jpg?w=2000"
+  },
+  {
+    nameArtist: "Migue",
+    avatar: "https://previews.123rf.com/images/goodluz/goodluz1511/goodluz151100229/47872805-retrato-de-hombre-guapo-de-30-a%C3%B1os-de-edad-.jpg"
+  },
+  {
+    nameArtist: "Sara",
+    avatarURL: "https://img.freepik.com/foto-gratis/foto-perfil-mujer-atractiva-maquillaje-brillante-manicura-negra-posando_197531-8302.jpg?w=2000"
+  },
+  {
+    nameArtist: "Migue",
+    avatar: "https://previews.123rf.com/images/goodluz/goodluz1511/goodluz151100229/47872805-retrato-de-hombre-guapo-de-30-a%C3%B1os-de-edad-.jpg"
+  }
+]
 
 let arrayImgProfile = [
   {
@@ -170,6 +230,8 @@ export default function Home() {
             images={arrayImgProfile}
           />       
         </DarkBlueCard>
+
+        <GridAvatar avatars={arrayArtistsPopular}/>
 
       </main>  
             
