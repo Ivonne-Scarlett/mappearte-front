@@ -15,11 +15,14 @@ export default function GridAvatar( {avatarsArtists} ) {
       )}>
        
         {avatars.map((item, index) => {
+          let avatar = item.avatar
           return( 
             <div className={classNames(
               "flex flex-row",
-            )}>
-              <Link href={'/test'}><img src={item.avatar}
+              )}
+              key={index} 
+            >
+              {avatar && <Link href={'/test'}><img src={item.avatar}
                     alt="artista" 
                     className={classNames(
                       "object-cover cursor-pointer",
@@ -27,7 +30,16 @@ export default function GridAvatar( {avatarsArtists} ) {
                       "w-20 h-20 md:w-20 md:h-20 lg:w-40 lg:h-40 2xl:w-60 2xl:h-60",
                       "my-3 md:my-5 lg:my-8",
                       "mx-3 md:mx-5 lg:mx-8",
-              )}/></Link> 
+              )}/></Link>}
+              {!avatar && <Link href={'/test'}><img src="/icons/noavatar.png"
+                    alt="artista" 
+                    className={classNames(
+                      "object-cover cursor-pointer",
+                      "rounded-full border-2 border-solid border-white",
+                      "w-20 h-20 md:w-20 md:h-20 lg:w-40 lg:h-40 2xl:w-60 2xl:h-60",
+                      "my-3 md:my-5 lg:my-8",
+                      "mx-3 md:mx-5 lg:mx-8",
+              )}/></Link> }
             </div>      
           )
         })}        

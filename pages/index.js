@@ -63,7 +63,7 @@ let arrayImgProfile = [
     nameArtist: "Nao",
     adress: "Casa",
     imageURL: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTE0oAss7II59jEstKe5sR9E-dNPssndPHwlQ&usqp=CAU",
-    avatar: "https://img.freepik.com/foto-gratis/foto-perfil-mujer-atractiva-maquillaje-brillante-manicura-negra-posando_197531-8302.jpg?w=2000"
+    avatar: ""
   },
   {
     nameArtist: "Job",
@@ -75,7 +75,7 @@ let arrayImgProfile = [
     nameArtist: "Job",
     adress: "Interlomas",
     imageURL: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0dvMHYURr8iS8M8hqULYoDzAtYtQB72Ffig&usqp=CAU",
-    avatar: "https://previews.123rf.com/images/goodluz/goodluz1511/goodluz151100229/47872805-retrato-de-hombre-guapo-de-30-a%C3%B1os-de-edad-.jpg",
+    avatar: "",
   },
   {
     nameArtist: "Job",
