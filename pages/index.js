@@ -134,7 +134,10 @@ export default function Home() {
           </div>     
         </OpacityCard>
         <DarkBlueCard className='w-100 my-5 mx-6 md:mx-20'>
-          <Category/>
+
+          <Category
+          className='active:focus:border-cyan-300 active:focus:bg-cyan-600'
+          />
           
           <Input
           label='Nombre'
