@@ -15,6 +15,7 @@ import GridProfile from '../components/GridProfile';
 import GridAvatar from '../components/GridAvatar';
 
 
+import AvatarImg from '../components/AvatarImg';
 
 let arrayImgProfile = [
   {
@@ -27,7 +28,7 @@ let arrayImgProfile = [
     nameArtist: "Rose",
     adress: "CDMX",
     imageURL: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlfDUyWLYwQpGnyUI4qA_mAr9hjfGpbOKTNw&usqp=CAU",
-    avatar: "https://previews.123rf.com/images/goodluz/goodluz1511/goodluz151100229/47872805-retrato-de-hombre-guapo-de-30-a%C3%B1os-de-edad-.jpg"
+    avatar: "",
   },
   {
     nameArtist: "Ivonne",
@@ -39,7 +40,7 @@ let arrayImgProfile = [
     nameArtist: "Job",
     adress: "Interlomas",
     imageURL: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0dvMHYURr8iS8M8hqULYoDzAtYtQB72Ffig&usqp=CAU",
-    avatar: "https://previews.123rf.com/images/goodluz/goodluz1511/goodluz151100229/47872805-retrato-de-hombre-guapo-de-30-a%C3%B1os-de-edad-.jpg"
+    avatar: "",
   },
   {
     nameArtist: "Migue",
@@ -63,7 +64,7 @@ let arrayImgProfile = [
     nameArtist: "Nao",
     adress: "Casa",
     imageURL: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTE0oAss7II59jEstKe5sR9E-dNPssndPHwlQ&usqp=CAU",
-    avatar: ""
+    avatar: "https://img.freepik.com/foto-gratis/foto-perfil-mujer-atractiva-maquillaje-brillante-manicura-negra-posando_197531-8302.jpg?w=2000"
   },
   {
     nameArtist: "Job",
@@ -72,11 +73,12 @@ let arrayImgProfile = [
     avatar: "https://previews.123rf.com/images/goodluz/goodluz1511/goodluz151100229/47872805-retrato-de-hombre-guapo-de-30-a%C3%B1os-de-edad-.jpg",
   },
   {
-    nameArtist: "Job",
-    adress: "Interlomas",
-    imageURL: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0dvMHYURr8iS8M8hqULYoDzAtYtQB72Ffig&usqp=CAU",
-    avatar: "",
-  },
+    nameArtist: "Migue",
+    adress: "Metepec",
+    imageURL: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRRAy6EGV4bG9bF4jc0IADbg2aU0Hw2jyzD6YjCvigB0PmTcqW_xh1Vq1KBYQLkI2mozyU&usqp=CAU",
+    avatar: "https://previews.123rf.com/images/goodluz/goodluz1511/goodluz151100229/47872805-retrato-de-hombre-guapo-de-30-a%C3%B1os-de-edad-.jpg"
+  }
+  ,
   {
     nameArtist: "Job",
     adress: "Interlomas",
@@ -84,22 +86,10 @@ let arrayImgProfile = [
     avatar: "https://previews.123rf.com/images/goodluz/goodluz1511/goodluz151100229/47872805-retrato-de-hombre-guapo-de-30-a%C3%B1os-de-edad-.jpg",
   },
   {
-    nameArtist: "Job",
-    adress: "Interlomas",
-    imageURL: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0dvMHYURr8iS8M8hqULYoDzAtYtQB72Ffig&usqp=CAU",
-    avatar: "https://previews.123rf.com/images/goodluz/goodluz1511/goodluz151100229/47872805-retrato-de-hombre-guapo-de-30-a%C3%B1os-de-edad-.jpg",
-  },
-  {
-    nameArtist: "Job",
-    adress: "Interlomas",
-    imageURL: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0dvMHYURr8iS8M8hqULYoDzAtYtQB72Ffig&usqp=CAU",
-    avatar: "https://previews.123rf.com/images/goodluz/goodluz1511/goodluz151100229/47872805-retrato-de-hombre-guapo-de-30-a%C3%B1os-de-edad-.jpg",
-  },
-  {
-    nameArtist: "Job",
-    adress: "Interlomas",
-    imageURL: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0dvMHYURr8iS8M8hqULYoDzAtYtQB72Ffig&usqp=CAU",
-    avatar: "https://previews.123rf.com/images/goodluz/goodluz1511/goodluz151100229/47872805-retrato-de-hombre-guapo-de-30-a%C3%B1os-de-edad-.jpg",
+    nameArtist: "Migue",
+    adress: "Metepec",
+    imageURL: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRRAy6EGV4bG9bF4jc0IADbg2aU0Hw2jyzD6YjCvigB0PmTcqW_xh1Vq1KBYQLkI2mozyU&usqp=CAU",
+    avatar: "https://previews.123rf.com/images/goodluz/goodluz1511/goodluz151100229/47872805-retrato-de-hombre-guapo-de-30-a%C3%B1os-de-edad-.jpg"
   }
 ]
 
@@ -184,8 +174,12 @@ export default function Home() {
         </DarkBlueCard>
 
         <GridAvatar avatarsArtists={arrayImgProfile}/>
+        
+        <AvatarImg dataArtist={arrayImgProfile}/>
 
       </main>  
+
+
             
       <Footer />
     </>
