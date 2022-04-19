@@ -12,7 +12,8 @@ export default function GridProfile({ images }) {
     return (
     <div className={classNames(
       "columns-2 lg:columns-3",
-      "px-6 md:px-20 py-6 md:py-10"
+      /* "px-6 md:px-20",*/
+      "py-6 md:py-10", 
       )}>
     {images.map((item, index)=> {
       return(

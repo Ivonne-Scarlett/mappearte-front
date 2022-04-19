@@ -122,21 +122,74 @@ export default function Home() {
             </h1>
         </OpacityCard> 
       </Hero>
-      <main className='w-full bg-backgroundP bg-contain py-20 min-h-screen'>
+      
+{/*       <main className='w-full bg-backgroundP bg-contain py-20 min-h-screen'>
+ */}  
+      <h1 
+      className={classNames(
+        'font-Mochiy font-semibold',
+        'mt-20 mb-8', 
+        'py-2 px-6 md:px-20',
+        'text-2xl text-gray-200',
+        )}
+      >
+        Encuentra arte cerca de ti:
+      </h1>     
+      <div 
+      className={classNames(
+        'flex justify-center',)}
+      >
+        <div 
+          className={classNames(
+            'flex justify-center',
+            'bg-gray-300',
+            'h-96',
+            'w-10/12',
+            /* 'py-2 px-6 md:px-20',  */
+            '',
+          )}
+        >
+          <h5 
+          className='text-gray-900'
+          >
+            Soy el mapa
+          </h5>
+        </div>
+      </div>
        
-
-        <GridIndex images={arrayImgProfile} />   
-
-        <DarkBlueCard className='mt-5'>
+        <OpacityCard className='mt-16 px-6 md:px-20 py-6 md:py-10'>
+          <h2 
+          className={classNames(
+              'font-Mochiy font-semibold',
+              'text-2xl text-gray-100',
+              /* 'py-2 px-6 md:px-20', */
+            )}
+          >
+            Lo Nuevo
+          </h2>
           <GridProfile
-            className=''
             images={arrayImgProfile}
           />       
-        </DarkBlueCard>
+        </OpacityCard>
+          
+        <div 
+        className='mb-20'>
+          <h2 
+          className={classNames(
+              'font-Mochiy font-semibold',
+              'text-2xl text-gray-100',
+              'py-2 px-6 md:px-20',
+            )}
+          >
+            Conoce a los artistas
+          </h2>
+          <GridAvatar 
+          avatarsArtists={arrayImgProfile}
+          />
+        </div>
+        
 
-        <GridAvatar avatarsArtists={arrayImgProfile}/>
-
-      </main>  
+      {/* </main>   */}
 
       <Footer />
 
