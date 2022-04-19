@@ -9,76 +9,90 @@ import Category from '../Category';
 
 export default function RegisterArtistForm() {
   const router = useRouter();
-  const [categorySelected, setCategorySelected] = useState([]);
   const { register, handleSubmit, errors } = useForm();
 
   const onSubmit = async(dataRegister) => {
-    console.log('category', categorySelected)
-    const artist = await registerArtist(dataRegister)
-    console.log('artist:',artist)
-    if (artist.ok) {
-      router.push('/Login')
-    }
+    console.log(dataRegister)
+    // const artist = await registerArtist(dataRegister)
+    // console.log('artist:',artist)
+    // if (artist.ok) {
+    //   router.push('/Login')
+    // }
+   }
+
+   const validateEmail = () => {
+
    }
   
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <Input 
-        label='Nombre artistico'
+        label='Nombre artístico:'
         placeholder='ejemplo: MexiArt'
         name='artist'
         register= {register("artist")} 
         required
       />
+      <label className='pb-4'>
+        Categoria:
+      </label>
       <div className="flex flex-row">
         <Category 
           className='rounded-l-lg'
           name='Sticker'
+          value='isSticker'
           register= {register("isSticker")} 
-          required        
+      
         />
         <Category 
           className=''
           name='Mural'
+          value='isMural'
           register= {register("isMural")} 
-          required        
+       
         />
         <Category 
           className='rounded-r-md'
           name='Grafitti'
+          value='isGraffiti'
           register= {register("isGraffiti")} 
-          required        
+      
         />
       </div>
       <Input 
-        label='Nombre'
+        label='Nombre:'
         placeholder='ejemplo: Ana Bertha'
         name='name'
         register= {register("name")} 
         required
       />
       <Input 
-        label='Apellido'
+        label='Apellido:'
         placeholder='ejemplo: Velazco'
         name='lastName'
         register= {register("lastName")} 
         required
       />
+      
       <Input 
-        label='Correo electrónico'
+        label='Correo electrónico:'
         placeholder='ejemplo: demo@gmail.com'
         name='email'
         register= {register("email")} 
         required
+        id='email1'
       />
+    
        <Input 
-        label='Contraseña'
+        label='Contraseña:'
         type='password'
         placeholder='Contraseña'
         name='password'
         register= {register("password")} 
         required
+        id='password1'
       />
+     
       <ButtonSend 
         type='submit' 
         text='Registrar'

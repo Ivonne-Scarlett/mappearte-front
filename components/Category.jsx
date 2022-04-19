@@ -1,26 +1,39 @@
 import React, { useState } from 'react';
 import classNames from 'classnames';
 
-export default function Category({ className, name, type = 'button', register, error, required }) {
+export default function Category({ className, name, type = 'checkbox', register, error, required }) {
   const [isActive, setIsActive] = useState(false);
+  const [selectedOptions, setSelectedOptiones] = useState();
 
   return (
-    < input className={classNames(
+    
+    <div className={classNames(
       'bg-gradient-to-b from-gray-200 to-gray-400 backdrop-blur-md',
       'py-2 px-4 w-screen border border-gray-400',
-      'text-sm font-medium text-gray-700',
+      'text-sm font-medium text-white',
       'hover:border hover:border-orange-500',
+      'placeholder: text-white',
       {
         'bg-gradient-to-b from-orange-300 to-orange-700 backdrop-blur-md text-gray-200': isActive
       },
       { className }
-    )}
-      value={isActive ? name : ''}
-      name={name}
-      type={type}
-      required={required}
-      {...register}
-      onClick={() => setIsActive(!isActive)}
-    />
+      )}>
+      
+      <input className={classNames('')}
+        placeholder= {name}
+        name={name}
+        type={type}
+
+        {...register}
+        onClick={() => {
+          setIsActive(!isActive)  
+              
+        }}      
+      />
+      <label>
+        {name}
+      </label>
+    </div>
+      
   )
 }
