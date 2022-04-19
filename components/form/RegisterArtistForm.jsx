@@ -23,6 +23,19 @@ export default function RegisterArtistForm() {
    const validateEmail = () => {
 
    }
+
+   if(dataRegister.email1 = dataRegister.email1){
+    <Input 
+    label='Correo electrónico:'
+    placeholder='ejemplo: demo@gmail.com'
+    name='email2'
+    register= {register("email")} 
+    required
+    id='email2'
+    />
+  } else {
+    alert("El correo electrónico debe ser el mismo ingresado en ambos campos de correo electrónico")
+  }
   
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
@@ -77,21 +90,66 @@ export default function RegisterArtistForm() {
       <Input 
         label='Correo electrónico:'
         placeholder='ejemplo: demo@gmail.com'
-        name='email'
+        name='email1'
         register= {register("email")} 
         required
         id='email1'
+      /> 
+      <Input 
+        label='Correo electrónico:'
+        placeholder='ejemplo: demo@gmail.com'
+        name='email2'
+        register= {register("email")} 
+        required
+        id='email2'
       />
-    
+
+      {/* if({dataRegister.email1} = {dataRegister.email1}){
+        <Input 
+        label='Correo electrónico:'
+        placeholder='ejemplo: demo@gmail.com'
+        name='email2'
+        register= {register("email")} 
+        required
+        id='email2'
+        />
+      } else {
+        alert("El correo electrónico debe ser el mismo ingresado en ambos campos de correo electrónico")
+      } */}
+
+
        <Input 
         label='Contraseña:'
         type='password'
         placeholder='Contraseña'
-        name='password'
+        name='password1'
         register= {register("password")} 
         required
         id='password1'
       />
+      <Input 
+        label='Contraseña:'
+        type='password2'
+        placeholder='Contraseña'
+        name='password'
+        register= {register("password")} 
+        required
+        id='password2'
+      />
+{/* 
+      if({dataRegister.password1} = {dataRegister.password2}){
+        <Input 
+        label='Contraseña:'
+        type='password2'
+        placeholder='Contraseña'
+        name='password'
+        register= {register("password")} 
+        required
+        id='password2'
+      />
+      } else {
+        alert("La contraseña debe ser la misma ingresada en ambos campos de contraseña")
+      } */}
      
       <ButtonSend 
         type='submit' 
