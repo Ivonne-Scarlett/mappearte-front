@@ -34,19 +34,19 @@ export default function RegisterArtistForm() {
         <Category 
           className='rounded-l-lg'
           name='Sticker'
-          register= {register("email")} 
+          register= {register("isSticker")} 
           required        
         />
         <Category 
           className=''
           name='Mural'
-          register= {register("email")} 
+          register= {register("isMural")} 
           required        
         />
         <Category 
           className='rounded-r-md'
           name='Grafitti'
-          register= {register("email")} 
+          register= {register("isGraffiti")} 
           required        
         />
       </div>
