@@ -18,7 +18,7 @@ import GridProfile from '../components/GridProfile';
 import ToggleSwitch from '../components/ToggleSwitch'
 import GridAvatar from '../components/GridAvatar';
 import AvatarImg from '../components/AvatarImg';
-
+import Map from '../components/Map'
 let arrayImgProfile = [
   {
     nameArtist: "Sara",
@@ -99,83 +99,83 @@ let arrayImgProfile = [
 export default function Home() {
   const [searchArtist, setSearchArtist] = useState('')
 
-  let arrayImgProfile = [
-    {
-      nameArtist: "Sara",
-      adress: "Casa",
-      imageURL: "https://img.etimg.com/photo/msid-62395797,quality-100/wall-art-in-delhi.jpg"
-    },
-    {
-      nameArtist: "Rose",
-      adress: "CDMX",
-      imageURL: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlfDUyWLYwQpGnyUI4qA_mAr9hjfGpbOKTNw&usqp=CAU"
-    },
-    {
-      nameArtist: "Ivonne",
-      adress: "Casa",
-      imageURL: "https://www.skillshare.com/blog/wp-content/uploads/2021/04/pasted-image-0-11.png?w=1024"
-    },
-    {
-      nameArtist: "Job",
-      adress: "Interlomas",
-      imageURL: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0dvMHYURr8iS8M8hqULYoDzAtYtQB72Ffig&usqp=CAU"
-    },
-    {
-      nameArtist: "Migue",
-      adress: "Metepec",
-      imageURL: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7uGZ6K9y2S4N-Gf3MHM8B5daD6PdI0fMj01LeDHCFQLA5FUBIOWIJk9zLLEmvQII7M4M&usqp=CAU"
-    },
-    {
-      nameArtist: "Sara",
-      adress: "Casa",
-      imageURL: "https://img.etimg.com/photo/msid-62395797,quality-100/wall-art-in-delhi.jpg"
-    },
-    {
-      nameArtist: "Rose",
-      adress: "CDMX",
-      imageURL: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlfDUyWLYwQpGnyUI4qA_mAr9hjfGpbOKTNw&usqp=CAU"
-    },
-    {
-      nameArtist: "Nao",
-      adress: "Casa",
-      imageURL: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTE0oAss7II59jEstKe5sR9E-dNPssndPHwlQ&usqp=CAU"
-    },
-    {
-      nameArtist: "Job",
-      adress: "Interlomas",
-      imageURL: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0dvMHYURr8iS8M8hqULYoDzAtYtQB72Ffig&usqp=CAU"
-    },
-    {
-      nameArtist: "Migue",
-      adress: "Metepec",
-      imageURL: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRRAy6EGV4bG9bF4jc0IADbg2aU0Hw2jyzD6YjCvigB0PmTcqW_xh1Vq1KBYQLkI2mozyU&usqp=CAU"
-    },
-    {
-      nameArtist: "Job",
-      adress: "Interlomas",
-      imageURL: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0dvMHYURr8iS8M8hqULYoDzAtYtQB72Ffig&usqp=CAU"
-    },
-    {
-      nameArtist: "Migue",
-      adress: "Metepec",
-      imageURL: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRRAy6EGV4bG9bF4jc0IADbg2aU0Hw2jyzD6YjCvigB0PmTcqW_xh1Vq1KBYQLkI2mozyU&usqp=CAU"
-    },
-    {
-      nameArtist: "Rose",
-      adress: "CDMX",
-      imageURL: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlfDUyWLYwQpGnyUI4qA_mAr9hjfGpbOKTNw&usqp=CAU"
-    },
-    {
-      nameArtist: "Nao",
-      adress: "Casa",
-      imageURL: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTE0oAss7II59jEstKe5sR9E-dNPssndPHwlQ&usqp=CAU"
-    },
-    {
-      nameArtist: "Job",
-      adress: "Interlomas",
-      imageURL: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0dvMHYURr8iS8M8hqULYoDzAtYtQB72Ffig&usqp=CAU"
-    }
-  ]
+  // let arrayImgProfile = [
+  //   {
+  //     nameArtist: "Sara",
+  //     adress: "Casa",
+  //     imageURL: "https://img.etimg.com/photo/msid-62395797,quality-100/wall-art-in-delhi.jpg"
+  //   },
+  //   {
+  //     nameArtist: "Rose",
+  //     adress: "CDMX",
+  //     imageURL: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlfDUyWLYwQpGnyUI4qA_mAr9hjfGpbOKTNw&usqp=CAU"
+  //   },
+  //   {
+  //     nameArtist: "Ivonne",
+  //     adress: "Casa",
+  //     imageURL: "https://www.skillshare.com/blog/wp-content/uploads/2021/04/pasted-image-0-11.png?w=1024"
+  //   },
+  //   {
+  //     nameArtist: "Job",
+  //     adress: "Interlomas",
+  //     imageURL: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0dvMHYURr8iS8M8hqULYoDzAtYtQB72Ffig&usqp=CAU"
+  //   },
+  //   {
+  //     nameArtist: "Migue",
+  //     adress: "Metepec",
+  //     imageURL: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7uGZ6K9y2S4N-Gf3MHM8B5daD6PdI0fMj01LeDHCFQLA5FUBIOWIJk9zLLEmvQII7M4M&usqp=CAU"
+  //   },
+  //   {
+  //     nameArtist: "Sara",
+  //     adress: "Casa",
+  //     imageURL: "https://img.etimg.com/photo/msid-62395797,quality-100/wall-art-in-delhi.jpg"
+  //   },
+  //   {
+  //     nameArtist: "Rose",
+  //     adress: "CDMX",
+  //     imageURL: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlfDUyWLYwQpGnyUI4qA_mAr9hjfGpbOKTNw&usqp=CAU"
+  //   },
+  //   {
+  //     nameArtist: "Nao",
+  //     adress: "Casa",
+  //     imageURL: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTE0oAss7II59jEstKe5sR9E-dNPssndPHwlQ&usqp=CAU"
+  //   },
+  //   {
+  //     nameArtist: "Job",
+  //     adress: "Interlomas",
+  //     imageURL: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0dvMHYURr8iS8M8hqULYoDzAtYtQB72Ffig&usqp=CAU"
+  //   },
+  //   {
+  //     nameArtist: "Migue",
+  //     adress: "Metepec",
+  //     imageURL: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRRAy6EGV4bG9bF4jc0IADbg2aU0Hw2jyzD6YjCvigB0PmTcqW_xh1Vq1KBYQLkI2mozyU&usqp=CAU"
+  //   },
+  //   {
+  //     nameArtist: "Job",
+  //     adress: "Interlomas",
+  //     imageURL: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0dvMHYURr8iS8M8hqULYoDzAtYtQB72Ffig&usqp=CAU"
+  //   },
+  //   {
+  //     nameArtist: "Migue",
+  //     adress: "Metepec",
+  //     imageURL: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRRAy6EGV4bG9bF4jc0IADbg2aU0Hw2jyzD6YjCvigB0PmTcqW_xh1Vq1KBYQLkI2mozyU&usqp=CAU"
+  //   },
+  //   {
+  //     nameArtist: "Rose",
+  //     adress: "CDMX",
+  //     imageURL: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlfDUyWLYwQpGnyUI4qA_mAr9hjfGpbOKTNw&usqp=CAU"
+  //   },
+  //   {
+  //     nameArtist: "Nao",
+  //     adress: "Casa",
+  //     imageURL: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTE0oAss7II59jEstKe5sR9E-dNPssndPHwlQ&usqp=CAU"
+  //   },
+  //   {
+  //     nameArtist: "Job",
+  //     adress: "Interlomas",
+  //     imageURL: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0dvMHYURr8iS8M8hqULYoDzAtYtQB72Ffig&usqp=CAU"
+  //   }
+  // ]
   const [name, setName] = useState('');
 
   const sayHi = () => {
@@ -284,6 +284,8 @@ export default function Home() {
         <GridAvatar avatarsArtists={arrayImgProfile}/>
         
         <AvatarImg dataArtist={arrayImgProfile}/>
+
+        <Map />
 
       </main>  
 
