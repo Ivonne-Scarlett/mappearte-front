@@ -30,10 +30,26 @@ export default function RegisterArtistForm() {
         register= {register("artist")} 
         required
       />
-      <Category 
-        categorySelect={categorySelected}
-        setCategorySelected={setCategorySelected}
-      />
+      <div className="flex flex-row">
+        <Category 
+          className='rounded-l-lg'
+          name='Sticker'
+          register= {register("email")} 
+          required        
+        />
+        <Category 
+          className=''
+          name='Mural'
+          register= {register("email")} 
+          required        
+        />
+        <Category 
+          className='rounded-r-md'
+          name='Grafitti'
+          register= {register("email")} 
+          required        
+        />
+      </div>
       <Input 
         label='Nombre'
         placeholder='ejemplo: Ana Bertha'
