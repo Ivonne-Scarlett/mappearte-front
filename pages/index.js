@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import classNames from 'classnames';
 
 import Nav from "../components/Nav"
+import Hero from '../components/Hero';
 import OpacityCard from '../components/OpacityCard';
 import DarkBlueCard from '../components/DarkBlueCard';
 import GridIndex from '../components/GridIndex';
@@ -103,15 +104,26 @@ export default function Home() {
   
   return (
     <>
-      <Nav /> 
+      <Nav/>
+
+      <Hero>
+        <OpacityCard 
+          className={classNames(
+            "w-4/5 md:w-2/5 lg:w-2/5", 
+          )}
+        >
+            <h1
+            className={classNames(
+              "text-lg",
+              "font-extrabold font-Mali"
+            )}
+            >
+              Únete a la comunidad Mappearte y ayúdanos en nuestra misión de difusión del arte urbano en México.
+            </h1>
+        </OpacityCard> 
+      </Hero>
       <main className='w-full bg-backgroundP bg-contain py-20 min-h-screen'>
-        <OpacityCard className='w-1/2 mt-5 h-[95%] flex flex-col justify-between'>
-          <h1 className='font-Mali text-4xl mt-3'>Artistas más populares 1</h1> 
-          <span className='text-base font-semibold font-Mochiy'>Alicia</span>
-          <p className='text-white my-5'>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia maiores molestiae voluptatibus aliquam vel alias!
-          </p> 
-        </OpacityCard>
+       
 
         <GridIndex images={arrayImgProfile} />   
 
