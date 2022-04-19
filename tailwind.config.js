@@ -6,7 +6,9 @@ module.exports = {
   theme: {    
     extend: {
       backgroundImage: {
-        "test": "url('https://manomaticestudio.com/wp-content/uploads/2020/11/principal_codac.jpg')"
+        "test": "url('https://manomaticestudio.com/wp-content/uploads/2020/11/principal_codac.jpg')",
+        'loginBlur': "url('/img/login-blur.jpg')",
+        'loginFondo': "url('/img/login-fondo.jpg')",
       }, 
       fontFamily: {
         'Mali': ['Mali', 'cursive'],
