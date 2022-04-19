@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback, useRef } from 'react'
 import { useJsApiLoader, GoogleMap, Marker, InfoWindow } from '@react-google-maps/api'
 import mapStyles from './mapStyles'
-import spray from '../icons/spray.png'
+import spray from '../public/icons/spray.png'
 import usePlacesAutocomplete, {getGeocode, getLatlng} from 'use-places-autocomplete'
 import { Combobox, ComboboxInput, ComboboxPopover, ComboboxList, ComboboxOption } from '@reach/combobox'
 import '@reach/combobox/styles.css'
@@ -10,12 +10,12 @@ const libraries = ['places']
 const mapContainerStyle = {width: '95%', height: '95%'}
 const center = {lat: 19.43270444524167, lng: -99.13318543974893}
 const options = {
-  styles: mapStyles,
+  styles: mapStyles, //TODO: Verificar por que no funciona el estilo del mapa(Colores)
   disableDefaultUI: true,
   zoomControl: false,
   fullscreenControl: false
 }
-const icon = '../icons/spray.png'
+const icon = '../icons/spray.png' //TODO: Verificar si usar este o el import de la linea 4
 
 export default function Map () {
     const [currentLocation, setCurrentLocation] = useState(null)
@@ -85,7 +85,7 @@ export default function Map () {
                   key={marker.time.toISOString()}
                   position={{lat: marker.lat, lng: marker.lng}}
                   icon={{
-                    url: icon,
+                    url: spray,
                     scaledSize: new window.google.maps.Size(30, 30),
                     origin: new window.google.maps.Point(0, 0),
                     anchor: new window.google.maps.Point(15, 15)
