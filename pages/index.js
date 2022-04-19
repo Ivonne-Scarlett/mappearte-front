@@ -12,9 +12,8 @@ import Input from '../components/Input';
 import InputFile from '../components/InputFile.jsx'
 import GridIndex from '../components/GridIndex';
 import GridProfile from '../components/GridProfile';
+import ToggleSwitch from '../components/ToggleSwitch'
 import GridAvatar from '../components/GridAvatar';
-
-
 import AvatarImg from '../components/AvatarImg';
 
 let arrayImgProfile = [
@@ -106,6 +105,7 @@ export default function Home() {
   }
   return (
     <>
+      <Nav /> 
       <main className='w-full bg-backgroundP bg-contain py-20 min-h-screen'>
         <OpacityCard className='w-1/2 mt-5 h-[95%] flex flex-col justify-between'>
           <h1 className='font-Mali text-4xl mt-3'>Artistas más populares 1</h1> <span className='text-base font-semibold font-Mochiy'>Alicia</span>
@@ -128,11 +128,12 @@ export default function Home() {
             <ButtonEdit
             route='/test'
             />
-
+          
             <ButtonCamera
             route='/test'
             />
           </div>     
+        <ToggleSwitch />
         </OpacityCard>
         <DarkBlueCard className='w-100 my-5 mx-6 md:mx-20'>
           <Input

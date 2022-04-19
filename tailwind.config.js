@@ -18,7 +18,8 @@ module.exports = {
         'aquaP': '#00FFFF',
         'pinkP': '#E217F3',
         'orangeP': '#F39B17',
-        'greenP': '#D4D809',      
+        'greenP': '#D4D809',  
+        'neonP': '#ccff00'
       },
       borderColor: {
         'bbackground': '#04032E',
@@ -27,7 +28,13 @@ module.exports = {
         'bpink': '#E217F3',
         'borange': '#F39B17',
         'bgreen': '#D4D809',
+        'bneon': '#ccff00'
       },
+    },
+  },
+  variants:{
+    extend: {
+      backgroundColor: ['checked']
     },
   },
   plugins: [],
