@@ -1,23 +1,13 @@
 import React, {useState} from 'react';
 import classNames from 'classnames';
+
 import Nav from "../components/Nav"
-import DarkBlueCard from '../components/DarkBlueCard';
-import ButtonCamera from '../components/ButtonCamera';
-import ButtonEdit from '../components/ButtonEdit';
-import ButtonToGo from '../components/ButtonToGo';
-import ButtonSend from '../components/ButtonSend';
 import OpacityCard from '../components/OpacityCard';
-import Footer from '../components/Footer';
-import SearchByArtist from '../components/SearchByArtist';
-import SearchByCategory from '../components/SearchByCategory';
-import Category from '../components/Category';
-import Input from '../components/Input';
-import InputFile from '../components/InputFile'
+import DarkBlueCard from '../components/DarkBlueCard';
 import GridIndex from '../components/GridIndex';
 import GridProfile from '../components/GridProfile';
-import ToggleSwitch from '../components/ToggleSwitch'
 import GridAvatar from '../components/GridAvatar';
-import AvatarImg from '../components/AvatarImg';
+import Footer from '../components/Footer';
 
 let arrayImgProfile = [
   {
