@@ -7,7 +7,7 @@ import classNames from 'classnames';
 import Input from '../Input';
 import ButtonSend from '../ButtonSend';
 import Category from '../Category';
-import ToggleSwitch from '../ToggleSwitch';
+
 
 export default function RegisterArtistForm() {
   const router = useRouter();
@@ -27,15 +27,7 @@ export default function RegisterArtistForm() {
   return (
     <form onSubmit={handleSubmit(onSubmit)}
       className='flex flex-col justify-between'
-    >
-      <div className="flex flex-col justify-between items-center ">
-        <img src='/icons/logoDesktop.png' alt='Logotipo' className='w-[40px] md:w-[50px] mb-2' />
-        <img src='/icons/MappeArteDesktop.png' alt='MappeArte brand' className='pl-1 w-[120px] md:w-[150px]' /> 
-      </div>
-
-      <div>
-        <ToggleSwitch />
-      </div>
+    >   
 
       <div className=''>
 
