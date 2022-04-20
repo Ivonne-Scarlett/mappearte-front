@@ -30,7 +30,7 @@ export default function ButtonSend({borderColor, bgColor, text, type, className}
       'w-full',
       'transition duration-500 ease-in-out delay-75',
       bgConfig[bgColor],
-      { className }
+      className
     )} 
       type={type}
     >
