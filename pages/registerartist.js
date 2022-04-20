@@ -8,11 +8,12 @@ import OpacityCard from '../components/OpacityCard';
 export default function login() {
   return (
     <div className={classNames(
-      'bg-artistRegister bg-no-repeat bg-cover w-full min-h-screen max-h-screen',
+      'bg-artistRegister bg-no-repeat bg-cover w-full min-h-screen md:max-h-full',
       'flex justify-center'
     )}>
         <OpacityCard className={classNames(
-          "w-2/3 items-center my-8"
+          "w-5/6 md:w-2/3 items-center my-8",
+          "flex flex-col justify-between"
         )}>
             <RegisterArtistForm />
         </OpacityCard>

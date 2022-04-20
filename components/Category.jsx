@@ -9,7 +9,7 @@ export default function Category({ className, name, type = 'checkbox', register,
     
     <div className={classNames(
       'bg-gradient-to-b from-gray-200 to-gray-400 backdrop-blur-md',
-      'py-2 px-4 border border-gray-400',
+      'pt-2 px-4 w-full md:h-10 border border-gray-400',
       'text-sm font-medium text-white',
       'hover:border hover:border-orange-500',
       'placeholder: text-white',
@@ -30,7 +30,7 @@ export default function Category({ className, name, type = 'checkbox', register,
               
         }}      
       />
-      <label>
+      <label className='pl-0 md:pl-1'>
         {name}
       </label>
     </div>
