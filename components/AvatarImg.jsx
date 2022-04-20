@@ -1,15 +1,38 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import classNames from 'classnames';
 import Link from "next/link";
+import { getArtist } from '../lib/api';
 
-export default function AvatarImg({ dataArtist }) { 
+export default function AvatarImg() { 
+  // const [dataArtist, setDataArtist] = useState([]);
+  
+  // useEffect(() => {    
+  //   getArtist()
+  //     .then(response => {  
+  //       let artists = response.artists      
+  //       setDataArtist(artists);
+  //     })
+  // }, [])
+
+  const [artists, setArtist] =  useState([])
+
+  useEffect(() => {
+    getArtist()
+    .then(response => {      
+      const avatars = response.artists
+      setArtist(avatars);
+    })
+  }, [])
+
+  console.log('dataArtist',artists)
+
   return (
     <div className={classNames(
       "grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-7",
       "px-6 md:px-20 py-6 md:py-10 bg-backgroundP",
       )}>
-      {dataArtist.map((artists, index)=> {
-        let avatarArtist = artists.avatar
+      {artists.map((artists, index)=> {
+        let avatarArtist = artists.imgArtist
         return(
           <div className={classNames(
             "rounded mb-3 border-2 border-solid border-bbackground",      
@@ -41,7 +64,7 @@ export default function AvatarImg({ dataArtist }) {
               <h2 className={classNames(
                 "mb-3 md:mb-5 lg:mb-8",
                 "text-sm md:text-base lg:text-lg 2xl:text-xl"
-              )}>{artists.nameArtist}</h2>
+              )}>{artists.artist}</h2>
             </div>
           </div>
         )
