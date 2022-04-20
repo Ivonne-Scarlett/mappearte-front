@@ -5,17 +5,15 @@ import { useRouter } from 'next/router';
 import LoginForm from '../components/form/LoginForm';
 import OpacityCard from '../components/OpacityCard';
 
-//const router = useRouter();
-//const onClick = () => router.push(route);
 
-export default function login() {  
+export default function login() { 
+  const router = useRouter(); 
   return (
     <div className={classNames(
       'bg-loginBlur bg-no-repeat bg-cover w-full min-h-screen max-h-screen',
       'py-20 px-4 sm:px-10 object-cover',
       'flex flex-col md:flex-row justify-evenly'
-      )}>
-        
+      )}>        
         <div className="w-full sm:w-3/5 min-h-full max-h-full hidden md:block">
           <img src='/img/login-fondo.jpg' alt='Logotipo' className='w-full h-full rounded-l-xl' />
         </div>
@@ -31,17 +29,13 @@ export default function login() {
 
           <div className="flex flex-col sm:flex-row justify-center items-center mt-4 text-sm">
             <a>¿Aún no tienes una cuenta?</a>
-            <a className="ml-2 text-orangeP hover:text-pinkP cursor-pointer text-sm"
-              //router.push('/registerartist')
-              //onClick={onClick()}
+            <a className="ml-2 text-orangeP hover:text-pinkP cursor-pointer text-sm"  
+              onClick={() => router.push('/registerartist')}              
             >
               Registrate aquí
             </a>
           </div>
-        </OpacityCard>
-        
-        
+        </OpacityCard>       
     </div>
-
   )
 }
