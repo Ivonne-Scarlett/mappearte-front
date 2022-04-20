@@ -183,9 +183,7 @@ export default function Home() {
           >
             Conoce a los artistas
           </h2>
-          <GridAvatar 
-          avatarsArtists={arrayImgProfile}
-          />
+          <GridAvatar />
         </div>
         
 

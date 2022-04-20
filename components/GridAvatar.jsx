@@ -1,12 +1,22 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import classNames from 'classnames';
 import Link from "next/link";
+import { getArtist } from '../lib/api';
 
 
-export default function GridAvatar( {avatarsArtists} ) { 
-  let countImages = avatarsArtists.length
-  let imageInitial = (countImages - '12')
-  let avatars = avatarsArtists.slice(imageInitial,countImages) 
+export default function GridAvatar( ) { 
+  const [artists, setArtist] =  useState([])
+
+  useEffect(() => {
+    getArtist()
+    .then(response => {
+      const countImages = response.artists.length
+      const imageInitial = countImages - 12
+      const avatars = response.artists.slice(imageInitial, countImages);
+      setArtist(avatars);
+    })
+  }, [])
+
   return (
   <>       
       <div className={classNames(
@@ -17,16 +27,15 @@ export default function GridAvatar( {avatarsArtists} ) {
         "columns-3 md:columns-5",
       )}>
        
-        {avatars.map((item, index) => {
-          let avatar = item.avatar
+        {artists.map((artist, index) => {
+          let avatar = artist.imgArtist
           return( 
             <div className={classNames(
               "flex flex-row justify-center ",
-              "",
               )}
               key={index} 
             >
-              {avatar && <Link href={'/test'}><img src={item.avatar}
+              {avatar && <Link href={'/test'}><img src={avatar}
                     alt="artista" 
                     className={classNames(
                       "object-cover cursor-pointer",
