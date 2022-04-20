@@ -18,6 +18,7 @@ import GridProfile from '../components/GridProfile';
 import ToggleSwitch from '../components/ToggleSwitch'
 import GridAvatar from '../components/GridAvatar';
 import AvatarImg from '../components/AvatarImg';
+import UploadImg from '../components/UploadImages';
 
 let arrayImgProfile = [
   {
@@ -284,6 +285,8 @@ export default function Home() {
         <GridAvatar avatarsArtists={arrayImgProfile}/>
         
         <AvatarImg dataArtist={arrayImgProfile}/>
+
+        <UploadImg />
 
       </main>  
 
