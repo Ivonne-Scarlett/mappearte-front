@@ -35,6 +35,7 @@ export default function LoginForm() {
         required
       />
       <ButtonSend 
+        className='mt-10'
         type='submit' 
         text='Ingresar'
         bgColor='Orange'
