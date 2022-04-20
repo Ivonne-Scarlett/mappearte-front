@@ -14,7 +14,7 @@ export default function Nav () {
   return (
     <div className = {classNames(
     'w-full fixed top-0 left-0 md:h-20',
-    'bg-backgroundP/80 bg-opacity-80',  
+    'bg-backgroundP bg-opacity-80',  
     'py-2 px-6 md:px-20 h-14',
     )}
     >
@@ -27,7 +27,9 @@ export default function Nav () {
       )}
       >
         <Link href={'/'}>
-          <img src='/icons/logo.png' alt='Logotipo mappearte' 
+          <img 
+          src='/icons/logo.png' 
+          alt='Logotipo mappearte' 
           className={classNames(
             'w-32 md:w-40 lg:w-44',
             'cursor-pointer'
@@ -60,12 +62,20 @@ export default function Nav () {
         'md:flex md:flex-row',
         isMenuOpen ? 'block md:hidden' : 'hidden md:block'
         )}>
-          <Link href={'/test'}>
+          {/* <Avatar
+          className={classNames(
+          'ml-4', 
+          'hidden md:block',
+        )}
+        /> */}
+          <Link href={'/userProfile'}>
             <img 
-            src="/icons/nofotocolor.png" 
+            src="../icons/noavatar.png" 
             alt="" 
             className={classNames(
-              'cursor-pointer',
+              'cursor-pointer bg-backgroundP',
+              'border-2 border-orangeP hover:border-aquaP',
+              'rounded-full w-12 h-12', 
               'ml-2', 
               'block md:hidden' 
             )}
@@ -79,7 +89,7 @@ export default function Nav () {
             'text-xs px-2 py-2 mr-4',
             'w-1/3 hidden md:block' 
           )}
-          route='/test' 
+          route='/logIn' 
           >
             Subir Foto
           </ButtonToGo>
@@ -108,17 +118,18 @@ export default function Nav () {
             'ml-2 mt-3 mb-6 w-1/2',
             'block md:hidden'
             )}
-          route='/test' >
+          route='/logIn' >
             Subir Foto
           </ButtonToGo>
         </ul>
-        <Link href={'/test'}>
+        <Link href={'/userProfile'}>
           <img 
-          src="/icons/nofotocolor.png" 
+          src="../icons/noavatar.png" 
           alt="Imagen de perfil" 
           className={classNames(
-            'cursor-pointer',
-            'ml-4 ', 
+            'cursor-pointer bg-backgroundP',
+            'border-2 border-orangeP hover:border-aquaP',
+            'ml-4 rounded-full w-12 h-12', 
             'hidden md:block' 
           )}
         />
