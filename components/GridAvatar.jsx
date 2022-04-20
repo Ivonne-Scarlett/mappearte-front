@@ -3,7 +3,6 @@ import classNames from 'classnames';
 import Link from "next/link";
 import { getArtist } from '../lib/api';
 
-
 export default function GridAvatar( ) { 
   const [artists, setArtist] =  useState([])
 
