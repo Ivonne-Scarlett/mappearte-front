@@ -4,15 +4,6 @@ import Link from "next/link";
 import { getArtist } from '../lib/api';
 
 export default function AvatarImg() { 
-  // const [dataArtist, setDataArtist] = useState([]);
-  
-  // useEffect(() => {    
-  //   getArtist()
-  //     .then(response => {  
-  //       let artists = response.artists      
-  //       setDataArtist(artists);
-  //     })
-  // }, [])
 
   const [artists, setArtist] =  useState([])
 
@@ -24,18 +15,18 @@ export default function AvatarImg() {
     })
   }, [])
 
-  console.log('dataArtist',artists)
+  //console.log('dataArtist',artists)
 
   return (
     <div className={classNames(
       "grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-7",
-      "px-6 md:px-20 py-6 md:py-10 bg-backgroundP",
+      "",
       )}>
       {artists.map((artists, index)=> {
         let avatarArtist = artists.imgArtist
         return(
           <div className={classNames(
-            "rounded mb-3 border-2 border-solid border-bbackground",      
+            "rounded mb-3 border-2 border-solid border-[#302f56]",      
             "hover:opacity-70 hover:border-2 hover:border-solid hover:border-borange" 
           )} 
             key={index} 
