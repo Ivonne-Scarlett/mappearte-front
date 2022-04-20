@@ -27,7 +27,7 @@ export default function LoginForm() {
         required
       />
        <Input 
-        label='Password'
+        label='Contraseña'
         type='password'
         placeholder='Contraseña'
         name='password'
