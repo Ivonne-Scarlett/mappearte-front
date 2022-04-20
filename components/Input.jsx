@@ -3,7 +3,9 @@ import React from 'react'
 
 export default function Input({ label, type = 'text',name, placeholder, className,register, error, required }) {
   return (
-    <div className='my-2'>
+    <div className={classNames(
+      'my-2',
+    )}>
       <label
         className={classNames(
           'mr-4 mb-4',
