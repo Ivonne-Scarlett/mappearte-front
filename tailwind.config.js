@@ -6,6 +6,7 @@ module.exports = {
   theme: {    
     extend: {
       backgroundImage: {
+        "artistRegister": "url('/img/registro-fondo.jpg')",
         "home-hero": "url('https://manomaticestudio.com/wp-content/uploads/2020/11/principal_codac.jpg')"
       }, 
       fontFamily: {
