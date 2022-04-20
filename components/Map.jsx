@@ -65,7 +65,7 @@ export default function Map () {
       }
 
     return(
-        <div className='w-full h-full'>
+        <div className='w-90% h-90%'>
           <h1 className='absolute z-10'>Mappearte</h1>
 
           <Search panTo={panTo} />

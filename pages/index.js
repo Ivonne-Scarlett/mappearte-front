@@ -225,6 +225,7 @@ export default function Home() {
             />
           </div>     
         <ToggleSwitch />
+        <Map />
         </OpacityCard>
 
         <DarkBlueCard className='w-100 my-5 mx-6 md:mx-20'>
@@ -285,7 +286,6 @@ export default function Home() {
         
         <AvatarImg dataArtist={arrayImgProfile}/>
 
-        <Map />
 
       </main>  
 
