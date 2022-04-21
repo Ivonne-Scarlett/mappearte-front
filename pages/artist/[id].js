@@ -13,20 +13,8 @@ import { getArtistById } from "../../lib/api";
 import { useRouter } from "next/router";
 
 export default function Test() {
-  /* const [searchArtist, setSearchArtist] = useState('')
-
-  const sayHi = () => {
-    console.log('Hola')
-  }
-  function handleChange(e) {
-    setName(e.target.value);
-  }
-  function handleSearchArtist(event) {
-    setSearchArtist(event.target.value)
-  } */
   const router = useRouter();
   const { id } = router.query;
-  console.log(`Getting artist with id ${id}`);
   const defaultImage = "/icons/noavatar.png";
   const [artist, setArtist] = useState([]);
   useEffect(() => {
