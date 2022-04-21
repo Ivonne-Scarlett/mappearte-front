@@ -11,8 +11,7 @@ import ButtonEdit from '../components/ButtonEdit';
 import ButtonCamera from '../components/ButtonCamera';
 
 export default function Test() {
-  const [name, setName] = useState('');
-  const [searchArtist, setSearchArtist] = useState('')
+  /* const [searchArtist, setSearchArtist] = useState('')
 
   const sayHi = () => {
     console.log('Hola')
@@ -22,7 +21,18 @@ export default function Test() {
   }
   function handleSearchArtist(event) {
     setSearchArtist(event.target.value)
-  }
+  } */
+  const [artists, setArtist] =  useState([])
+
+  useEffect(() => {
+    getArtist()
+    .then(response => {
+      const countImages = response.artists.length
+      const imageInitial = countImages - 12
+      const avatars = response.artists.slice(imageInitial, countImages);
+      setArtist(avatars);
+    })
+  }, [])
 
   return (
     <>
@@ -58,14 +68,14 @@ export default function Test() {
             <div className="flex justify-end">
               <h3 className="font-bold font-Mali">Artista</h3>
             </div>
-          <ButtonEdit
+          {/* <ButtonEdit
           onClick={sayHi}
-          /> 
+          /> */} 
           
-        </OpacityCard>
+      </OpacityCard>
         <div
         className={classNames(
-          "basis-11/12 mt-4"
+          "basis-5/12 mt-4"
         )}
         >
           {/* <ButtonCamera
