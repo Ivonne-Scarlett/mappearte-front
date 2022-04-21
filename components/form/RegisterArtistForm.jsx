@@ -7,38 +7,28 @@ import classNames from 'classnames';
 import Input from '../Input';
 import ButtonSend from '../ButtonSend';
 import Category from '../Category';
-import ToggleSwitch from '../ToggleSwitch';
 
 export default function RegisterArtistForm() {
   const router = useRouter();
   const { register, handleSubmit, errors } = useForm();
 
   const onSubmit = async(dataRegister) => {
-    console.log(dataRegister)
     const artist = await registerArtist(dataRegister)
-    console.log('artist:',artist)
-    // if (artist.ok) {
-    //   router.push('/Login')
-    // }
+    if (artist.ok) {
+      router.push('/Login')
+    } else {
+      alert('Datos ya registrados, ingresa con tu contraseña.')
+    }
    }
  
   return (
     <form onSubmit={handleSubmit(onSubmit)}
-      className='flex flex-col'
-    >
-      <div className="flex flex-col justify-between items-center ">
-        <img src='/icons/logoDesktop.png' alt='Logotipo' className='w-[40px] md:w-[50px] mb-2' />
-        <img src='/icons/MappeArteDesktop.png' alt='MappeArte brand' className='pl-1 w-[120px] md:w-[150px]' /> 
-      </div>
+      className='flex flex-col justify-between'
+    >   
 
       <div>
-        <ToggleSwitch />
-      </div>
 
-      <div className=''>
-
-        <div className='flex flex-row'>
-
+        <div className='grid grid-cols-1 md:grid-cols-2 gap-0 md:gap-7'>
           <div>
             <Input 
               label='Nombre artístico:'
@@ -48,13 +38,12 @@ export default function RegisterArtistForm() {
               required
             />
           </div>
-
-          <div>
-              <label className='pb-4'>
+          <div className='my-2'>
+              <label className=''>
                 Categoria:
               </label>
           
-              <div className="flex flex-row">
+              <div className="flex flex-row mt-1 w-full">
                 <Category 
                   className='rounded-l-lg'
                   name='Sticker'
@@ -63,7 +52,6 @@ export default function RegisterArtistForm() {
               
                 />
                 <Category 
-                  className=''
                   name='Mural'
                   value='isMural'
                   register= {register("isMural")} 
@@ -79,18 +67,16 @@ export default function RegisterArtistForm() {
            </div>
         </div>
 
-        <div className="flex flex-row justify-between w-full">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-0 md:gap-7">
           <Input 
-            className='w-1/2 mr-2'
-            label='Nombre:'
+            label='Nombre(s):'
             placeholder='ejemplo: Ana Bertha'
             name='name'
             register= {register("name")} 
             required
           />
           <Input 
-            className='ml-2'
-            label='Apellido:'
+            label='Apellido(s):'
             placeholder='ejemplo: Velazco'
             name='lastName'
             register= {register("lastName")} 
@@ -98,9 +84,8 @@ export default function RegisterArtistForm() {
           /> 
         </div> 
 
-        <div className="flex flex-row justify-between w-full">     
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-0 md:gap-7 mb-4">     
           <Input 
-            className='mr-2'
             label='Correo electrónico:'
             placeholder='ejemplo: demo@gmail.com'
             name='email'
@@ -108,7 +93,6 @@ export default function RegisterArtistForm() {
             required
           /> 
           <Input 
-            className='w-1/2 ml-2'
             label='Contraseña:'
             type='password'
             placeholder='Contraseña'
@@ -120,7 +104,8 @@ export default function RegisterArtistForm() {
 
       </div>
       <div>
-        <ButtonSend 
+        <ButtonSend
+          className='mt-4' 
           type='submit' 
           text='Registrar'
           bgColor='Orange'

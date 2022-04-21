@@ -6,10 +6,10 @@ module.exports = {
   theme: {    
     extend: {
       backgroundImage: {
-        "test": "url('https://manomaticestudio.com/wp-content/uploads/2020/11/principal_codac.jpg')",
         'loginBlur': "url('/img/login-blur.jpg')",
         'loginFondo': "url('/img/login-fondo.jpg')",
-        "home-hero": "url('https://manomaticestudio.com/wp-content/uploads/2020/11/principal_codac.jpg')"
+        'artistRegister': "url('/img/registro-fondo.jpg')",
+        'home-hero': "url('https://manomaticestudio.com/wp-content/uploads/2020/11/principal_codac.jpg')"
       }, 
       fontFamily: {
         'Mali': ['Mali', 'cursive'],
