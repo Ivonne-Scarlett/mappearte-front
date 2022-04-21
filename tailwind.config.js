@@ -8,7 +8,9 @@ module.exports = {
       backgroundImage: {
         "home-hero": "url('https://manomaticestudio.com/wp-content/uploads/2020/11/principal_codac.jpg')",
         "artist":"url('https://media.istockphoto.com/photos/holographic-iridescent-background-unicorn-colorful-rainbow-foil-picture-id1302561463?b=1&k=20&m=1302561463&s=170667a&w=0&h=eJuXSxGSikh7IB7GalNDItwKlYGmV37daFono6QiK6c=')",
-        "artistRegister": "url('/img/registro-fondo.jpg')"
+        "artistRegister": "url('/img/registro-fondo.jpg')",
+        'loginBlur': "url('/img/login-blur.jpg')",
+        'loginFondo': "url('/img/login-fondo.jpg')"
       }, 
       fontFamily: {
         'Mali': ['Mali', 'cursive'],

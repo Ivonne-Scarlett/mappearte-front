@@ -32,7 +32,7 @@ export default function Home() {
       <Hero>
         <OpacityCard 
           className={classNames(
-            "w-4/5 md:w-2/5 lg:w-2/5", 
+            "w-4/5 md:w-2/5 h-fit md:mt-8 lg:mt-16 lg:w-2/5", 
           )}
         >
             <h1
