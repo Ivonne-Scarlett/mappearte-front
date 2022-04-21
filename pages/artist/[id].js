@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import classNames from "classnames";
+import { useRouter } from "next/router";
 import Link from "next/link";
+
 import {
   Nav,
   Footer,
@@ -9,19 +11,20 @@ import {
   DarkBlueCard,
   OpacityCard,
 } from "../../components";
+
 import { getArtistById } from "../../lib/api";
-import { useRouter } from "next/router";
 
 export default function Test() {
   const router = useRouter();
   const { id } = router.query;
-  const defaultImage = "/icons/noavatar.png";
   const [artist, setArtist] = useState([]);
   useEffect(() => {
     getArtistById(id).then(({ artists }) => {
       setArtist(artists);
     });
   }, []);
+  
+  const defaultImage = "/icons/noavatar.png";
 
   return (
     <>
@@ -29,7 +32,7 @@ export default function Test() {
       <div
         className={classNames(
           "bg-artist bg-cover bg-center bg-no-repeat",
-          "flex justify-start",
+          "flex justify-center items-center",
           "h-96",
           "w-full",
           "px-6 md:px-20",
@@ -38,8 +41,9 @@ export default function Test() {
       >
         <OpacityCard
           className={classNames(
-            "h-64 w-64 md:h-72 md:w-72 lg:h-80 lg:w-80",
-            "mt-32 md:mt-24 lg:mt-16",
+            "h-64 w-64  lg:h-80 lg:w-80",
+            /* "mt-32 md:mt-24 lg:mt-16", */ 
+            "justify-center items-center",
             "pb-16 absolute flex flex-col align-middle"
           )}
         >
@@ -48,7 +52,7 @@ export default function Test() {
               src={artist.imgArtist || defaultImage}
               alt="Icono de perfil de usuario"
               className={classNames(
-                "bg-backgroundP object-cover cursor-pointer ml-12 md:ml-16 mb-2",
+                "bg-backgroundP object-cover cursor-pointer", 
                 "rounded-full border-2 border-solid border-orangeP",
                 "w-24 h-24",
                 "md:w-32 md:h-32",
@@ -58,7 +62,7 @@ export default function Test() {
             />
           </Link>
           <div className="flex justify-end">
-            <h3 className="font-bold font-Mali">{artist.artist}</h3>
+            <h3 className="font-bold text-lg mt-4 font-Mali">{artist.artist}</h3>
           </div>
           {/* <ButtonEdit
           onClick={sayHi}
