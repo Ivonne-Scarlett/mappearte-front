@@ -34,6 +34,7 @@ export default function searchartist() {
             <SearchByArtist 
               onChange={handleChangeSearch}
               onClick={onClick}
+              value={value}
             />
         </div>
         <OpacityCard className='bg-[#302f56] mx-6 md:mx-20 my-6 md:my-10'>
