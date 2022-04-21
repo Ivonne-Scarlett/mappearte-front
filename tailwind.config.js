@@ -6,7 +6,8 @@ module.exports = {
   theme: {    
     extend: {
       backgroundImage: {
-        "home-hero": "url('https://manomaticestudio.com/wp-content/uploads/2020/11/principal_codac.jpg')"
+        "home-hero": "url('https://manomaticestudio.com/wp-content/uploads/2020/11/principal_codac.jpg')",
+        "artist":"url('https://media.istockphoto.com/photos/holographic-iridescent-background-unicorn-colorful-rainbow-foil-picture-id1302561463?b=1&k=20&m=1302561463&s=170667a&w=0&h=eJuXSxGSikh7IB7GalNDItwKlYGmV37daFono6QiK6c=')"
       }, 
       fontFamily: {
         'Mali': ['Mali', 'cursive'],

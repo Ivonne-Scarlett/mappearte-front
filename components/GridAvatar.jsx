@@ -16,6 +16,7 @@ export default function GridAvatar( ) {
     })
   }, [])
 
+  console.log(artists)
   return (
   <>       
       <div className={classNames(
