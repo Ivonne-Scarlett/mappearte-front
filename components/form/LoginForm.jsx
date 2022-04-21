@@ -32,7 +32,6 @@ export default function LoginForm() {
         required
       />
        <Input 
-        className='md:mb-4'
         label='Contraseña'
         type='password'
         placeholder='Contraseña'
