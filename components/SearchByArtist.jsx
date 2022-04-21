@@ -1,7 +1,7 @@
 import React from 'react'
 import classNames from 'classnames';
 
-export default function SearchByArtist({onChange, onClick}) {
+export default function SearchByArtist({onChange, value, onClick}) {
   return (
     <div>
       <form 
@@ -19,6 +19,7 @@ export default function SearchByArtist({onChange, onClick}) {
         'text-gray-800' 
         )}
         onChange={onChange}
+        value={value}
         />
         <button className={classNames(
         'hover:bg-white/5 backdrop-blur-md',
