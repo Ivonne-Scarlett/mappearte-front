@@ -8,15 +8,12 @@ import Input from '../Input';
 import ButtonSend from '../ButtonSend';
 import Category from '../Category';
 
-
 export default function RegisterArtistForm() {
   const router = useRouter();
   const { register, handleSubmit, errors } = useForm();
 
   const onSubmit = async(dataRegister) => {
-    console.log(dataRegister)
     const artist = await registerArtist(dataRegister)
-    console.log('artist:',artist)
     if (artist.ok) {
       router.push('/Login')
     } else {
@@ -29,7 +26,7 @@ export default function RegisterArtistForm() {
       className='flex flex-col justify-between'
     >   
 
-      <div className=''>
+      <div>
 
         <div className='grid grid-cols-1 md:grid-cols-2 gap-0 md:gap-7'>
           <div>

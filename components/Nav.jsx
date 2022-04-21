@@ -70,12 +70,12 @@ export default function Nav () {
         /> */}
           <Link href={'/userProfile'}>
             <img 
-            src="../icons/noavatar.png" 
-            alt="" 
+            src="../icons/avatarIndex.png" 
+            alt="avatar" 
             className={classNames(
-              'cursor-pointer bg-backgroundP',
-              'border-2 border-orangeP hover:border-aquaP',
-              'rounded-full w-12 h-12', 
+              'cursor-pointer',
+              'outline outline-2 outline-offset-2 outline-black hover:outline-violet-600 invert',
+              'rounded-full w-6 h-6', 
               'ml-2', 
               'block md:hidden' 
             )}
@@ -124,12 +124,12 @@ export default function Nav () {
         </ul>
         <Link href={'/userProfile'}>
           <img 
-          src="../icons/noavatar.png" 
+          src="../icons/avatarIndex.png" 
           alt="Imagen de perfil" 
           className={classNames(
-            'cursor-pointer bg-backgroundP',
-            'border-2 border-orangeP hover:border-aquaP',
-            'ml-4 rounded-full w-12 h-12', 
+            'cursor-pointer ',
+            'outline outline-2 outline-offset-2 outline-black hover:outline-violet-600 invert',
+            'ml-4 rounded-full w-6 h-6', 
             'hidden md:block' 
           )}
         />
