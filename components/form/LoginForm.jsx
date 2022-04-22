@@ -15,7 +15,7 @@ export default function LoginForm() {
       const payload = JSON.parse(atob(token.split('.')[1]))
       localStorage.setItem('role',payload.role)
       localStorage.setItem('id',payload.id)
-      console.log('payload', payload)
+      localStorage.setItem('token',token)
       router.push('/')
    }else{
       alert('Datos invalidos, para acceder ingresa tus datos correctamente')

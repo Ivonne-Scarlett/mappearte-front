@@ -12,13 +12,10 @@ export default function login() {
   const [isUser, setIsUser] = useState(true);
   const [isActiveToogle, setIsActiveToogle] = useState(false);
 
-  const isChangeToogle = (dataToogle) => {      
+  const isChangeToogle = () => {      
     setIsActiveToogle(!isActiveToogle) 
     setIsUser(!isUser) 
   }
-
-  console.log('User:',isUser)
-  console.log('toogle:',isActiveToogle)
 
   return (
     <div className={classNames(

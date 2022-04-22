@@ -61,8 +61,8 @@ export default function RegisterUserForm() {
                 <Category 
                   className='rounded-r-md'
                   name='Grafitti'
-                  value='isGraffiti'
-                  register= {register("isGraffiti")}               
+                  value='isGraffitti'
+                  register= {register("isGraffitti")}               
                 />
               </div>
            </div>
