@@ -2,12 +2,38 @@ import React from 'react';
 import { useRouter } from 'next/router';
 import { useForm } from "react-hook-form";
 import {registerUser} from '../../lib/api';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import Input from '../Input';
 import ButtonSend from '../ButtonSend';
 import Category from '../Category';
 
 export default function RegisterUserForm() {
+  const messageFail = () => {
+    toast.warn('Datos registrados previamente', {
+      position: "top-right",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });  
+  }
+
+  const messageOk = () => {
+    toast.success('Registro exitoso.', {
+      position: "top-right",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+  }
+
   const router = useRouter();
   const { register, handleSubmit, errors } = useForm();
 
@@ -16,9 +42,12 @@ export default function RegisterUserForm() {
     console.log('dataregister', dataRegister)
     console.log('user',user)
     if (user.ok) {
-      router.push('/Login')
+      messageOk()      
+      setTimeout(function(){
+        router.push('/Login')
+      }, 3500);
     } else {
-      alert('Datos ya registrados, ingresa con tu contraseña.')
+      messageFail()
     }
    }
  

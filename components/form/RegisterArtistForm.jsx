@@ -2,22 +2,74 @@ import React, {useState} from 'react';
 import { useRouter } from 'next/router';
 import { useForm } from "react-hook-form";
 import {registerArtist} from '../../lib/api';
-import classNames from 'classnames';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import Input from '../Input';
 import ButtonSend from '../ButtonSend';
 import Category from '../Category';
 
 export default function RegisterArtistForm() {
+  const messageFail = () => {
+    toast.warn('Datos registrados previamente', {
+      position: "top-right",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });  
+    <ToastContainer
+      position="top-right"
+      autoClose={3000}
+      hideProgressBar={false}
+      newestOnTop={false}
+      closeOnClick
+      rtl={false}
+      pauseOnFocusLoss
+      draggable
+      pauseOnHover
+    />
+  }
+
+  const messageOk = () => {
+    toast.success('Registro exitoso.', {
+      position: "top-right",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+    <ToastContainer
+      position="top-right"
+      autoClose={3000}
+      hideProgressBar={false}
+      newestOnTop={false}
+      closeOnClick
+      rtl={false}
+      pauseOnFocusLoss
+      draggable
+      pauseOnHover
+    />
+  }
+
   const router = useRouter();
   const { register, handleSubmit, errors } = useForm();
 
   const onSubmit = async(dataRegister) => {
     const artist = await registerArtist(dataRegister)
+    console.log('data register', dataRegister)
     if (artist.ok) {
-      router.push('/Login')
+      messageOk()   
+      console.log('artist.ok', artist.ok)   
+      setTimeout(function(){
+        router.push('/Login')
+      }, 3500);      
     } else {
-      alert('Datos ya registrados, ingresa con tu contraseña.')
+      messageFail()
     }
    }
  
