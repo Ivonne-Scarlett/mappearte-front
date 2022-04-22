@@ -4,22 +4,51 @@ import { useForm } from "react-hook-form";
 import {login} from '../../lib/api';
 import ButtonSend from '../ButtonSend';
 import { useRouter } from 'next/router';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 export default function LoginForm() {
+  const messageFail = () => {
+    toast.warn('Datos incorrectos.', {
+      position: "top-right",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });  
+  }
+
+  const messageOk = () => {
+    toast.success('Datos correctos, ¡Bienvenido!', {
+      position: "top-right",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+  }
+
   const router = useRouter();
   const { register, handleSubmit, errors } = useForm();
   const onSubmit = async(dataLogin) => {
-   const token =  await login(dataLogin)
-   if(token) {
-      const payload = JSON.parse(atob(token.split('.')[1]))
-      localStorage.setItem('role',payload.role)
-      localStorage.setItem('id',payload.id)
-      localStorage.setItem('token',token)
-      router.push('/')
-   }else{
-      alert('Datos invalidos, para acceder ingresa tus datos correctamente')
-   }
+    const token =  await login(dataLogin)
+    if(token) {
+        const payload = JSON.parse(atob(token.split('.')[1]))
+        localStorage.setItem('role',payload.role)
+        localStorage.setItem('id',payload.id)
+        localStorage.setItem('token',token)
+        messageOk()      
+        setTimeout(function(){
+          router.push('/')
+        }, 3500);
+    }else{
+        messageFail()
+    }
   };
 
   return (
@@ -46,6 +75,7 @@ export default function LoginForm() {
         bgColor='Orange'
         borderColor='Orange'
       />
+      <ToastContainer />
     </form>
   )
 }
