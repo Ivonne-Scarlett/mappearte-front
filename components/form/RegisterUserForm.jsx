@@ -39,8 +39,6 @@ export default function RegisterUserForm() {
 
   const onSubmit = async(dataRegister) => {
     const user = await registerUser(dataRegister)
-    console.log('dataregister', dataRegister)
-    console.log('user',user)
     if (user.ok) {
       messageOk()      
       setTimeout(function(){
