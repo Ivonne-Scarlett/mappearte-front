@@ -32,7 +32,7 @@ export default function login() {
           <div className="flex flex-col lg:flex-row justify-center items-center mt-4 text-sm">
             <a>¿Aún no tienes una cuenta?</a>
             <a className="ml-2 text-orangeP hover:text-pinkP cursor-pointer text-sm"  
-              onClick={() => router.push('/registerartist')}              
+              onClick={() => router.push('/register')}              
             >
               Registrate aquí
             </a>

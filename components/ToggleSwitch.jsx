@@ -1,15 +1,16 @@
 import React from "react";
 import classNames from "classnames";
 
-export default function ToggleSwitch() {
+export default function ToggleSwitch({onClick}) {
   return (
-    <div className="flex justify-center content-center my-8">
+    <div className="flex justify-center content-center">
       <label htmlFor="">Usuario</label>
       <div className="flex content-center">
         <label htmlFor="toggle-switch" className="mx-4 md:mx-7">
           <input
             type="checkbox"
             id="toggle-switch"
+            onClick={onClick} 
             className={classNames(
               "cursor-pointer",
               "h-6 md:h-8",
