@@ -1,12 +1,25 @@
 import React from 'react';
+import {useState} from 'react';
 import classNames from 'classnames';
 
+
 import RegisterArtistForm from '../components/form/RegisterArtistForm';
+import RegisterUserForm from '../components/form/RegisterUserForm';
 import OpacityCard from '../components/OpacityCard';
 import ToggleSwitch from '../components/ToggleSwitch';
 
-
 export default function login() {
+  const [isUser, setIsUser] = useState(true);
+  const [isActiveToogle, setIsActiveToogle] = useState(false);
+
+  const isChangeToogle = (dataToogle) => {      
+    setIsActiveToogle(!isActiveToogle) 
+    setIsUser(!isUser) 
+  }
+
+  console.log('User:',isUser)
+  console.log('toogle:',isActiveToogle)
+
   return (
     <div className={classNames(
       'bg-artistRegister bg-no-repeat bg-cover',
@@ -22,9 +35,12 @@ export default function login() {
             <img src='/icons/MappeArteDesktop.png' alt='MappeArte brand' className='pl-1 w-[120px] md:w-[150px]' /> 
           </div>
           <div>
-            <ToggleSwitch />
+            <ToggleSwitch onClick={isChangeToogle}/>
           </div>
-          <RegisterArtistForm />
+
+          { isUser && <RegisterUserForm/> }
+          { !isUser && <RegisterArtistForm /> }
+          
         </OpacityCard>
     </div>
   )
