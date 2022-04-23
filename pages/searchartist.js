@@ -19,46 +19,23 @@ export default function searchartist() {
         setAllArtist(avatars);
       })
   }, [])
-  //console.log('allArtis',allArtist)
 
   const [inputValue, setInputValue]= useState([]);
+  const [filtered, setFiltered] = useState(null);
+
+  console.log('inputvalue',inputValue)
 
   const handlerChangeInput= (event) => {
-    setInputValue(event.target.value)
-    
+    const valueInput = event.target.value
+    setInputValue(valueInput)
     const filterResult = allArtist.filter( artistFilter => {
-      //console.log('artist',artistFilter)
       const valueName= artistFilter.artist
-      return valueName.includes(inputValue)
-    })
-    console.log('filterResult',filterResult)
+      return valueName.toLowerCase().includes(inputValue.toLowerCase())
+    })   
+    setFiltered(filterResult)
+    !valueInput ? setFiltered(null) : setFiltered(filterResult)
   }
-
-  // const [searchByArtist, setSearchByArtist] = useState([]);
-  // const filterArtist = (inputValue) => {
-  //   //
-  //   let resultSearch = allArtist.filter((items) => {
-  //     if(items.artist.toString().toLowerCase().includes(inputValue)){
-  //       return items;
-  //     }
-  //   })
-  //   setSearchByArtist(resultSearch)
-  //   console.log('SearchByArtist', searchByArtist)
-  // }
-
-  // let resultSearch = allArtist.filter((items) => {
-  //       if(items.artist.toString().toLowerCase().includes(inputValue)){
-  //         return items;
-  //       }
-  //     })
-  
-    
-  //     console.log('resultSearch',resultSearch)
-
-  
-
-
-
+  console.log('filterResult',filtered)
 
 
   return (
@@ -71,7 +48,11 @@ export default function searchartist() {
         />
       </div>
       <OpacityCard className='bg-[#1c1545] mx-6 md:mx-20 my-6 md:my-10'>
-        <AvatarImg />
+        {/* <AvatarImg /> */}
+        {/* { filtered &&  <AvatarImg artists={filtered} />}
+        { !filtered && <AvatarImg artists={allArtist} /> } */}
+        { filtered &&   <p>datos filtrados</p> }
+        { !filtered && <p>Todos los artistas</p>}
       </OpacityCard>
       <Footer />
     </>

@@ -7,20 +7,20 @@ export default function AvatarImg() {
 
   const [artists, setArtist] =  useState([])
 
-  useEffect(() => {
-    getArtist()
-    .then(response => {      
-      const avatars = response.artists
-      setArtist(avatars);
-    })
-  }, [])
+  // useEffect(() => {
+  //   getArtist()
+  //   .then(response => {      
+  //     const avatars = response.artists
+  //     setArtist(avatars);
+  //   })
+  // }, [])
 
   return (
     <div className={classNames(
       "grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-7",
       "",
       )}>
-      {artists.map((artists, index)=> {
+      {{artists}.map((artists, index)=> {
         let avatarArtist = artists.imgArtist
         return(
           <div className={classNames(
@@ -57,7 +57,7 @@ export default function AvatarImg() {
             </div>
           </div>
         )
-      })} 
+      })}
     </div>
   )
 }
