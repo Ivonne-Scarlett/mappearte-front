@@ -15,8 +15,6 @@ export default function AvatarImg() {
     })
   }, [])
 
-  //console.log('dataArtist',artists)
-
   return (
     <div className={classNames(
       "grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-7",
@@ -37,7 +35,7 @@ export default function AvatarImg() {
                 className={classNames(
                   "object-cover cursor-pointer",
                   "rounded-full border-2 border-solid border-borange",
-                  "w-24 h-24 md:w-32 md:h-32 lg:w-40 lg:h-40 2xl:w-60 2xl:h-60",
+                  "w-24 h-24 md:w-28 md:h-28 lg:w-40 lg:h-40 2xl:w-60 2xl:h-60",
                   "my-3 md:my-5 lg:my-8"
                 )}
               /></Link>}
@@ -46,7 +44,7 @@ export default function AvatarImg() {
                 className={classNames(
                   "object-cover cursor-pointer",
                   "rounded-full border-2 border-solid border-borange",
-                  "w-24 h-24 md:w-32 md:h-32 lg:w-40 lg:h-40 2xl:w-60 2xl:h-60",
+                  "w-24 h-24 md:w-28 md:h-28 lg:w-40 lg:h-40 2xl:w-60 2xl:h-60",
                   "my-3 md:my-5 lg:my-8"
                 )}
               /></Link>}

@@ -11,7 +11,7 @@ export default function SearchByArtist({onChange, value, onClick}) {
       >
         <input 
         type='text'
-        placeholder='Buscar...'
+        placeholder='Buscar por nombre'
         className={classNames(
         'bg-white h-10 w-full',
         'border-t border-b border-l border-gray-200',
