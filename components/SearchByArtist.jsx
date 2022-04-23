@@ -11,7 +11,7 @@ export default function SearchByArtist({onChange, value, onClick}) {
       >
         <input 
         type='text'
-        placeholder='Buscar por nombre'
+        placeholder='Escribe el nombre del artista a buscar'
         className={classNames(
         'bg-white h-10 w-full',
         'border-t border-b border-l border-gray-200',
@@ -21,7 +21,7 @@ export default function SearchByArtist({onChange, value, onClick}) {
         onChange={onChange}
         value={value}
         />
-        <button className={classNames(
+        {/* <button className={classNames(
         'hover:bg-white/5 backdrop-blur-md',
         'bg-orangeP font-bold uppercase',
         'border-orange-200  border-t border-b border-r',
@@ -32,7 +32,7 @@ export default function SearchByArtist({onChange, value, onClick}) {
         onClick={onClick}
         >
         Buscar
-        </button>
+        </button> */}
       </form>
     </div>
   )
