@@ -29,7 +29,7 @@ export default function ButtonToGo({borderColor, bgColor, children, className, r
         'border-2 rounded-full',
         'cursor-pointer',
         'font-bold text-base text-center uppercase', 
-        'px-6 py-3',
+        'px-6 py-2',
         'w-full',
         'transition duration-500 ease-in-out delay-75',
         bgConfig[bgColor],
