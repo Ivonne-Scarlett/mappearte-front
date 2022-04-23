@@ -25,17 +25,34 @@ export default function searchartist() {
 
   console.log('inputvalue',inputValue)
 
-  const handlerChangeInput= (event) => {
+  // const handlerChangeInput= (event) => {
+  //   const valueInput = event.target.value
+  //   setInputValue(valueInput)
+  //   const filterResult = allArtist.filter( artistFilter => {
+  //     const valueName= artistFilter.artist
+  //     return valueName.toLowerCase().includes(inputValue.toLowerCase())
+  //   })   
+  //   setFiltered(filterResult)
+  // //   !valueInput ? setFiltered(null) : setFiltered(filterResult)
+  // }
+  // console.log('filterResult',filtered)
+
+  const handlerChangeInput = event => {
     const valueInput = event.target.value
-    setInputValue(valueInput)
+    setInputValue(valueInput)  
+    
+    !valueInput && setFiltered(null)
+  }
+  console.log('filterResult',filtered)
+
+
+  const handlerClick = event => {
     const filterResult = allArtist.filter( artistFilter => {
       const valueName= artistFilter.artist
       return valueName.toLowerCase().includes(inputValue.toLowerCase())
-    })   
+    })  
     setFiltered(filterResult)
-    !valueInput ? setFiltered(null) : setFiltered(filterResult)
   }
-  console.log('filterResult',filtered)
 
 
   return (
@@ -44,7 +61,8 @@ export default function searchartist() {
       <div className='mt-20 md:mt-44 mx-10 sm:mx-44 md:mx-72'>
         <SearchByArtist
           value={inputValue}
-          onChange={handlerChangeInput}         
+          onChange={handlerChangeInput}  
+          onClick={handlerClick}       
         />
       </div>
       <OpacityCard className='bg-[#1c1545] mx-6 md:mx-20 my-6 md:my-10'>
