@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import classNames from 'classnames';
 import { getArtist } from '../lib/api';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import Nav from '../components/Nav';
 import AvatarImg from '../components/AvatarImg';
@@ -10,6 +11,17 @@ import Footer from '../components/Footer';
 
 
 export default function searchartist() {
+  const messageFail = () => {
+    toast.warn('Artista no encontrado', {
+      position: "top-right",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });  
+  }
 
   const [allArtist, setAllArtist] = useState([]);
   useEffect(() => {
@@ -35,13 +47,19 @@ export default function searchartist() {
       console.log('inputValue',inputValue)
       return valueName.toLowerCase().includes(inputValue)
     })   
-    setFiltered(filterResult)
+    //setFiltered(filterResult)
+    if (!filterResult) {
+      messageFail()
+      console.log('resultado nulo en filterResult')
+    } else {
+      setFiltered(filterResult)
+    }   
     !valueInput ? setFiltered(null) : setFiltered(filterResult)
   }
   console.log('filterResult',filtered)
 
   return (
-    <>
+    <div>
       <Nav />
       <div className='mt-20 md:mt-44 mx-10 sm:mx-44 md:mx-72'>
         <SearchByArtist
@@ -54,6 +72,6 @@ export default function searchartist() {
         { !filtered && <AvatarImg artists={allArtist} /> }
       </OpacityCard>
       <Footer />
-    </>
+    </div>
   )
 }
