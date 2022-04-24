@@ -15,6 +15,30 @@ export default function Nav() {
   const onDropdownClick = () => {
     setShowDropdown(!showDropdown);
   };
+
+  const messageOk = () => {
+    toast.success('Registro exitoso.', {
+      position: "top-right",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+    <ToastContainer
+      position="top-right"
+      autoClose={3000}
+      hideProgressBar={false}
+      newestOnTop={false}
+      closeOnClick
+      rtl={false}
+      pauseOnFocusLoss
+      draggable
+      pauseOnHover
+    />
+  }
+
   const logout = () => {
     ["token", "role", "id"].forEach((value) => {
       localStorage.removeItem(value);
@@ -178,7 +202,7 @@ export default function Nav() {
                 /* 'hidden md:block', */
                 showDropdown || "invisible")}
             >
-              Logout
+              Salir
             </div>
           </div>
         </div>

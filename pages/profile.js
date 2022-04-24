@@ -6,11 +6,6 @@ import Link from "next/link";
 import { getUserById } from "../lib/api";
 import { getArtistById } from "../lib/api";
 
-/* import { Nav } from "../components";
-import { Footer } from "../components";
-import { GridProfile } from "../components";
-import { DarkBlueCard } from "../components";
-import { OpacityCard } from "../components"; */
 import {
   Nav,
   Footer,
@@ -99,14 +94,14 @@ export default function Profile () {
           <div className="flex justify-end">
             <h3 className="font-bold text-lg mt-4 font-Mali">{ artist?.artist || user?.user }</h3>
           </div>
-          {/* <ButtonEdit
+          <ButtonEdit
           onClick={sayHi}
-          /> */}
+          />
         </OpacityCard>
         <div className={classNames("basis-5/12 mt-4")}>
-          {/* <ButtonCamera
+          <ButtonCamera
           onClick={sayHi}
-          /> */}
+          />
         </div>
       </div>
 
