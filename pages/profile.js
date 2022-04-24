@@ -3,6 +3,9 @@ import classNames from "classnames";
 import { useRouter } from "next/router";
 import Link from "next/link";
 
+import { getUserById } from "../lib/api";
+import { getArtistById } from "../lib/api";
+
 /* import { Nav } from "../components";
 import { Footer } from "../components";
 import { GridProfile } from "../components";
@@ -17,9 +20,34 @@ import {
   OpacityCard,
 } from "../components"; 
 
-/* import { getUserById } from "../../lib/api"; */
+export default function Profile () {
+  const [role, setRole] = useState()
+  const [artist, setArtist] = useState();
+  const [user, setUser] = useState();
+  const router = useRouter();
 
-export default function Test() {
+  useEffect( () => {
+    const id = localStorage.getItem("id");
+    const role = localStorage.getItem("role");
+    const token = localStorage.getItem("token");
+
+    if (!token) {
+      router.push("/login")
+    } 
+      setRole(role);
+
+      if (role === 'artist') {
+        getArtistById(id).then( ({artists}) => {
+          setArtist(artists);
+        }, {})
+      } else if (role === "user"){
+        getUserById(id).then( ({users})  =>{
+          console.log('Antes del set: ',users);
+        setUser(users);
+        }, {})
+      }
+    }, []
+  )
  /*  const router = useRouter();
   const { id } = router.query;
   const [user, setUser] = useState([]);
@@ -30,7 +58,9 @@ export default function Test() {
   }, []); */
   
   const defaultImage = "/icons/noavatar.png";
-
+   console.log("user: ", user)
+   console.log("artist: ", artist)
+   console.log("role: ", role)
   return (
     <>
       <Nav />
@@ -52,9 +82,9 @@ export default function Test() {
             "pb-16 absolute flex flex-col align-middle"
           )}
         >
-          <Link href={"/test"}>
+          <Link href={"/"}>
             <img
-              src={ defaultImage}
+              src={ artist?.imgArtist || user?.imgUser || defaultImage}
               alt="Icono de perfil de usuario"
               className={classNames(
                 "bg-backgroundP object-cover cursor-pointer", 
@@ -67,7 +97,7 @@ export default function Test() {
             />
           </Link>
           <div className="flex justify-end">
-            <h3 className="font-bold text-lg mt-4 font-Mali">User</h3>
+            <h3 className="font-bold text-lg mt-4 font-Mali">{ artist?.artist || user?.user }</h3>
           </div>
           {/* <ButtonEdit
           onClick={sayHi}
@@ -80,7 +110,7 @@ export default function Test() {
         </div>
       </div>
 
-      <DarkBlueCard className="mt-20 mb-20">
+      <OpacityCard className="mt-16 px-6 md:px-20 py-6 md:py-10">
         <h3
           className={classNames(
             "font-Mochiy font-extrabold text-2xl",
@@ -89,7 +119,19 @@ export default function Test() {
         >
           Mis Fotos
         </h3>
-        <GridProfile />
+        <GridProfile className="" />
+      </OpacityCard>
+
+      <DarkBlueCard className="mt-16 px-6 md:px-20 py-6 md:py-10">
+        <h3
+          className={classNames(
+            "font-Mochiy font-extrabold text-2xl",
+            "mx-4 mb-16"
+          )}
+        >
+          He sido etiquetado
+        </h3>
+        <GridIndex />
       </DarkBlueCard>
 
       <Footer />

@@ -14,7 +14,7 @@ import {
 
 import { getArtistById } from "../../lib/api";
 
-export default function Test() {
+export default function profileArtist() {
   const router = useRouter();
   const { id } = router.query;
   const [artist, setArtist] = useState([]);
@@ -47,7 +47,7 @@ export default function Test() {
             "pb-16 absolute flex flex-col align-middle"
           )}
         >
-          <Link href={"/test"}>
+          <Link href={"/"}>
             <img
               src={artist.imgArtist || defaultImage}
               alt="Icono de perfil de usuario"
@@ -84,7 +84,7 @@ export default function Test() {
         >
           Mis Fotos
         </h3>
-        <GridIndex />
+        <GridProfile className="" />
       </DarkBlueCard>
 
       <DarkBlueCard className="mt-20 mb-20">
@@ -96,7 +96,7 @@ export default function Test() {
         >
           He sido etiquetado{" "}
         </h3>
-        <GridProfile className="" />
+        <GridIndex />
       </DarkBlueCard>
 
       <Footer />
