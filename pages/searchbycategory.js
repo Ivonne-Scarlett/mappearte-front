@@ -46,8 +46,8 @@ export default function searchbycategory() {
       return valueName.toLowerCase().includes(inputValue)
     })   
     setFiltered(filterResult)
-  
-    !valueInput ? setFiltered(null) : setFiltered(filterResult)
+    // // //!valueInput ? setFiltered(null) : setFiltered(filterResult)
+
   }
 
   return (
