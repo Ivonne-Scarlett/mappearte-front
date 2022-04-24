@@ -94,14 +94,14 @@ export default function Profile () {
           <div className="flex justify-end">
             <h3 className="font-bold text-lg mt-4 font-Mali">{ artist?.artist || user?.user }</h3>
           </div>
-          <ButtonEdit
+          {/* <ButtonEdit
           onClick={sayHi}
-          />
+          /> */}
         </OpacityCard>
         <div className={classNames("basis-5/12 mt-4")}>
-          <ButtonCamera
+          {/* <ButtonCamera
           onClick={sayHi}
-          />
+          /> */}
         </div>
       </div>
 
@@ -112,19 +112,19 @@ export default function Profile () {
             "ml-4 mb-16"
           )}
         >
-          Mis Fotos
+          Mi portafolio
         </h3>
         <GridProfile className="" />
       </OpacityCard>
 
-      <DarkBlueCard className="mt-16 px-6 md:px-20 py-6 md:py-10">
+      <DarkBlueCard className="">
         <h3
           className={classNames(
             "font-Mochiy font-extrabold text-2xl",
-            "mx-4 mb-16"
+            " mb-16"
           )}
         >
-          He sido etiquetado
+          Me han etiquetado
         </h3>
         <GridIndex />
       </DarkBlueCard>

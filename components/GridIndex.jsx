@@ -25,7 +25,7 @@ export default function GridIndex({ images }) {
   return (
     <>
       <div className="flex flex-row mt-16 mb-8">
-        <div className="md:flex md:flex-col md:justify-center md:mr-4">
+        <div className="md:flex md:flex-col md:justify-center ">
           {showModal ? (
             <>
               <div className="block md:hidden">

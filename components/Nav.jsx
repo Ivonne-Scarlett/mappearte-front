@@ -103,16 +103,8 @@ export default function Nav() {
               isMenuOpen ? "block md:hidden" : "hidden md:block"
             )}
           >
-            {/* <Avatar
-          className={classNames(
-          'ml-4', 
-          'hidden md:block',
-        )}
-        /> */}
-        <div className='flex'>
-
-       
-            <Link href={"/userProfile"}>
+        <div className='flex'>       
+            <Link href={"/profile"}>
               <img
                 src="../icons/avatarIndex.png"
                 alt="avatar"
@@ -132,7 +124,7 @@ export default function Nav() {
                 className={classNames(
                   showDropdown || "invisible")}
               >
-                Logout
+                Salir
               </div>
             </div>
              </div>
@@ -182,7 +174,7 @@ export default function Nav() {
               Subir Foto
             </ButtonToGo>
           </ul>
-          <Link href={"/userProfile"}>
+          <Link href={"/profile"}>
             <img
               src="../icons/avatarIndex.png"
               alt="Imagen de perfil"
