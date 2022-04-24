@@ -35,8 +35,6 @@ export default function searchartist() {
   const [inputValue, setInputValue]= useState([]);
   const [filtered, setFiltered] = useState(null);
 
-  console.log('inputvalue',inputValue)
-
   const handlerChangeInput= (event) => {
     const valueInput = event.target.value
     const datavalueInput = valueInput.toLowerCase()
@@ -44,7 +42,6 @@ export default function searchartist() {
     const filterResult = allArtist.filter( artistFilter => {
       const valueName= artistFilter.artist
       //dataValueInput = inputValue.toLowerCase()
-      console.log('inputValue',inputValue)
       return valueName.toLowerCase().includes(inputValue)
     })   
     //setFiltered(filterResult)
@@ -56,7 +53,6 @@ export default function searchartist() {
     }   
     !valueInput ? setFiltered(null) : setFiltered(filterResult)
   }
-  console.log('filterResult',filtered)
 
   return (
     <div>
@@ -67,7 +63,7 @@ export default function searchartist() {
           onChange={handlerChangeInput}       
         />
       </div>
-      <OpacityCard className='bg-[#20184d] mx-6 md:mx-20 my-6 md:my-10'>
+      <OpacityCard className='bg-[#20184b] mx-6 md:mx-20 my-6 md:my-10'>
         { filtered && <AvatarImg artists={filtered} />}
         { !filtered && <AvatarImg artists={allArtist} /> }
       </OpacityCard>

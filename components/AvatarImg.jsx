@@ -11,7 +11,6 @@ export default function AvatarImg({artists}) {
       "",
       )}>
       {artists.map((artists, index)=> {
-        console.log('artistas',artists)
         let avatarArtist = artists.imgArtist
         let idArtist = artists._id
         return(
