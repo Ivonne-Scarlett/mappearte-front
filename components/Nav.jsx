@@ -22,7 +22,7 @@ export default function Nav() {
     location.href = "/";
   };
   useEffect(() => {
-    setUploadTarget(localStorage.getItem("token") ? "/upload" : "/login");
+    setUploadTarget(localStorage.getItem("token") ? "/upload" : "/Login");
   }, []);
   const showMenu = () => {
     setMenuOpen(!isMenuOpen);
