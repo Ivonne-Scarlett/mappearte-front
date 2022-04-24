@@ -12,12 +12,9 @@ export default function Nav() {
   const [isMenuOpen, setMenuOpen] = useState(false);
   const [showDropdown, setShowDropdown] = useState(false);
   const [uploadTarget, setUploadTarget] = useState("");
-  const onDropdownClick = () => {
-    setShowDropdown(!showDropdown);
-  };
 
   const messageOk = () => {
-    toast.success('Registro exitoso.', {
+    toast.success('Sesión terminada.', {
       position: "top-right",
       autoClose: 3000,
       hideProgressBar: false,
@@ -26,18 +23,12 @@ export default function Nav() {
       draggable: true,
       progress: undefined,
     });
-    <ToastContainer
-      position="top-right"
-      autoClose={3000}
-      hideProgressBar={false}
-      newestOnTop={false}
-      closeOnClick
-      rtl={false}
-      pauseOnFocusLoss
-      draggable
-      pauseOnHover
-    />
   }
+
+  const onDropdownClick = () => {
+    setShowDropdown(!showDropdown);
+  };
+
 
   const logout = () => {
     ["token", "role", "id"].forEach((value) => {

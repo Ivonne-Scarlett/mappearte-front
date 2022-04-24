@@ -75,7 +75,22 @@ export default function profileArtist() {
         </div>
       </div>
 
-      <DarkBlueCard className="mt-20 mb-20">
+      <DarkBlueCard 
+        className="grid grid-cols-1 md:grid-cols-3 gap-4 place-items-stretch mt-20"
+      >
+        <div className="bg-pink-400 w-100 items-center md:span-1 h-40">
+          qr
+        </div>
+        <div className="w-100 md:col-span-2 align-center h-40"> 
+          <h3 
+            className="text-2xl text-center"
+          >
+            {artist?.resume}
+          </h3>
+        </div>
+      </DarkBlueCard>
+
+      <div className="mx-6 md:mx-20 my-6 md:my-10 mt-20 mb-20">
         <h3
           className={classNames(
             "font-Mochiy font-extrabold text-2xl",
@@ -85,7 +100,7 @@ export default function profileArtist() {
           Mis Fotos
         </h3>
         <GridProfile className="" />
-      </DarkBlueCard>
+      </div>
 
       <DarkBlueCard className="mt-20 mb-20">
         <h3

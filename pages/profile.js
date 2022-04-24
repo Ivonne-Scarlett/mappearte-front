@@ -27,7 +27,7 @@ export default function Profile () {
     const token = localStorage.getItem("token");
 
     if (!token) {
-      router.push("/login")
+      router.push("/Login")
     } 
       setRole(role);
 
@@ -104,6 +104,19 @@ export default function Profile () {
           /> */}
         </div>
       </div>
+        
+      <DarkBlueCard className="grid grid-cols-1 md:grid-cols-3 gap-4 justify-center mt-20">
+          <div className="bg-pink-400 w-100 items-center md:span-1 h-40">
+            qr
+          </div>
+          <div className="bg-pink-200 w-100 md:col-span-2 items-center h-40">
+            <h3 
+              className="text-2xl text-center "
+            >
+              {artist?.resume}
+            </h3>
+          </div>
+      </DarkBlueCard>
 
       <OpacityCard className="mt-16 px-6 md:px-20 py-6 md:py-10">
         <h3
