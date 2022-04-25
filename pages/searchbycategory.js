@@ -82,7 +82,7 @@ export default function searchbycategory() {
         { resultFilterCategory && <AvatarImg artists={resultFilterCategory} /> }
         { !categorySelect && <AvatarImg artists={allArtist} /> }
       </OpacityCard>
-      <Footer />
+      <Footer className='inset-x-0 bottom-0'/>
     </div>
   )
 }

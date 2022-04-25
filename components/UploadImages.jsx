@@ -1,7 +1,6 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import Uppy from "@uppy/core";
 import Transloadit from "@uppy/transloadit";
-import React, {useState} from 'react';
 import { useRouter } from 'next/router';
 import classNames from 'classnames';
 import Input from '../components/Input';

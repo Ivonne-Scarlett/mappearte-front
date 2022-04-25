@@ -5,9 +5,9 @@ import Image from 'next/image';
 import CreatedBy from '../config/footer.json';
 
 
-export default function Footer() {
+export default function Footer({className}) {
   return (
-    <footer className='w-100'>
+    <footer className={classNames('w-100', className)}>
       <div className={classNames(
         'bg-gradient-to-r from-[#043BFF] via-pinkP to-greenP',
         'h-1',

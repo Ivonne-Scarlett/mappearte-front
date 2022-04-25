@@ -99,41 +99,14 @@ export default function Home() {
           <GridAvatar />
         </div>
 
-        <DarkBlueCard className='w-100 my-5 mx-6 md:mx-20'>
-          <SearchByArtist
-          onChange={handleSearchArtist}
-          onClick={sayHi()}
-          />
-          <SearchByCategory
-          onClick={sayHi()}
-          />   
-        </DarkBlueCard>     
-         
-        <GridIndex images={arrayImgProfile} />   
 
-        <DarkBlueCard className='mt-5'>
-          <GridProfile
-            className=''
-            images={arrayImgProfile}
-          />       
-        </DarkBlueCard>
 
-        <GridAvatar avatarsArtists={arrayImgProfile}/>
-        
-        <AvatarImg dataArtist={arrayImgProfile}/>
-
-<<<<<<< HEAD
         <UploadImg />
-=======
-        <Map />
->>>>>>> develop
-
-      </main>  
 
 
-            
-=======
->>>>>>> develop
+
+
+
       <Footer />
 
     </>
