@@ -25,7 +25,7 @@ export default function SelectCategories({onChange, onClick}){
             'bg-white',
           )}
         >
-          -- Categorias --
+          -- Todas las categorias --
         </option>
         <option 
           value='mural' 

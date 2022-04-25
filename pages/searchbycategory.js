@@ -5,7 +5,6 @@ import 'react-toastify/dist/ReactToastify.css';
 
 import Nav from '../components/Nav';
 import AvatarImg from '../components/AvatarImg';
-import SearchByArtist from '../components/SearchByArtist';
 import SearchByCategory from '../components/SearchByCategory';
 import OpacityCard from '../components/OpacityCard';
 import Footer from '../components/Footer';
@@ -25,6 +24,9 @@ export default function searchbycategory() {
   }
 
   const [allArtist, setAllArtist] = useState([]);
+  const[resultFilterCategory, setResultFilterCategory] = useState([]);
+  const [categorySelect, setCategorySelect]= useState('')
+
   useEffect(() => {
     getArtist()
       .then(response => {
@@ -33,28 +35,8 @@ export default function searchbycategory() {
       })
   }, [])
 
-  const [inputValue, setInputValue]= useState([]);
-  const [filtered, setFiltered] = useState(null);
-
-  const handlerChangeInput= (event) => {
-    const valueInput = event.target.value
-    const datavalueInput = valueInput.toLowerCase()
-    setInputValue(datavalueInput)
-    const filterResult = allArtist.filter( artistFilter => {
-      const valueName= artistFilter.artist
-      //dataValueInput = inputValue.toLowerCase()
-      return valueName.toLowerCase().includes(inputValue)
-    })   
-    setFiltered(filterResult)
-    // // //!valueInput ? setFiltered(null) : setFiltered(filterResult)
-  }
-
-
-
-
-  const [categorySelect, setCategorySelect]= useState('')
-  const handleSelect = (e) =>{
-    setCategorySelect(e.target.value)
+  const handleSelect = event => {
+    setCategorySelect(event.target.value)
     console.log(categorySelect)
   }
 
@@ -63,12 +45,35 @@ export default function searchbycategory() {
     console.log('la categoria seleccioanda es',categorySelect)
     if(categorySelect==='mural'){
       console.log('Mostrar sólo datos de mural')
+      const filterResult = allArtist.filter( artistFilter => {
+        console.log(artistFilter)
+        if (artistFilter.isMural === true){
+          return artistFilter
+        }      
+      })   
+      setResultFilterCategory(filterResult)      
     } else if (categorySelect==='graffiti') {
       console.log('Mostrar sólo datos de grafiti')
+      const filterResult = allArtist.filter( artistFilter => {
+        console.log(artistFilter)
+        if (artistFilter.isGraffiti === true){
+          return artistFilter
+        }      
+      })
+      setResultFilterCategory(filterResult)    
     } else if (categorySelect==='sticker') {
       console.log('Mostrar sólo datos de sticker')
+      const filterResult = allArtist.filter( artistFilter => {
+        console.log(artistFilter)
+        if (artistFilter.isSticker === true){
+          return artistFilter
+        }      
+      })
+      setResultFilterCategory(filterResult)   
     } else {
       console.log('Mostrar todos los artistas')
+      setResultFilterCategory(allArtist)
+      console.log(allArtist)
     }
   }
 
@@ -84,9 +89,9 @@ export default function searchbycategory() {
         />
       </div>
       <OpacityCard className='bg-[#20184b] mx-6 md:mx-20 my-6 md:my-10'>
-        <AvatarImg artists={allArtist} />
-        {/* { categorySelect && <p>filtadro por categoria</p>}
-        { !categorySelect && <AvatarImg artists={allArtist} /> } */}
+        {/* <AvatarImg artists={resultFilterCategory} /> */}
+        { resultFilterCategory && <AvatarImg artists={resultFilterCategory} /> }
+        { !categorySelect && <AvatarImg artists={allArtist} /> }
       </OpacityCard>
       <Footer />
     </div>
