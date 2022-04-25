@@ -1,31 +1,51 @@
 import React, { useState, useEffect } from "react";
 import classNames from "classnames";
 import { useRouter } from "next/router";
-import Link from "next/link";
+
+import { getUserById } from "../lib/api";
+import { getArtistById } from "../lib/api";
 
 import {
   Nav,
-  Footer,
+  OpacityCard,
+  ButtonEdit,
   GridIndex,
   GridProfile,
   DarkBlueCard,
-  OpacityCard,
-} from "../../components";
+  Footer,
+} from "."; 
 
-import { getArtistById } from "../../lib/api";
-
-export default function profileArtist() {
+export default function Profile () {
+  const [role, setRole] = useState()
+  const [artist, setArtist] = useState();
+  const [isArtist, setIsArtist] = useState(false)
+  const [user, setUser] = useState();
   const router = useRouter();
-  const { id } = router.query;
-  const [artist, setArtist] = useState([]);
-  useEffect(() => {
-    getArtistById(id).then(({ artists }) => {
-      setArtist(artists);
-    });
-  }, []);
-  
-  const defaultImage = "/icons/noavatar.png";
 
+  useEffect( () => {
+    const id = localStorage.getItem("id");
+    const role = localStorage.getItem("role");
+    const token = localStorage.getItem("token");
+
+    if (!token) {
+      router.push("/Login")
+    } 
+      setRole(role);
+      if (role === 'artist') {
+        getArtistById(id).then( ({artists}) => {
+          setArtist(artists);
+          setIsArtist(true); 
+        }, {})
+      } else if (role === "user"){
+        getUserById(id).then( ({users})  =>{
+          console.log('Antes del set: ',users);
+        setUser(users);
+        }, {})
+      }
+    }, []
+  )
+  const defaultImage = "/icons/noavatar.png";
+  
   return (
     <>
       <Nav />
@@ -41,14 +61,14 @@ export default function profileArtist() {
       >
         <OpacityCard
           className={classNames(
-            "h-64 w-64  lg:h-72 lg:w-72",
-            "justify-center ",
-            "absolute flex flex-col align-middle"
+            "h-64 w-64 lg:h-72 lg:w-72",
+            "justify-center",
+            " absolute flex flex-col align-middle"
           )}
         >
           <div className="flex justify-center mt-3">
             <img
-              src={artist.imgArtist || defaultImage}
+              src={ artist?.imgArtist || defaultImage}
               alt="Icono de perfil de usuario"
               className={classNames(
                 "bg-backgroundP object-cover", 
@@ -61,11 +81,21 @@ export default function profileArtist() {
             />
           </div>
           <div className="flex justify-center mt-2">
-            <h3 className="font-bold text-lg mt-4 font-Mali">{artist.artist}</h3>
+            <h3 className="font-bold text-lg mt-2 font-Mali">{ artist?.artist }</h3>
           </div>
+          <div className="flex justify-end mt-1">
+            <ButtonEdit
+            route="/edit"
+            />
+          </div>  
         </OpacityCard>
+        <div className={classNames("basis-5/12 mt-4")}>
+          {/* <ButtonCamera
+          onClick={editProfile}
+          /> */}
+        </div>
       </div>
-
+        
       <DarkBlueCard 
         className="grid grid-cols-1 md:grid-cols-3 gap-4 place-items-stretch mt-20"
       >
@@ -81,26 +111,26 @@ export default function profileArtist() {
         </div>
       </DarkBlueCard>
 
-      <div className="mx-6 md:mx-20 my-6 md:my-10 mt-20 mb-20">
+      <OpacityCard className="mt-16 px-6 md:px-20 py-6 md:py-10">
         <h3
           className={classNames(
             "font-Mochiy font-extrabold text-2xl",
             "ml-4 mb-16"
           )}
         >
-          Mis Fotos
+          Mi portafolio
         </h3>
         <GridProfile className="" />
-      </div>
+      </OpacityCard>
 
-      <DarkBlueCard className="mt-20 mb-20">
+      <DarkBlueCard className="">
         <h3
           className={classNames(
             "font-Mochiy font-extrabold text-2xl",
-            "ml-4 mb-16"
+            " mb-16"
           )}
         >
-          He sido etiquetado{" "}
+          Me han etiquetado
         </h3>
         <GridIndex />
       </DarkBlueCard>

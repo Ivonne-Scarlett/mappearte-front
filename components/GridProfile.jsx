@@ -18,8 +18,8 @@ export default function GridProfile({ images }) {
       .then(response => {
         const countImages = response.artists.length
         const imageInitial = countImages - 12
-        const murals = response.artists.slice(imageInitial, countImages);
-        setMurals(murals);
+        const artistData = response.artists.slice(imageInitial, countImages);
+        setMurals(artistData);
       })
     }, [])
 
@@ -69,12 +69,12 @@ export default function GridProfile({ images }) {
                 <div className="relative px-6 flex-auto pb-6">
                   <img 
                     src={imgShowData.bgImg} 
-                    style={{width:'90%'}} 
+                    style={{width:'100%'}} 
                     className="border border-solid border-borange"
                   /> 
                   <div className='bg-orangeP text-sm'>
-                    <h3 className='pt-2 px-6'>{murals.artist}</h3> 
-                    <p className='pb-2 px-6'>{murals.adress}</p>  
+                    <h3 className='pt-2 px-6'>{imgShowData.artist}</h3> 
+                    <p className='pb-2 px-6'>{imgShowData.city}</p>  
                   </div>        
                 </div> 
               </div>

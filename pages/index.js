@@ -11,19 +11,15 @@ import GridAvatar from '../components/GridAvatar';
 import Footer from '../components/Footer';
 
 export default function Home() {
-  const [searchArtist, setSearchArtist] = useState('')
+/*   const [searchArtist, setSearchArtist] = useState('')
   const [name, setName] = useState('');
-
-  const sayHi = () => {
-    console.log('Hola')
-  }
   
   function handleChange(e) {
     setName(e.target.value);
   }
   function handleSearchArtist(event) {
     setSearchArtist(event.target.value)
-  }
+  } */
   
   return (
     <>
@@ -66,7 +62,6 @@ export default function Home() {
             'bg-gray-300',
             'h-96',
             'w-10/12',
-            '',
           )}
         >
           <h5 
