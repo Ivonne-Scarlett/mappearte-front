@@ -1,22 +1,12 @@
 import React, { useState, useEffect } from "react";
-import classNames from "classnames";
 import { useRouter } from "next/router";
-import Link from "next/link";
 
 import { getUserById } from "../lib/api";
 import { getArtistById } from "../lib/api";
 
-/* import {
-  Nav,
-  OpacityCard,
-  ButtonEdit,
-  GridIndex,
-  GridProfile,
-  DarkBlueCard,
-  Footer,
-} from "../components";  */
 import ArtistProfile from "../components/ArtistProfile"
 import UserProfile from "../components/UserProfile"
+
 export default function Profile () {
   const [role, setRole] = useState()
   const [artist, setArtist] = useState();
@@ -36,7 +26,7 @@ export default function Profile () {
       if (role === 'artist') {
         getArtistById(id).then( ({artists}) => {
           setArtist(artists);
-          setIsArtist(true); /* <-- desde aqui puuedo decir que si y que no rederizar? */
+          setIsArtist(true); 
         }, {})
       } else if (role === "user"){
         getUserById(id).then( ({users})  =>{

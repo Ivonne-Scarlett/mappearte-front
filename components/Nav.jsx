@@ -23,6 +23,17 @@ export default function Nav() {
       draggable: true,
       progress: undefined,
     });
+    <ToastContainer
+      position="top-right"
+      autoClose={3000}
+      hideProgressBar={false}
+      newestOnTop={false}
+      closeOnClick
+      rtl={false}
+      pauseOnFocusLoss
+      draggable
+      pauseOnHover
+    />
   }
 
   const onDropdownClick = () => {
@@ -37,7 +48,6 @@ export default function Nav() {
     setTimeout(function(){
       location.href = "/";
     }, 3500);
-    /* router.push('/') */
     
   };
 

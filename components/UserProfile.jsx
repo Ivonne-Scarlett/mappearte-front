@@ -71,7 +71,7 @@ export default function Profile () {
               src={ user?.imgUser || defaultImage}
               alt="Icono de perfil de usuario"
               className={classNames(
-                "bg-backgroundP object-cover cursor-pointer", 
+                "bg-backgroundP object-cover", 
                 "rounded-full border-2 border-solid border-orangeP",
                 "w-24 h-24 justify-center",
                 "md:w-32 md:h-32",
@@ -80,10 +80,10 @@ export default function Profile () {
               )}
             />
           </div>
-          <div className="flex justify-center mt-3">
-            <h3 className="font-bold text-lg mt-4 font-Mali">{ user?.user }</h3>
+          <div className="flex justify-center mt-2">
+            <h3 className="font-bold text-lg mt-2 font-Mali">{ user?.user }</h3>
           </div>
-          <div className="flex justify-end mt-3">
+          <div className="flex justify-end mt-1">
             <ButtonEdit
             route="/edit"
             />
