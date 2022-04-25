@@ -1,14 +1,14 @@
 [
     {
-      "link": "/test",
+      "link": "/searcabytegory",
       "label": "Arte"
     },
     {
-      "link": "/test",
+      "link": "/searchartist",
       "label": "Artistas"
     },
     {
-      "link": "/test",
+      "link": "/profile",
       "label": "Mi Perfil"
     }
   ]

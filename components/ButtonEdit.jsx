@@ -8,12 +8,9 @@ export default function ButtonEdit({route}) {
   return (
     <a 
     className={classNames(
-      'bg-white',
-      'border border-gray-500',
       'cursor-pointer',
-      'p-2',
       'transition duration-500 ease-in-out delay-75',
-      'rounded-full',
+      'rounded-full w-10',
       'hover:bg-backgroundP/30 hover:invert'
     )}
     onClick={onClick}
@@ -21,7 +18,11 @@ export default function ButtonEdit({route}) {
         <img 
         src='/icons/edit.png' 
         alt='Icono de editar foto' 
-        className='mx-auto my-auto' 
+        className={classNames(
+          'bg-white mx-auto my-auto rounded-full' ,
+          'p-1',
+          'border border-gray-500',
+        )}
         />
     </a>
   )
