@@ -29,13 +29,18 @@ export default function Nav() {
     setShowDropdown(!showDropdown);
   };
 
-
   const logout = () => {
     ["token", "role", "id"].forEach((value) => {
       localStorage.removeItem(value);
     });
-    location.href = "/";
+    messageOk()      
+    setTimeout(function(){
+      location.href = "/";
+    }, 3500);
+    /* router.push('/') */
+    
   };
+
   useEffect(() => {
     setUploadTarget(localStorage.getItem("token") ? "/upload" : "/Login");
   }, []);
@@ -108,7 +113,7 @@ export default function Nav() {
                 )}
               />
             </Link>
-            <div className="cursor-pointer block md:hidden" onClick={onDropdownClick}>
+            <div className="cursor-pointer block md:hidden pl-2" onClick={onDropdownClick}>
               ▼
               <div
                 onClick={logout}
@@ -177,12 +182,11 @@ export default function Nav() {
               )}
             />
           </Link>
-          <div className="cursor-pointer hidden md:block  mt-4" onClick={onDropdownClick}>
+          <div className="cursor-pointer hidden md:block justify-items-end pl-2 mt-4" onClick={onDropdownClick}>
             ▼
             <div
               onClick={logout}
               className={classNames(
-                /* 'hidden md:block', */
                 showDropdown || "invisible")}
             >
               Salir
