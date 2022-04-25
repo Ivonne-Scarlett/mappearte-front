@@ -47,22 +47,46 @@ export default function searchbycategory() {
     })   
     setFiltered(filterResult)
     // // //!valueInput ? setFiltered(null) : setFiltered(filterResult)
-
   }
+
+
+
+
+  const [categorySelect, setCategorySelect]= useState('')
+  const handleSelect = (e) =>{
+    setCategorySelect(e.target.value)
+    console.log(categorySelect)
+  }
+
+  const handlerButton = () => {
+    console.log('EL boton funciona')
+    console.log('la categoria seleccioanda es',categorySelect)
+    if(categorySelect==='mural'){
+      console.log('Mostrar sólo datos de mural')
+    } else if (categorySelect==='graffiti') {
+      console.log('Mostrar sólo datos de grafiti')
+    } else if (categorySelect==='sticker') {
+      console.log('Mostrar sólo datos de sticker')
+    } else {
+      console.log('Mostrar todos los artistas')
+    }
+  }
+
+
 
   return (
     <div>
       <Nav />
       <div className='mt-20 md:mt-44 mx-10 sm:mx-44 md:mx-72'>
-        <SearchByArtist
-          value={inputValue}
-          onChange={handlerChangeInput}       
+        <SearchByCategory 
+          onChange={handleSelect}
+          onClick={handlerButton}
         />
-        <SearchByCategory />
       </div>
       <OpacityCard className='bg-[#20184b] mx-6 md:mx-20 my-6 md:my-10'>
-        { filtered && <AvatarImg artists={filtered} />}
-        { !filtered && <AvatarImg artists={allArtist} /> }
+        <AvatarImg artists={allArtist} />
+        {/* { categorySelect && <p>filtadro por categoria</p>}
+        { !categorySelect && <AvatarImg artists={allArtist} /> } */}
       </OpacityCard>
       <Footer />
     </div>

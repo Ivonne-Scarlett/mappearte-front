@@ -1,16 +1,7 @@
 import classNames from 'classnames';
 import React, {useState} from 'react';
 
-export default function SelectCategories(){
-  const [categorySelect, setCategorySelect]=useState('')
-  
-  const handleSelect =(e) =>{
-    setCategorySelect=(e.target.value)
-  }
-
-  const sayHi = () => {
-    console.log('Hola')
-  }
+export default function SelectCategories({onChange, onClick}){
 
   return(
     <div 
@@ -26,7 +17,7 @@ export default function SelectCategories(){
           'w-screen bg-white h-10',
           'rounded-l-lg pl-4'
         )}
-        onChange={handleSelect}
+        onChange={onChange}
       >
         <option 
           value='category' 
@@ -69,7 +60,7 @@ export default function SelectCategories(){
         'px-8  rounded-r-lg',
         'transition duration-500 ease-in-out delay-75',
         )}
-        onClick={sayHi}
+        onClick={onClick}
       >
         Buscar
       </button>
