@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
 import classNames from 'classnames';
-
 import Nav from "../components/Nav"
 import Hero from '../components/Hero';
 import OpacityCard from '../components/OpacityCard';
@@ -9,6 +8,7 @@ import GridIndex from '../components/GridIndex';
 import GridProfile from '../components/GridProfile';
 import GridAvatar from '../components/GridAvatar';
 import Footer from '../components/Footer';
+import UploadImg from '../components/UploadImages';
 
 export default function Home() {
 /*   const [searchArtist, setSearchArtist] = useState('')
@@ -99,6 +99,41 @@ export default function Home() {
           <GridAvatar />
         </div>
 
+        <DarkBlueCard className='w-100 my-5 mx-6 md:mx-20'>
+          <SearchByArtist
+          onChange={handleSearchArtist}
+          onClick={sayHi()}
+          />
+          <SearchByCategory
+          onClick={sayHi()}
+          />   
+        </DarkBlueCard>     
+         
+        <GridIndex images={arrayImgProfile} />   
+
+        <DarkBlueCard className='mt-5'>
+          <GridProfile
+            className=''
+            images={arrayImgProfile}
+          />       
+        </DarkBlueCard>
+
+        <GridAvatar avatarsArtists={arrayImgProfile}/>
+        
+        <AvatarImg dataArtist={arrayImgProfile}/>
+
+<<<<<<< HEAD
+        <UploadImg />
+=======
+        <Map />
+>>>>>>> develop
+
+      </main>  
+
+
+            
+=======
+>>>>>>> develop
       <Footer />
 
     </>
