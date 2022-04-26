@@ -19,7 +19,7 @@ const icon = '../icons/spray.png' //TODO: Verificar si usar este o el import de 
 
 export default function Map () {
   const {isLoaded, loadError} = useLoadScript({
-      googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
+      googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY,
       libraries
   })
   // const [currentLocation, setCurrentLocation] = useState(null)
