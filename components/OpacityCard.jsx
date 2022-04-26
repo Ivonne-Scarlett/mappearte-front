@@ -1,8 +1,16 @@
-import React from 'react'
+import React from 'react';
+import classNames from 'classnames';
 
 export default function OpacityCard({children, className}) {
   return (
-    <div className={`bg-backgroundP bg-opacity-80 rounded-xl py-10 px-6 ${className}`}>
+    <div 
+    className={classNames(
+      'bg-backgroundP bg-opacity-80',
+      'px-6 py-5', 
+      //'h-fit', cambio reciente
+      'rounded-xl',
+      className
+    )}>
       {children}
     </div>
   )

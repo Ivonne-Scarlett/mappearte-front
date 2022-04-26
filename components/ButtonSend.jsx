@@ -1,7 +1,7 @@
 import React from 'react'
 import classNames from 'classnames';
 
-export default function ButtonSend({borderColor, bgColor, children, OnClick}) {
+export default function ButtonSend({borderColor, bgColor, text, type, className, onClick}) {
   const bgConfig = {
     Blue: 'hover:bg-gradient-to-br from-[#043BF3] via-[#009aff] to-[#031788]',
     Cyan: 'hover:bg-gradient-to-br from-cyan-400 via-cyan-600 to-cyan-800',
@@ -19,21 +19,22 @@ export default function ButtonSend({borderColor, bgColor, children, OnClick}) {
   }
 
   return (
-    <a 
+    <button 
     className={classNames(
       'bg-white/5 backdrop-blur-md', 
       borderConfig[borderColor],   
       'border-2 rounded-full',
       'cursor-pointer',
       'font-bold text-base text-center uppercase', 
-      'px-6 py-3',
+      'px-6 py-2',
       'w-full',
       'transition duration-500 ease-in-out delay-75',
       bgConfig[bgColor],
+      className
     )} 
-    onClick={OnClick}
+      type={type}
     >
-      {children}
-    </a>
+      {text}
+    </button>
   )
 }

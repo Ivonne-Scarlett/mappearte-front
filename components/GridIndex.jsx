@@ -1,20 +1,31 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import classNames from 'classnames';
 import Image from 'next/image';
+import { getArtist } from '../lib/api';
 
 export default function GridIndex({ images }) {
-  let countImages = images.length
-  let imageInitial = (countImages - '14')
-  let imagesObject = images.slice(imageInitial,countImages)
+  const [murals, setMurals] =  useState([])
   const [showModal, setShowModal] = useState(false); 
   const [imgShowData, setImgShowData] = useState('');
+  console.log(imgShowData)
   const isImageClicked = (imageData) => {      
       setImgShowData(imageData)
   } 
+
+  useEffect(() => {
+    getArtist()
+    .then(response => {
+      const countImages = response.artists.length
+      const imageInitial = countImages - 12
+      const murals = response.artists.slice(imageInitial, countImages);
+      setMurals(murals);
+    })
+  }, [])
+
   return (
     <>
-      <div className="flex flex-row px-6 md:px-20 py-1">
-        <div className="md:flex md:flex-col md:justify-center md:mr-4">
+      <div className="flex flex-row mt-16 mb-8">
+        <div className="md:flex md:flex-col md:justify-center ">
           {showModal ? (
             <>
               <div className="block md:hidden">
@@ -35,18 +46,23 @@ export default function GridIndex({ images }) {
                           type="button"
                           onClick={() => setShowModal(false)}
                         >
-                          <Image src='/icons/cancel.png' alt='boton de cerrar' width='15px' height='15px'/>
+                          <Image 
+                          src='/icons/cancel.png' 
+                          alt='boton de cerrar' 
+                          width='15px' 
+                          height='15px'
+                          className='p-4'/>
                         </button>
                       </div>
                       <div className="relative px-6 flex-auto pb-6">
                         <img 
-                          src={imgShowData.imageURL} 
+                          src={imgShowData.bgImg} 
                           style={{width:'100%'}} 
                           className="border border-solid border-borange"
                         /> 
                         <div className='bg-[#17c7c7] text-sm'>
-                          <h3 className='pt-2 px-6'>{imgShowData.nameArtist}</h3> 
-                          <p className='pb-2 px-6'>{imgShowData.adress}</p>  
+                          <h3 className='pt-2 px-6'>{imgShowData.artist}</h3> 
+                          <p className='pb-2 px-6'>{imgShowData.city}</p>  
                         </div>        
                       </div> 
                     </div>
@@ -72,13 +88,13 @@ export default function GridIndex({ images }) {
                   </div>
                   <div className="px-6 pb-6">
                     <img 
-                      src={imgShowData.imageURL} 
+                      src={imgShowData.bgImg} 
                       style={{width:'100%'}} 
                       className="border border-solid border-white"
                     /> 
                       <div className='bg-[#17c7c7] text-sm border border-solid border-white'>
-                        <h3 className='pt-2 px-6'>{imgShowData.nameArtist}</h3> 
-                        <p className='pb-2 px-6'>{imgShowData.adress}</p>  
+                        <h3 className='pt-2 px-6'>{imgShowData.artist}</h3> 
+                        <p className='pb-2 px-6'>{imgShowData.city}</p>  
                       </div>        
                   </div> 
                 </div>
@@ -87,7 +103,7 @@ export default function GridIndex({ images }) {
           ) : null}   
         </div>
         <div className="grid grid-cols-3 md:grid-cols-5 gap-2 md:grid-row-5 max-w-1/2 max-h-3/4">
-          {imagesObject.map((image, index) => (
+          {murals.map((image, index) => (
             <div className={classNames(
                 'h-36',
                 "cursor-pointer",
@@ -106,7 +122,7 @@ export default function GridIndex({ images }) {
                   isImageClicked(image)
                 }}
               >
-                <img src={image.imageURL} className={classNames('w-full h-full object-cover')}/>
+                <img src={image.bgImg} className={classNames('w-full h-full object-cover')}/>
             </div>
           ))}              
         </div>        

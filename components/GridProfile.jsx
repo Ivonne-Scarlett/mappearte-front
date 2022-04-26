@@ -1,20 +1,35 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import classNames from 'classnames';
 import Image from 'next/image';
+import { getArtist } from '../lib/api';
 
 export default function GridProfile({ images }) { 
     const [showModal, setShowModal] = useState(false); 
     const [imgShowData, setImgShowData] = useState('');
+    const [murals, setMurals] =  useState([])
+
     const isImageClicked = (imageData) => {
       console.log('Data de la imagen: ',imageData)
       setImgShowData(imageData);
     } 
+
+    useEffect(() => {
+      getArtist()
+      .then(response => {
+        const countImages = response.artists.length
+        const imageInitial = countImages - 12
+        const artistData = response.artists.slice(imageInitial, countImages);
+        setMurals(artistData);
+      })
+    }, [])
+
     return (
     <div className={classNames(
       "columns-2 lg:columns-3",
-      "px-6 md:px-20 py-6 md:py-10"
+      /* "px-6 md:px-20",*/
+      "py-6 md:py-10", 
       )}>
-    {images.map((item, index)=> {
+    {murals.map((mural, index)=> {
       return(
         <div className={classNames(
           "break-inside-avoid-column",        
@@ -25,9 +40,9 @@ export default function GridProfile({ images }) {
           key={index} 
           onClick={() => {
             setShowModal(true)
-            isImageClicked(item)}}
+            isImageClicked(mural)}}
         >
-          <img src={item.imageURL} style={{width:'100%'}}/>
+          <img src={mural.bgImg} style={{width:'100%'}}/>
         </div>
       )
     })}
@@ -53,13 +68,13 @@ export default function GridProfile({ images }) {
                 </div>
                 <div className="relative px-6 flex-auto pb-6">
                   <img 
-                    src={imgShowData.imageURL} 
+                    src={imgShowData.bgImg} 
                     style={{width:'100%'}} 
                     className="border border-solid border-borange"
                   /> 
                   <div className='bg-orangeP text-sm'>
-                    <h3 className='pt-2 px-6'>{imgShowData.nameArtist}</h3> 
-                    <p className='pb-2 px-6'>{imgShowData.adress}</p>  
+                    <h3 className='pt-2 px-6'>{imgShowData.artist}</h3> 
+                    <p className='pb-2 px-6'>{imgShowData.city}</p>  
                   </div>        
                 </div> 
               </div>
