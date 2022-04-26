@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import classNames from "classnames";
 import { useRouter } from "next/router";
 import Link from "next/link";
+import { useQRCode } from 'next-qrcode';
 
 import {
   Nav,
@@ -18,6 +19,7 @@ export default function profileArtist() {
   const router = useRouter();
   const { id } = router.query;
   const [artist, setArtist] = useState([]);
+  const { Canvas } = useQRCode();
   useEffect(() => {
     getArtistById(id).then(({ artists }) => {
       setArtist(artists);
@@ -69,8 +71,24 @@ export default function profileArtist() {
       <DarkBlueCard 
         className="grid grid-cols-1 md:grid-cols-3 gap-4 place-items-stretch mt-20"
       >
-        <div className="bg-pink-400 md:span-1 h-40 w-100 flex justify-center">
-          <div className="bg-gray-600 h-20 w-20">qr</div>
+        <div className="md:span-1 h-50 w-100 flex justify-center">
+          <div className="h-25 w-25 flex place-content-center">
+            <Canvas
+              text={`http://localhost:3000/artist/${artist?._id}/next-qrcode`}
+              options={{
+                type: 'image/jpeg',
+                quality: 0.3,
+                level: 'M',
+                margin: 3,
+                scale: 4,
+                width: 200,
+                color: {
+                  dark: '#04032E',
+                  light: '#E7E3E3',
+                },
+              }}
+            />
+          </div>
         </div>
         <div className="w-100 md:col-span-2 align-center h-40"> 
           <h3 
