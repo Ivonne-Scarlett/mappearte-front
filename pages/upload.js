@@ -3,11 +3,11 @@ import classNames from 'classnames';
 import { useRouter } from 'next/router';
 import Uppy from "@uppy/core";
 import Transloadit from "@uppy/transloadit";
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { getUserById } from "../lib/api";
 import { getArtistById } from "../lib/api";
 
-import UploadImages from '../components/UserProfile'
 import {
   Nav,
   Input,
@@ -25,6 +25,7 @@ export default function upload() {
   const [uppy, setUppy] = useState();
   const [isUploadingFile, setIsUploadingFile] = useState(false);
   const [imageUrl, setImageUrl] = useState();
+  const [save, setSave] = useState()
   
   const onCompleteUploadFiles = (assembly) => {
     const image = assembly.results?.compress_image[0].ssl_url;
@@ -45,7 +46,43 @@ export default function upload() {
       uppy.upload();
     }
   };
+
+  const messageOk = () => {
+    toast.success('Registro exitoso.', {
+      position: "top-right",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+  }
   
+  const messageFail = () => {
+    toast.warn('Datos registrados previamente', {
+      position: "top-right",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });  
+  }
+
+  const onSubmit = async(dataRegister) => {
+    const user = await registerUser(dataRegister)
+    if (save.ok) {
+      messageOk()      
+      setTimeout(function(){
+        router.push('/Login')
+      }, 3500);
+    } else {
+      messageFail()
+    }
+   }
+
   useEffect(() => {
     const uppyInstance = new Uppy({
       restrictions: {

@@ -26,7 +26,7 @@ export default function UploadImg() {
 
 const onFileInputChange = (event) => {
     setIsUploadingFile(true);
-    
+
     const file = Array.from(event.target.files)[0] || null;
     
     if (file) {
