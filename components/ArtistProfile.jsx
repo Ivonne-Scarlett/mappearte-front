@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
 import classNames from "classnames";
 import { useRouter } from "next/router";
-import { useQRCode } from 'next-qrcode';
+import { useRef, forwardRef } from "react";
+import ReactToPrint from "react-to-print";
+import { saveAs } from "file-saver";
 
 import { getUserById } from "../lib/api";
 import { getArtistById } from "../lib/api";
@@ -14,7 +16,10 @@ import {
   GridProfile,
   DarkBlueCard,
   Footer,
+  CodeQR,
 } from "."; 
+
+
 
 export default function Profile () {
   const [role, setRole] = useState()
@@ -22,7 +27,14 @@ export default function Profile () {
   const [isArtist, setIsArtist] = useState(false)
   const [user, setUser] = useState();
   const router = useRouter();
-  const { Canvas } = useQRCode();
+  const qrRef = useRef();
+
+  const onDownload = () => {
+    const canva = document.getElementsByTagName("canvas")[0];
+    canva.toBlob((blob) => {
+      saveAs(blob, "qr-code.png");
+    });
+  };
 
   useEffect( () => {
     const id = localStorage.getItem("id");
@@ -102,22 +114,23 @@ export default function Profile () {
         className="grid grid-cols-1 md:grid-cols-3 gap-4 place-items-stretch mt-20"
       >
         <div className="md:span-1 h-50 w-100 flex justify-center">
-          <div className="h-25 w-25 flex place-content-center">
-            <Canvas
-              text={`http://localhost:3000/artist/${artist?._id}/next-qrcode`}
+          <div className="h-25 w-25 flex flex-col place-content-center">
+            <CodeQR
+              artist={artist}
+              ref={qrRef}
               options={{
-                type: 'image/jpeg',
-                quality: 0.3,
-                level: 'M',
-                margin: 3,
-                scale: 4,
-                width: 200,
-                color: {
-                  dark: '#04032E',
-                  light: '#E7E3E3',
-                },
+                width: 400
               }}
             />
+            <div className="flex flex-row place-content-center bg-orangeP">
+              <ReactToPrint
+                trigger={() => {
+                  return <button></button>;
+                }}
+                content={() => qrRef.current}
+              />
+              <button onClick={onDownload}>Descargar</button>
+            </div>
           </div>
         </div>
         <div className="w-100 md:col-span-2 align-center h-40"> 
