@@ -1,6 +1,23 @@
-import React from 'react';
-import Nav from '../components/Nav';
+import React, { useEffect, useState } from 'react';
+import { useRouter } from "next/router";
+import classNames from "classnames";
 
+import { getUserById } from "../lib/api";
+import { getArtistById } from "../lib/api";
+import {
+  DarkBlueCard,
+  Input,
+  InputFile,
+  Category, 
+  ButtonSend
+} from "../components"; 
+import {
+  Nav,
+  Footer
+} from '../components';
+
+import UserEdit from '../components/UserProfile';
+import ArtistEdit from '../components/ArtistProfile';
 
 export default function edit() {
     const [role, setRole] = useState()
@@ -33,7 +50,20 @@ export default function edit() {
   return (
     <>
       <Nav/>
-        <h1>Edit</h1>     
+      <div className={classNames(
+      'bg-artist bg-cover bg-center bg-no-repeat',
+      'flex justify-center md:justify-end',
+      'h-96',
+      'w-full',
+      'px-6 md:px-20',
+      'pt-28',
+      )}
+      >
+      </div>
+      
+      {/* <UserEdit/>
+      <Footer/> */}
+
     </>
   )
 }
