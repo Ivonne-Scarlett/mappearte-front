@@ -99,14 +99,6 @@ export default function Home() {
           <GridAvatar />
         </div>
 
-
-
-        <UploadImg />
-
-
-
-
-
       <Footer />
 
     </>
