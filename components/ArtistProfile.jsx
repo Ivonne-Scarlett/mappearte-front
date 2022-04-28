@@ -19,7 +19,7 @@ import {
   CodeQR,
 } from "."; 
 
-
+const defaultImage = "/icons/noavatar.png";
 
 export default function Profile () {
   const [role, setRole] = useState()
@@ -111,7 +111,8 @@ export default function Profile () {
       </div>
         
       <DarkBlueCard 
-        className="grid grid-cols-1 md:grid-cols-3 gap-4 place-items-stretch mt-20"
+        className="grid grid-cols-1 md:grid-cols-3 gap-4 place-items-stretch mt-20
+        border border-orangeP"
       >
         <div className="md:span-1 h-50 w-100 flex justify-center">
           <div className="h-25 w-25 flex flex-col place-content-center">
@@ -122,22 +123,28 @@ export default function Profile () {
                 width: 400
               }}
             />
-            <div className="flex flex-row place-content-center bg-orangeP">
+            <div className="flex flex-row place-content-center hover:text-orangeP bg-orangeP hover:bg-backgroundP hover:border hover:border-orangeP">
               <ReactToPrint
                 trigger={() => {
                   return <button></button>;
                 }}
                 content={() => qrRef.current}
               />
-              <button onClick={onDownload}>Descargar</button>
+              <button 
+              className="p-3" 
+              onClick={onDownload}>
+                Descargar
+              </button>
             </div>
           </div>
         </div>
-        <div className="w-100 md:col-span-2 align-center h-40"> 
+        <div className="w-100 md:col-span-2 align-center mx-3 mb:ml-3 p-1 h-40"> 
+          <h2 className="bg-orangeP text-2xl text-center mb-6 mb:ml-3">
+            Acerca de mi:</h2>
           <h3 
-            className="text-2xl text-center"
+            className="text-xl text-center"
           >
-            {artist?.resume}
+            {artist?.resume || "Cuentanos sobre tu trayectoria"}
           </h3>
         </div>
       </DarkBlueCard>

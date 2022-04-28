@@ -1,11 +1,20 @@
-import React from 'react';
-import Nav from '../components/Nav';
+import React, { useState, useEffect} from 'react';
+import { useRouter } from 'next/router';
+import classNames from 'classnames';
 
+import { getUserById } from "../lib/api";
+import { getArtistById } from "../lib/api";
+
+import ArtistEdit from "../components/form/ArtistEdit";
+import UserEdit from "../components/form/UserEdit"; 
+
+const defaultImage = "/icons/noavatar.png";
 
 export default function edit() {
-    const [role, setRole] = useState()
+  const [role, setRole] = useState()
   const [artist, setArtist] = useState();
   const [user, setUser] = useState();
+  const [isArtist, setIsArtist] = useState(false)
   const router = useRouter();
 
   useEffect( () => {
@@ -32,8 +41,10 @@ export default function edit() {
 
   return (
     <>
-      <Nav/>
-        <h1>Edit</h1>     
+
+      {isArtist && <ArtistEdit/>}
+      {!isArtist && <UserEdit/>}
+           
     </>
   )
 }

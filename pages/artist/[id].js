@@ -69,7 +69,7 @@ export default function profileArtist() {
       </div>
 
       <DarkBlueCard 
-        className="grid grid-cols-1 md:grid-cols-3 gap-4 place-items-stretch mt-20"
+        className="grid grid-cols-1 md:grid-cols-3 gap-4 place-items-stretch mt-20 border border-orangeP"
       >
         <div className="md:span-1 h-50 w-100 flex justify-center">
           <div className="h-25 w-25 flex place-content-center">
@@ -90,11 +90,13 @@ export default function profileArtist() {
             />
           </div>
         </div>
-        <div className="w-100 md:col-span-2 align-center h-40"> 
+        <div className="w-100 md:col-span-2 align-center mx-3 mb:ml-3 p-1 h-40"> 
+          <h2 className="bg-orangeP text-2xl text-center mb-6 mb:ml-3">
+            Acerca de mi:</h2>
           <h3 
-            className="text-2xl text-center"
+            className="text-xl text-center"
           >
-            {artist?.resume}
+            {artist?.resume || "Cuentanos sobre tu trayectoria"}
           </h3>
         </div>
       </DarkBlueCard>
