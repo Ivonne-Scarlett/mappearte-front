@@ -15,7 +15,7 @@ import {
 
 import { getArtistById } from "../../lib/api";
 
-export default function profileArtist() {
+export default function ProfileArtist() {
   const router = useRouter();
   const { id } = router.query;
   const [artist, setArtist] = useState([]);

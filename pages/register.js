@@ -8,7 +8,7 @@ import RegisterUserForm from '../components/form/RegisterUserForm';
 import OpacityCard from '../components/OpacityCard';
 import ToggleSwitch from '../components/ToggleSwitch';
 
-export default function login() {
+export default function Login() {
   const [isUser, setIsUser] = useState(true);
   const [isActiveToogle, setIsActiveToogle] = useState(false);
 

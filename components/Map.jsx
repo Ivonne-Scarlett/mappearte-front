@@ -2,7 +2,7 @@ import React, { useState, useEffect, useCallback, useRef } from 'react'
 import { useJsApiLoader, GoogleMap, Marker, InfoWindow } from '@react-google-maps/api'
 import mapStyles from './mapStyles'
 import spray from '../public/icons/spray.png'
-import usePlacesAutocomplete, {getGeocode, getLatlng} from 'use-places-autocomplete'
+import usePlacesAutocomplete, {getGeocode, getLatLng} from 'use-places-autocomplete'
 import { Combobox, ComboboxInput, ComboboxPopover, ComboboxList, ComboboxOption } from '@reach/combobox'
 import '@reach/combobox/styles.css'
 
@@ -150,7 +150,7 @@ function Search({panTo}) {
           clearSuggestions()
           try {
             const results = await getGeocode({address})
-            const {lat, lng } = await getLatlng(results[0])
+            const {lat, lng } = await getLatLng(results[0]) 
             panTo({lat, lng})
           } catch (error) {
             console.log('error')
