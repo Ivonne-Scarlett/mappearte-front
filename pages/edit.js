@@ -1,8 +1,9 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import Nav from '../components/Nav';
+import { useRouter } from 'next/router';
 
 
-export default function edit() {
+export default function Edit() {
     const [role, setRole] = useState()
   const [artist, setArtist] = useState();
   const [user, setUser] = useState();
