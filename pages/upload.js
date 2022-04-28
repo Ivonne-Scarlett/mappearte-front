@@ -17,7 +17,7 @@ import {
   Category
 } from '../components'
 
-export default function upload() {
+export default function Upload() {
   const [role, setRole] = useState()
   const [artist, setArtist] = useState();
   const [user, setUser] = useState();
