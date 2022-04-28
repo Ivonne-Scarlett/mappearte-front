@@ -1,56 +1,126 @@
 import React, { useState, useEffect } from "react";
 import classNames from "classnames";
+import { useForm } from "react-hook-form";
+import { ToastContainer, toast } from "react-toastify";
 import { useRouter } from "next/router";
 
-import { getUserById } from "../../lib/api";
-import { getArtistById } from "../../lib/api";
+import { getUserById, getArtistById, patchArtist } from "../../lib/api";
 
 import {
-  Nav, 
+  Nav,
   DarkBlueCard,
   Input,
   InputFile,
-  Category, 
+  Category,
   ButtonSend,
-  Footer
-} from ".."; 
+  Footer,
+} from "../index";
 
-export default function ArtistEdit () {
-  const [role, setRole] = useState()
+export default function ArtistEdit() {
+  const messageFail = () => {
+    toast.warn("Error al guardar la información", {
+      position: "top-right",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+    <ToastContainer
+      position="top-right"
+      autoClose={3000}
+      hideProgressBar={false}
+      newestOnTop={false}
+      closeOnClick
+      rtl={false}
+      pauseOnFocusLoss
+      draggable
+      pauseOnHover
+    />;
+  };
+
+  const messageOk = () => {
+    toast.success("Edición exitosa.", {
+      position: "top-right",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+    <ToastContainer
+      position="top-right"
+      autoClose={3000}
+      hideProgressBar={false}
+      newestOnTop={false}
+      closeOnClick
+      rtl={false}
+      pauseOnFocusLoss
+      draggable
+      pauseOnHover
+    />;
+  };
+
+  const [role, setRole] = useState();
   const [artist, setArtist] = useState();
-  const [isArtist, setIsArtist] = useState(false)
+  const [artistID, setArtistID] = useState();
+  const [isArtist, setIsArtist] = useState(false);
   const [user, setUser] = useState();
   const router = useRouter();
+  const { register, handleSubmit, errors, setValue, watch } = useForm();
 
-  useEffect( () => {
+  useEffect(() => {
     const id = localStorage.getItem("id");
     const role = localStorage.getItem("role");
     const token = localStorage.getItem("token");
 
     if (!token) {
-      router.push("/Login")
-    } 
-      setRole(role);
-      if (role === 'artist') {
-        getArtistById(id).then( ({artists}) => {
-          setArtist(artists);
-          setIsArtist(true);
-        }, {})
-      } else if (role === "user"){
-        getUserById(id).then( ({users})  =>{
-          console.log('Antes del set: ',users);
+      router.push("/Login");
+    }
+    setRole(role);
+    if (role === "artist") {
+      getArtistById(id).then(({ artists }) => {
+        setArtist(artists);
+        setArtistID(artists._id)
+        setIsArtist(true);
+        setValue("city", artists.city);
+        setValue("resume", artists.resume);
+        setValue("isSticker", artists.isSticker);
+        setValue("isMural", artists.isMural);
+        setValue("isGraffiti", artists.isGraffiti);
+        console.log(artists);
+      }, {});
+    } else if (role === "user") {
+      getUserById(id).then(({ users }) => {
+        console.log("Antes del set: ", users);
         setUser(users);
-        }, {})
-      }
-    }, []
-  )
+      }, {});
+    }
+  }, [] 
+  );
+
+  const onSubmit = async (dataRegister) => {
+    const artist = await patchArtist(artistID, dataRegister)
+    if (artist.ok) {
+      messageOk()   
+      router.push("/profile")       
+    } else {
+      messageFail()
+    }
+  };
 
   const defaultImage = "/icons/noavatar.png";
 
   return (
-    <>
-    <Nav/>
-    <div
+
+    <form
+      onSubmit={handleSubmit(onSubmit)}
+      className="flex flex-col justify-between"
+    >
+      <Nav />
+      <div
         className={classNames(
           "bg-artist bg-cover bg-center bg-no-repeat",
           "flex justify-center items-center",
@@ -60,16 +130,19 @@ export default function ArtistEdit () {
           "mt-24"
         )}
       ></div>
-      <DarkBlueCard className="w-screen">
-      <div className="flex justify-center mt-2 mx-28">
-          <h3 className="font-bold text-lg mt-2 font-Mali">hola{ artist?.user }</h3>
-        </div>
-        <div className="flex justify-center">
+      <DarkBlueCard className="grid grid-cols-1 md:grid-cols-3">
+        <div className="md:span-1">
+          <div className="flex justify-center mt-2 mx-28">
+            <h3 className=" font-bold text-lg mt-2 font-Mali">
+              {artist?.artist}
+            </h3>
+          </div>
+          <div className="flex justify-center ">
             <img
-              src={ artist?.imgUser || defaultImage}
+              src={artist?.imgArtist || defaultImage}
               alt="Icono de perfil de usuario"
               className={classNames(
-                "bg-backgroundP object-cover", 
+                "bg-backgroundP object-cover",
                 "rounded-full border-2 border-solid border-orangeP",
                 "w-24 h-24 justify-center",
                 "md:w-32 md:h-32",
@@ -77,34 +150,46 @@ export default function ArtistEdit () {
                 "2xl:w-60 2xl:h-60"
               )}
             />
+          </div>
         </div>
-        <div className="flex flex-row w-full">
-          <Category 
-            className='rounded-l-lg'
-            name='Sticker'
-            value='isSticker'
-        
+        <div className="md:col-span-2">
+          <div className="flex flex-row mx-auto mt-1 ">
+            <Category
+              className="rounded-l-lg"
+              name="Sticker"
+              value={watch("isSticker")}
+              register={register("isSticker")}
+            />
+            <Category
+              name="Mural"
+              value={watch("isMural")}
+              register={register("isMural")}
+            />
+            <Category
+              className="rounded-r-md"
+              name="Grafitti"
+              value={watch("isGraffiti")}
+              register={register("isGraffiti")}
+            />
+          </div>
+          <Input label="Ciudad:" name="city" register={register("city")} />
+        </div>
+        <div className="flex flex-col col-span-3 ">
+          <Input
+            label="Acerca de mi:"
+            name="resume"
+            register={register("resume")}
           />
-          <Category 
-            name='Mural'
-            value='isMural'
-        
-          />
-          <Category 
-            className='rounded-r-md'
-            name='Grafitti'
-            value='isGraffiti'            
+          <ButtonSend
+            className="mx-auto mt-12 md:w-1/3"
+            type="submit"
+            text="Guardar"
+            bgColor="Orange"
+            borderColor="Orange"
           />
         </div>
-        <ButtonSend
-        className='mt-4' 
-        type='submit' 
-        text='Registrar'
-        bgColor='Orange'
-        borderColor='Orange'
-        />
       </DarkBlueCard>
-      <Footer/>
-    </>
-  )
+      <Footer />
+    </form>
+  );
 }

@@ -1,14 +1,11 @@
 import React, { useState, useEffect} from 'react';
 import { useRouter } from 'next/router';
-import classNames from 'classnames';
 
 import { getUserById } from "../lib/api";
 import { getArtistById } from "../lib/api";
 
 import ArtistEdit from "../components/form/ArtistEdit";
 import UserEdit from "../components/form/UserEdit"; 
-
-const defaultImage = "/icons/noavatar.png";
 
 export default function edit() {
   const [role, setRole] = useState()
@@ -29,7 +26,7 @@ export default function edit() {
 
       if (role === 'artist') {
         getArtistById(id).then( ({artists}) => {
-          setArtist(artists);
+          setIsArtist(artists);
         }, {})
       } else if (role === "user"){
         getUserById(id).then( ({users})  =>{
