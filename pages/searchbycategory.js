@@ -6,8 +6,8 @@ import 'react-toastify/dist/ReactToastify.css';
 import Nav from '../components/Nav';
 import AvatarImg from '../components/AvatarImg';
 import SearchByCategory from '../components/SearchByCategory';
-import OpacityCard from '../components/OpacityCard';
 import Footer from '../components/Footer';
+import DarkBlueCard from '../components/DarkBlueCard';
 
 
 export default function searchbycategory() {
@@ -78,10 +78,10 @@ export default function searchbycategory() {
           onClick={handlerButton}
         />
       </div>
-      <OpacityCard className='bg-[#20184b] mx-6 md:mx-20 my-6 md:my-10'>
+      <DarkBlueCard className='min-h-screen'>
         { resultFilterCategory && <AvatarImg artists={resultFilterCategory} /> }
         { !categorySelect && <AvatarImg artists={allArtist} /> }
-      </OpacityCard>
+      </DarkBlueCard>
       <Footer className='inset-x-0 bottom-0'/>
     </div>
   )

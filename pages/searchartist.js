@@ -6,8 +6,8 @@ import 'react-toastify/dist/ReactToastify.css';
 import Nav from '../components/Nav';
 import AvatarImg from '../components/AvatarImg';
 import SearchByArtist from '../components/SearchByArtist';
-import OpacityCard from '../components/OpacityCard';
 import Footer from '../components/Footer';
+import DarkBlueCard from '../components/DarkBlueCard';
 
 
 export default function searchartist() {
@@ -55,7 +55,7 @@ export default function searchartist() {
   }
 
   return (
-    <div>
+    <div className=''>
       <Nav />
       <div className='mt-20 md:mt-44 mx-10 sm:mx-44 md:mx-72'>
         <SearchByArtist
@@ -63,11 +63,11 @@ export default function searchartist() {
           onChange={handlerChangeInput}       
         />
       </div>
-      <OpacityCard className='bg-[#20184b] mx-6 md:mx-20 my-6 md:my-10'>
+      <DarkBlueCard className='min-h-screen'>
         { filtered && <AvatarImg artists={filtered} />}
         { !filtered && <AvatarImg artists={allArtist} /> }
-      </OpacityCard>
-      <Footer />
+      </DarkBlueCard>
+      <Footer className='inset-x-0 bottom-0'/>
     </div>
   )
 }
