@@ -10,7 +10,7 @@ import Footer from '../components/Footer';
 import DarkBlueCard from '../components/DarkBlueCard';
 
 
-export default function searchartist() {
+export default function Searchartist() {
   const messageFail = () => {
     toast.warn('Artista no encontrado', {
       position: "top-right",

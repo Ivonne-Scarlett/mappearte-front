@@ -5,7 +5,7 @@ import { useRouter } from 'next/router';
 import LoginForm from '../components/form/LoginForm';
 import OpacityCard from '../components/OpacityCard';
 
-export default function login() { 
+export default function Login() { 
   const router = useRouter(); 
   return (
     <div className={classNames(

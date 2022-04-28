@@ -2,7 +2,7 @@ import React from 'react';
 import Nav from '../components/Nav';
 
 
-export default function edit() {
+export default function Edit() {
     const [role, setRole] = useState()
   const [artist, setArtist] = useState();
   const [user, setUser] = useState();

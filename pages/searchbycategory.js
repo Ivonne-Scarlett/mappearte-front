@@ -10,7 +10,7 @@ import Footer from '../components/Footer';
 import DarkBlueCard from '../components/DarkBlueCard';
 
 
-export default function searchbycategory() {
+export default function Searchbycategory() {
   const [allArtist, setAllArtist] = useState([]);
   const[resultFilterCategory, setResultFilterCategory] = useState([]);
   const [categorySelect, setCategorySelect]= useState('')
