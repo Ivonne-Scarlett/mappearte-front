@@ -9,6 +9,7 @@ import { getUserById, getArtistById, patchUser } from "../../lib/api";
 import {
   Nav, 
   DarkBlueCard,
+  InputFile,
   Category, 
   ButtonSend,
   Footer
@@ -88,7 +89,7 @@ export default function ArtistEdit () {
           setUserID(users._id);
           setValue("isSticker", users.isSticker);
           setValue("isMural", users.isMural);
-          setValue("isGraffiti", users.isGraffiti);
+          setValue("isGraffitti", users.isGraffitti);
         }, {})
       }
     }, [] 
@@ -158,15 +159,15 @@ export default function ArtistEdit () {
           <Category
             className="rounded-r-md"
             name="Grafitti"
-            value={watch("isGraffiti")}
-            register={register("isGraffiti")}
+            value={watch("isGraffitti")}
+            register={register("isGraffitti")}
           />
         </div>
         <div className='flex ' >
           <ButtonSend
           className='mx-auto mt-12 md:w-1/3' 
           type='submit' 
-          text='Registrar'
+          text='Guardar'
           bgColor='Orange'
           borderColor='Orange'
           />

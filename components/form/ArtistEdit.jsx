@@ -153,6 +153,9 @@ export default function ArtistEdit() {
           </div>
         </div>
         <div className="md:col-span-2">
+          <label>
+            Categoria
+          </label>
           <div className="flex flex-row mx-auto mt-1 ">
             <Category
               className="rounded-l-lg"
@@ -172,7 +175,12 @@ export default function ArtistEdit() {
               register={register("isGraffiti")}
             />
           </div>
-          <Input label="Ciudad:" name="city" register={register("city")} />
+          <Input label="Ciudad" name="city" register={register("city")} />
+          
+          <label className="my-2">
+            Cambia tu imagen 
+          </label>
+          <InputFile/>
         </div>
         <div className="flex flex-col col-span-3 ">
           <Input
@@ -180,6 +188,7 @@ export default function ArtistEdit() {
             name="resume"
             register={register("resume")}
           />
+          
           <ButtonSend
             className="mx-auto mt-12 md:w-1/3"
             type="submit"

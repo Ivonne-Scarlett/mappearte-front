@@ -1,9 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 
-import Image from 'next/image';
 import CreatedBy from '../config/footer.json';
-
 
 export default function Footer({className}) {
   return (
@@ -31,7 +29,7 @@ export default function Footer({className}) {
             {
               CreatedBy.map((koder, index) => (
                 <a href={koder.linkedIn} key={index} className='pr-2'>
-                  <Image src='/icons/linkedIn.png' alt={koder.alt} width='25px' height='25px' className='hover:bg-white' />
+                  <img src='/icons/linkedIn.png' alt={koder.alt} width='25px' height='25px' className='hover:bg-white' />
                 </a>
               ))
             }

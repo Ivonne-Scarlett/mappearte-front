@@ -1,16 +1,49 @@
+//Este componente no se esta rederizando 
+//lo dejo para seguir teniendo el ejemplo de subir imagen que inicio Job
+
 import React, { useState, useEffect } from "react";
 import Uppy from "@uppy/core";
 import Transloadit from "@uppy/transloadit";
 import { useRouter } from 'next/router';
 import classNames from 'classnames';
-import Input from '../components/Input';
-import InputFile from '../components/InputFile'
-import ButtonSend from '../components/ButtonSend';
-import Category from '../components/Category';
-import OpacityCard from './OpacityCard';
+import { useForm } from "react-hook-form";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+import {
+  Input,
+  InputFile,
+  ButtonSend,
+  Category,
+  OpacityCard
+ } from '../index';
 
 
 export default function UploadImg() {
+  const messageFail = () => {
+    toast.warn('Revisa la información', {
+      position: "top-right",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });  
+  }
+
+  const messageOk = () => {
+    toast.success('Tu foto se ha guardado.', {
+      position: "top-right",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+  }
+
   const [uppy, setUppy] = useState();
   const [isUploadingFile, setIsUploadingFile] = useState(false);
   const [imageUrl, setImageUrl] = useState();
@@ -19,14 +52,13 @@ export default function UploadImg() {
     const image = assembly.results?.compress_image[0].ssl_url;
 
     setImageUrl(image);
-
     
     setIsUploadingFile(false);
 };
 
 const onFileInputChange = (event) => {
     setIsUploadingFile(true);
-    
+
     const file = Array.from(event.target.files)[0] || null;
     
     if (file) {
@@ -59,25 +91,28 @@ const onFileInputChange = (event) => {
   }, []);
 
   const router = useRouter();
-/*   const { register, handleSubmit, errors } = useForm(); */
-  /* const onSubmit = async(dataRegister) => {
-    console.log(dataRegister)
-    const artist = await registerArtist(dataRegister)
-    console.log('artist:',artist)
-    if (artist.ok) {
-      router.push('/Login')
+  const { register, handleSubmit, errors, watch } = useForm({defaultValues:{
+    isGraffiti:false,
+    isSticker:false,
+    isMural:false
+  }});
+
+  const onSubmit = async(dataRegister) => {
+    const user = await registerUser(dataRegister)
+    if (user.ok) {
+      messageOk()      
+      setTimeout(function(){
+        router.push('/Login')
+      }, 3500);
     } else {
-      alert('Datos ya registrados, ingresa con tu contraseña.')
+      messageFail()
     }
-   } */
-   const sayHi = () => {
-    console.log('Hola')
-  }
+   }
 
   return (
-    <form
-    className='flex flex-col justify-between'
-  >
+    <form onSubmit={handleSubmit(onSubmit)}
+      className='flex flex-col justify-between'
+    >
     <OpacityCard className={classNames(
       'grid grid-cols-1 md:grid-cols-1 gap-4',
       'mx-6 md:mx-32 lg:mx-40',
@@ -102,7 +137,22 @@ const onFileInputChange = (event) => {
           </label>
           <div className="flex flex-row mt-1 w-full">
             <Category
-            buttonChange='Cyan' />
+              className="rounded-l-lg"
+              name="Sticker"
+              value={watch("isSticker")}
+              register={register("isSticker")}
+            />
+            <Category
+              name="Mural"
+              value={watch("isMural")}
+              register={register("isMural")}
+            />
+            <Category
+              className="rounded-r-md"
+              name="Grafitti"
+              value={watch("isGraffiti")}
+              register={register("isGraffiti")}
+            />
           </div>
         </div>
         <div>

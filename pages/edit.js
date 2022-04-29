@@ -7,7 +7,7 @@ import { getArtistById } from "../lib/api";
 import ArtistEdit from "../components/form/ArtistEdit";
 import UserEdit from "../components/form/UserEdit"; 
 
-export default function edit() {
+export default function Edit() {
   const [role, setRole] = useState()
   const [artist, setArtist] = useState();
   const [user, setUser] = useState();
@@ -33,7 +33,7 @@ export default function edit() {
         setUser(users);
         }, {})
       }
-    }, []
+    }, [router]
   )
 
   return (
