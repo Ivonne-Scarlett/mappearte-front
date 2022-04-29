@@ -2,9 +2,11 @@ import { React, useState, useEffect } from 'react';
 import classNames from 'classnames';
 import { useRouter } from 'next/router';
 import Uppy from "@uppy/core";
+import { useForm } from "react-hook-form";
 import Transloadit from "@uppy/transloadit";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+
 import { getUserById } from "../lib/api";
 import { getArtistById } from "../lib/api";
 
@@ -18,6 +20,30 @@ import {
 } from '../components'
 
 export default function Upload() {
+  const messageFail = () => {
+    toast.warn('Revisa la información', {
+      position: "top-right",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });  
+  }
+
+  const messageOk = () => {
+    toast.success('Tu foto se ha guardado.', {
+      position: "top-right",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+  }
+
   const [role, setRole] = useState()
   const [artist, setArtist] = useState();
   const [user, setUser] = useState();
@@ -25,7 +51,7 @@ export default function Upload() {
   const [uppy, setUppy] = useState();
   const [isUploadingFile, setIsUploadingFile] = useState(false);
   const [imageUrl, setImageUrl] = useState();
-  const [save, setSave] = useState()
+ 
   
   const onCompleteUploadFiles = (assembly) => {
     const image = assembly.results?.compress_image[0].ssl_url;
@@ -46,30 +72,6 @@ export default function Upload() {
       uppy.upload();
     }
   };
-
-  const messageOk = () => {
-    toast.success('Registro exitoso.', {
-      position: "top-right",
-      autoClose: 3000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-    });
-  }
-  
-  const messageFail = () => {
-    toast.warn('Datos registrados previamente', {
-      position: "top-right",
-      autoClose: 3000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-    });  
-  }
 
   const onSubmit = async(dataRegister) => {
     const user = await registerUser(dataRegister)
@@ -96,10 +98,16 @@ export default function Upload() {
       },
       waitForEncoding: true,
     })
+    .on("transloadit:complete", onCompleteUploadFiles);
     setUppy(uppyInstance);
   }, []);
-  
-  console.log(imageUrl)
+ 
+  const { register, handleSubmit, errors, watch } = useForm({defaultValues:{
+    isGraffiti:false,
+    isSticker:false,
+    isMural:false
+  }});
+
   useEffect( () => {
     const id = localStorage.getItem("id");
     const role = localStorage.getItem("role");
@@ -122,7 +130,9 @@ export default function Upload() {
   )
 
   return (
-    <>
+    <form onSubmit={handleSubmit(onSubmit)}
+      className='flex flex-col justify-between'
+    >  
       <Nav/>
       <div className={classNames(
       'bg-artist bg-no-repeat bg-cover',
@@ -148,6 +158,7 @@ export default function Upload() {
             label='Nombre del artísta:'
             placeholder='ejemplo: MexiArt'
             name='artist'
+            register= {register("artist")} 
             />
 
             <label>
@@ -185,6 +196,7 @@ export default function Upload() {
             placeholder='ejemplo: Calle A #1, Del. B'
             name='address'
             className='my-4'
+            register= {register("address")} 
             />
           </div>
           <div 
@@ -205,6 +217,6 @@ export default function Upload() {
           </div>
         </OpacityCard>
       </div>
-    </>
+    </form>
   )
 }
