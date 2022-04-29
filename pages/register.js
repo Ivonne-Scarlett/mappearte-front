@@ -2,7 +2,6 @@ import React from 'react';
 import {useState} from 'react';
 import classNames from 'classnames';
 
-
 import RegisterArtistForm from '../components/form/RegisterArtistForm';
 import RegisterUserForm from '../components/form/RegisterUserForm';
 import OpacityCard from '../components/OpacityCard';

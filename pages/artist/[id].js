@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import classNames from "classnames";
 import { useRouter } from "next/router";
-import Link from "next/link";
 import { useQRCode } from 'next-qrcode';
 
 import {
@@ -24,7 +23,7 @@ export default function ProfileArtist() {
     getArtistById(id).then(({ artists }) => {
       setArtist(artists);
     });
-  }, []);
+  }, [id]);
   
   const defaultImage = "/icons/noavatar.png";
 

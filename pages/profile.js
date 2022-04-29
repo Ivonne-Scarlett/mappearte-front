@@ -10,8 +10,8 @@ import UserProfile from "../components/UserProfile"
 export default function Profile () {
   const [role, setRole] = useState()
   const [artist, setArtist] = useState();
-  const [isArtist, setIsArtist] = useState(false)
   const [user, setUser] = useState();
+  const [isArtist, setIsArtist] = useState(false)
   const router = useRouter();
 
   useEffect( () => {
@@ -34,7 +34,7 @@ export default function Profile () {
         setUser(users);
         }, {})
       }
-    }, []
+    }, [router]
   )
 
   return (

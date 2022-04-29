@@ -1,6 +1,5 @@
 import React, {useState, useEffect} from 'react';
 import classNames from 'classnames';
-import Image from 'next/image';
 import { getArtist } from '../lib/api';
 
 export default function GridProfile({ images }) { 
@@ -26,7 +25,6 @@ export default function GridProfile({ images }) {
     return (
     <div className={classNames(
       "columns-2 lg:columns-3",
-      /* "px-6 md:px-20",*/
       "py-6 md:py-10", 
       )}>
     {murals.map((mural, index)=> {
@@ -42,7 +40,7 @@ export default function GridProfile({ images }) {
             setShowModal(true)
             isImageClicked(mural)}}
         >
-          <img src={mural.bgImg} style={{width:'100%'}}/>
+          <img src={mural.bgImg} alt="" style={{width:'100%'}}/>
         </div>
       )
     })}
@@ -63,12 +61,13 @@ export default function GridProfile({ images }) {
                     type="button"
                     onClick={() => setShowModal(false)}
                   >
-                    <Image src='/icons/cancel.png' alt='boton de cerrar' width='15px' height='15px'/>
+                    <img src='/icons/cancel.png' alt='boton de cerrar' width='15px' height='15px'/>
                   </button>
                 </div>
                 <div className="relative px-6 flex-auto pb-6">
                   <img 
                     src={imgShowData.bgImg} 
+                    alt=""
                     style={{width:'100%'}} 
                     className="border border-solid border-borange"
                   /> 

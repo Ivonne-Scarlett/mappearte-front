@@ -73,7 +73,7 @@ export default function Nav() {
           isMenuOpen ? "w-screen" : ""
         )}
       >
-        <Link href={"/"}>
+        <Link href={"/"} >
           <img
             src="/icons/logo.png"
             alt="Logotipo mappearte"
@@ -110,7 +110,7 @@ export default function Nav() {
             )}
           >
         <div className='flex'>       
-            <Link href={"/profile"}>
+            <Link href={"/profile"} passHref>
               <img
                 src="../icons/avatarIndex.png"
                 alt="avatar"
@@ -154,7 +154,7 @@ export default function Nav() {
                 )}
                 key={`menuItem-${index}`}
               >
-                <Link href={link}>
+                <Link href={link} passHref>
                   <a
                     className={classNames(
                       "hover:decoration-lime-400 hover:text-lime-400",
@@ -180,7 +180,7 @@ export default function Nav() {
               Subir Foto
             </ButtonToGo>
           </ul>
-          <Link href={"/profile"}>
+          <Link href={"/profile"} passHref>
             <img
               src="../icons/avatarIndex.png"
               alt="Imagen de perfil"
