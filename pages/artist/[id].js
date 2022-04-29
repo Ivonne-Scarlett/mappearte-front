@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import classNames from "classnames";
 import { useRouter } from "next/router";
-import Link from "next/link";
+import Image from 'next/image';
 import { useQRCode } from 'next-qrcode';
 
 import {
@@ -24,7 +24,7 @@ export default function ProfileArtist() {
     getArtistById(id).then(({ artists }) => {
       setArtist(artists);
     });
-  }, []);
+  }, [id]);
   
   const defaultImage = "/icons/noavatar.png";
 
@@ -49,7 +49,7 @@ export default function ProfileArtist() {
           )}
         >
           <div className="flex justify-center mt-3">
-            <img
+            <Image
               src={artist.imgArtist || defaultImage}
               alt="Icono de perfil de usuario"
               className={classNames(

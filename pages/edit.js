@@ -28,7 +28,7 @@ export default function Edit() {
         setUser(users);
         }, {})
       }
-    }, []
+    }, [router]
   )
 
   return (

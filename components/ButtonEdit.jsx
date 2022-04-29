@@ -1,6 +1,7 @@
 import React from 'react'
 import { useRouter } from 'next/router';
 import classNames from 'classnames';
+import Image from 'next/image';
 
 export default function ButtonEdit({route}) {
   const router = useRouter();
@@ -15,7 +16,7 @@ export default function ButtonEdit({route}) {
     )}
     onClick={onClick}
     >
-        <img 
+        <Image 
         src='/icons/edit.png' 
         alt='Icono de editar foto' 
         className={classNames(

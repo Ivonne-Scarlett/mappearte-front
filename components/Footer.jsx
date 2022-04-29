@@ -1,7 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
-
 import Image from 'next/image';
+
 import CreatedBy from '../config/footer.json';
 
 
@@ -22,8 +22,8 @@ export default function Footer({className}) {
           'flex flex-row items-center',
           'mt-6 md:mt-0'
         )}>
-          <img src='/icons/logoDesktop.png' alt='Logotipo' className='w-[40px]' />
-          <img src='/icons/MappeArteDesktop.png' alt='MappeArte brand' className='pl-1 w-[120px] hidden md:block' /> 
+          <Image src='/icons/logoDesktop.png' alt='Logotipo' className='w-[40px]' />
+          <Image src='/icons/MappeArteDesktop.png' alt='MappeArte brand' className='pl-1 w-[120px] hidden md:block' /> 
         </div>
         <div className='text-sm mt-4 md:mt-0'>
           <p className='text-center'>Creado por:</p>

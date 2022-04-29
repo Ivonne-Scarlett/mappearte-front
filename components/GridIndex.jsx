@@ -55,8 +55,9 @@ export default function GridIndex({ images }) {
                         </button>
                       </div>
                       <div className="relative px-6 flex-auto pb-6">
-                        <img 
+                        <Image 
                           src={imgShowData.bgImg} 
+                          alt=""
                           style={{width:'100%'}} 
                           className="border border-solid border-borange"
                         /> 
@@ -87,8 +88,9 @@ export default function GridIndex({ images }) {
                     </button>
                   </div>
                   <div className="px-6 pb-6">
-                    <img 
+                    <Image 
                       src={imgShowData.bgImg} 
+                      alt=""
                       style={{width:'100%'}} 
                       className="border border-solid border-white"
                     /> 
@@ -122,7 +124,7 @@ export default function GridIndex({ images }) {
                   isImageClicked(image)
                 }}
               >
-                <img src={image.bgImg} className={classNames('w-full h-full object-cover')}/>
+                <Image src={image.bgImg} alt="" className={classNames('w-full h-full object-cover')}/>
             </div>
           ))}              
         </div>        

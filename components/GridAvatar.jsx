@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import classNames from "classnames";
+import Image from "next/image";
 import Link from "next/link";
 import { getArtist } from "../lib/api";
 
@@ -33,8 +34,8 @@ export default function GridAvatar() {
               className={classNames("flex flex-row justify-center ")}
               key={index}
             >
-              <Link href={`/artist/${artistId}`}>
-                <img
+              <Link href={`/artist/${artistId}`} passHref>
+                <Image
                   src={artistImage}
                   alt="artista"
                   className={classNames(

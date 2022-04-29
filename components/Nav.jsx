@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import classNames from "classnames";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -73,15 +74,15 @@ export default function Nav() {
           isMenuOpen ? "w-screen" : ""
         )}
       >
-        <Link href={"/"}>
-          <img
+        <Link href={"/"} passHref>
+          <Image
             src="/icons/logo.png"
             alt="Logotipo mappearte"
             className={classNames("w-32 md:w-40 lg:w-44", "cursor-pointer")}
           />
         </Link>
         <button className="" onClick={showMenu}>
-          <img
+          <Image
             src="/icons/menu.png"
             alt="Icono de menu"
             className={classNames(
@@ -110,8 +111,8 @@ export default function Nav() {
             )}
           >
         <div className='flex'>       
-            <Link href={"/profile"}>
-              <img
+            <Link href={"/profile"} passHref>
+              <Image
                 src="../icons/avatarIndex.png"
                 alt="avatar"
                 className={classNames(
@@ -154,7 +155,7 @@ export default function Nav() {
                 )}
                 key={`menuItem-${index}`}
               >
-                <Link href={link}>
+                <Link href={link} passHref>
                   <a
                     className={classNames(
                       "hover:decoration-lime-400 hover:text-lime-400",
@@ -180,8 +181,8 @@ export default function Nav() {
               Subir Foto
             </ButtonToGo>
           </ul>
-          <Link href={"/profile"}>
-            <img
+          <Link href={"/profile"} passHref>
+            <Image
               src="../icons/avatarIndex.png"
               alt="Imagen de perfil"
               className={classNames(

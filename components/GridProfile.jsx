@@ -42,7 +42,7 @@ export default function GridProfile({ images }) {
             setShowModal(true)
             isImageClicked(mural)}}
         >
-          <img src={mural.bgImg} style={{width:'100%'}}/>
+          <Image src={mural.bgImg} alt="" style={{width:'100%'}}/>
         </div>
       )
     })}
@@ -67,8 +67,9 @@ export default function GridProfile({ images }) {
                   </button>
                 </div>
                 <div className="relative px-6 flex-auto pb-6">
-                  <img 
+                  <Image 
                     src={imgShowData.bgImg} 
+                    alt=""
                     style={{width:'100%'}} 
                     className="border border-solid border-borange"
                   /> 

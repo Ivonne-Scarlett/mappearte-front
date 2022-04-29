@@ -1,5 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
+import Image from 'next/image';
 import { useRouter } from 'next/router';
 
 import LoginForm from '../components/form/LoginForm';
@@ -15,7 +16,7 @@ export default function Login() {
       )}>  
 
         <div className="w-full md:w-3/5 xl:w-3/6 min-h-full max-h-full hidden md:block">
-          <img src='/img/login-fondo.jpg' alt='Logotipo' className='w-full h-full rounded-l-xl' />
+          <Image src='/img/login-fondo.jpg' alt='Logotipo' className='w-full h-full rounded-l-xl' />
         </div>
 
         <OpacityCard className={classNames(
@@ -23,8 +24,8 @@ export default function Login() {
           'flex flex-col justify-evenly'
         )}>        
           <div className="flex flex-col justify-between items-center ">
-            <img src='/icons/logoDesktop.png' alt='Logotipo' className='w-[40px] md:w-[50px] mb-2' />
-            <img src='/icons/MappeArteDesktop.png' alt='MappeArte brand' className='pl-1 w-[120px] md:w-[150px]' /> 
+            <Image src='/icons/logoDesktop.png' alt='Logotipo' className='w-[40px] md:w-[50px] mb-2' />
+            <Image src='/icons/MappeArteDesktop.png' alt='MappeArte brand' className='pl-1 w-[120px] md:w-[150px]' /> 
           </div>
           <LoginForm />
 

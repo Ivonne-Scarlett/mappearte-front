@@ -34,7 +34,7 @@ export default function Profile () {
         setUser(users);
         }, {})
       }
-    }, []
+    }, [router]
   )
 
   return (

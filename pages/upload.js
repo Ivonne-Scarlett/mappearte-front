@@ -1,5 +1,6 @@
 import { React, useState, useEffect } from 'react';
 import classNames from 'classnames';
+import Image from 'next/image';
 import { useRouter } from 'next/router';
 import Uppy from "@uppy/core";
 import Transloadit from "@uppy/transloadit";
@@ -118,7 +119,7 @@ export default function Upload() {
         setUser(users);
         }, {})
       }
-    }, []
+    }, [router]
   )
 
   return (
@@ -135,7 +136,7 @@ export default function Upload() {
           "mt-20 mb-20 md:mt-32 md:mb-10"
         )}>
           <div className="md:col-span-2 md:row-span-1 justify-center">
-            <img 
+            <Image 
               src="../icons/sube-tu-arte.png" 
               alt="Sube tu arte" 
               className="mx-auto" 
@@ -193,12 +194,11 @@ export default function Upload() {
           <div 
           className="flex justify-center items-center md:col-span-2 md:row-span-1">
             <ButtonSend 
-              className='mt-4' 
+              className='mt-4 w-2/3 md:w-1/3' 
               type='submit' 
               text='Guardar'
               bgColor='Orange'
               borderColor='Orange'
-              className='w-2/3 md:w-1/3'
             />
           </div>
         </OpacityCard>

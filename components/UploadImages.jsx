@@ -3,6 +3,7 @@ import Uppy from "@uppy/core";
 import Transloadit from "@uppy/transloadit";
 import { useRouter } from 'next/router';
 import classNames from 'classnames';
+import Image from "next/image";
 import Input from '../components/Input';
 import InputFile from '../components/InputFile'
 import ButtonSend from '../components/ButtonSend';
@@ -84,7 +85,7 @@ const onFileInputChange = (event) => {
       'my-8 md:my-6 lg:my-10'
     )}
     >
-      <img
+      <Image
       src='../icons/sube-tu-arte.png'
       alt='Sube tu arte'
       className='mx-auto'
