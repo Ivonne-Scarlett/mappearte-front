@@ -155,20 +155,23 @@ export default function Upload() {
             </label>
             <div 
             className="flex flex-row mt-1 w-full my-2">
-              <Category 
-                className='rounded-l-lg my-4'
-                name='Sticker'
-                value='isSticker'
-              />
-              <Category 
-                name='Mural'
-                value='isMural'
-              />
-              <Category 
-                className='rounded-r-md  my-4'
-                name='Grafitti'
-                value='isGraffiti'             
-              />
+              <Category
+              className="rounded-l-lg"
+              name="Sticker"
+              value={watch("isSticker")}
+              register={register("isSticker")}
+            />
+            <Category
+              name="Mural"
+              value={watch("isMural")}
+              register={register("isMural")}
+            />
+            <Category
+              className="rounded-r-md"
+              name="Grafitti"
+              value={watch("isGraffiti")}
+              register={register("isGraffiti")}
+            />
             </div>
             <InputFile
             id='file'

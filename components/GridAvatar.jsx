@@ -33,7 +33,7 @@ export default function GridAvatar() {
               className={classNames("flex flex-row justify-center ")}
               key={index}
             >
-              <Link href={`/artist/${artistId}`} passHref>
+              <Link href={`/artist/${artistId}`}>
                 <img
                   src={artistImage}
                   alt="artista"

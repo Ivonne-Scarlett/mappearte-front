@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import classNames from 'classnames';
 
-export default function Category({ className, name, type = 'checkbox', register, error, required }) {
+export default function Category({ className, name, type = 'checkbox', register, error, required, value }) {
   const [isActive, setIsActive] = useState(false);
   const [selectedOptions, setSelectedOptiones] = useState();
 
@@ -14,7 +14,7 @@ export default function Category({ className, name, type = 'checkbox', register,
       'hover:border hover:border-orange-500',
       'placeholder: text-white',
       {
-        'bg-gradient-to-b from-orange-300 to-orange-700 backdrop-blur-md text-gray-200': isActive
+        'bg-gradient-to-b from-orange-300 to-orange-700 backdrop-blur-md text-gray-200': value
       },
       { className }
       )}>
@@ -25,10 +25,7 @@ export default function Category({ className, name, type = 'checkbox', register,
         type={type}
 
         {...register}
-        onClick={() => {
-          setIsActive(!isActive)  
               
-        }}      
       />
       <label className='pl-0 md:pl-1'>
         {name}

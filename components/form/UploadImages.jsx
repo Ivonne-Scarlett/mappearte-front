@@ -3,11 +3,11 @@ import Uppy from "@uppy/core";
 import Transloadit from "@uppy/transloadit";
 import { useRouter } from 'next/router';
 import classNames from 'classnames';
-import Input from '../components/Input';
-import InputFile from '../components/InputFile'
-import ButtonSend from '../components/ButtonSend';
-import Category from '../components/Category';
-import OpacityCard from './OpacityCard';
+import Input from '../Input';
+import InputFile from '../InputFile'
+import ButtonSend from '../ButtonSend';
+import Category from '../Category';
+import OpacityCard from '../OpacityCard';
 
 
 export default function UploadImg() {
@@ -102,7 +102,22 @@ const onFileInputChange = (event) => {
           </label>
           <div className="flex flex-row mt-1 w-full">
             <Category
-            buttonChange='Cyan' />
+              className="rounded-l-lg"
+              name="Sticker"
+              value={watch("isSticker")}
+              register={register("isSticker")}
+            />
+            <Category
+              name="Mural"
+              value={watch("isMural")}
+              register={register("isMural")}
+            />
+            <Category
+              className="rounded-r-md"
+              name="Grafitti"
+              value={watch("isGraffiti")}
+              register={register("isGraffiti")}
+            />
           </div>
         </div>
         <div>
