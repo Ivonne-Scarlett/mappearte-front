@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import classNames from "classnames";
-import Image from "next/image";
 import { useRouter } from "next/router";
 import { useRef, forwardRef } from "react";
 import ReactToPrint from "react-to-print";
@@ -82,7 +81,7 @@ export default function Profile () {
           )}
         >
           <div className="flex justify-center mt-3">
-            <Image
+            <img
               src={ artist?.imgArtist || defaultImage}
               alt="Icono de perfil de usuario"
               className={classNames(

@@ -1,6 +1,5 @@
 import React, {useState, useEffect} from 'react';
 import classNames from 'classnames';
-import Image from 'next/image';
 import { getArtist } from '../lib/api';
 
 export default function GridIndex({ images }) {
@@ -46,7 +45,7 @@ export default function GridIndex({ images }) {
                           type="button"
                           onClick={() => setShowModal(false)}
                         >
-                          <Image 
+                          <img 
                           src='/icons/cancel.png' 
                           alt='boton de cerrar' 
                           width='15px' 
@@ -55,7 +54,7 @@ export default function GridIndex({ images }) {
                         </button>
                       </div>
                       <div className="relative px-6 flex-auto pb-6">
-                        <Image 
+                        <img 
                           src={imgShowData.bgImg} 
                           alt=""
                           style={{width:'100%'}} 
@@ -84,11 +83,11 @@ export default function GridIndex({ images }) {
                       type="button"
                       onClick={() => setShowModal(false)}
                     >
-                      <Image src='/icons/cancel.png' alt='boton de cerrar' width='15px' height='15px'/>
+                      <img src='/icons/cancel.png' alt='boton de cerrar' width='15px' height='15px'/>
                     </button>
                   </div>
                   <div className="px-6 pb-6">
-                    <Image 
+                    <img 
                       src={imgShowData.bgImg} 
                       alt=""
                       style={{width:'100%'}} 
@@ -124,7 +123,7 @@ export default function GridIndex({ images }) {
                   isImageClicked(image)
                 }}
               >
-                <Image src={image.bgImg} alt="" className={classNames('w-full h-full object-cover')}/>
+                <img src={image.bgImg} alt="" className={classNames('w-full h-full object-cover')}/>
             </div>
           ))}              
         </div>        

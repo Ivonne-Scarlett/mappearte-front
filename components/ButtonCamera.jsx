@@ -1,7 +1,6 @@
 import React from 'react';
 import { useRouter } from 'next/router';
 import classNames from 'classnames';
-import Image from 'next/image';
 
 export default function ButtonCamera({route}) {
   const router = useRouter();
@@ -19,7 +18,7 @@ export default function ButtonCamera({route}) {
     )}
     onClick={onClick}
     >
-      <Image 
+      <img 
       src='/icons/camera.png' 
       alt='Icono de editar' 
       className={classNames(

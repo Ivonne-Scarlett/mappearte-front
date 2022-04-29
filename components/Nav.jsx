@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import classNames from "classnames";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -74,15 +73,15 @@ export default function Nav() {
           isMenuOpen ? "w-screen" : ""
         )}
       >
-        <Link href={"/"} passHref>
-          <Image
+        <Link href={"/"} >
+          <img
             src="/icons/logo.png"
             alt="Logotipo mappearte"
             className={classNames("w-32 md:w-40 lg:w-44", "cursor-pointer")}
           />
         </Link>
         <button className="" onClick={showMenu}>
-          <Image
+          <img
             src="/icons/menu.png"
             alt="Icono de menu"
             className={classNames(
@@ -112,7 +111,7 @@ export default function Nav() {
           >
         <div className='flex'>       
             <Link href={"/profile"} passHref>
-              <Image
+              <img
                 src="../icons/avatarIndex.png"
                 alt="avatar"
                 className={classNames(
@@ -182,7 +181,7 @@ export default function Nav() {
             </ButtonToGo>
           </ul>
           <Link href={"/profile"} passHref>
-            <Image
+            <img
               src="../icons/avatarIndex.png"
               alt="Imagen de perfil"
               className={classNames(

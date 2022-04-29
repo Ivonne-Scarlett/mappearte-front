@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import classNames from "classnames";
-import Image from "next/image";
 import Link from "next/link";
 import { getArtist } from "../lib/api";
 
@@ -35,7 +34,7 @@ export default function GridAvatar() {
               key={index}
             >
               <Link href={`/artist/${artistId}`} passHref>
-                <Image
+                <img
                   src={artistImage}
                   alt="artista"
                   className={classNames(

@@ -1,6 +1,5 @@
 import { React, useState, useEffect } from 'react';
 import classNames from 'classnames';
-import Image from 'next/image';
 import { useRouter } from 'next/router';
 import Uppy from "@uppy/core";
 import Transloadit from "@uppy/transloadit";
@@ -136,7 +135,7 @@ export default function Upload() {
           "mt-20 mb-20 md:mt-32 md:mb-10"
         )}>
           <div className="md:col-span-2 md:row-span-1 justify-center">
-            <Image 
+            <img
               src="../icons/sube-tu-arte.png" 
               alt="Sube tu arte" 
               className="mx-auto" 

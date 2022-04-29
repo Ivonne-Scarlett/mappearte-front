@@ -1,7 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import classNames from 'classnames';
 import { useRouter } from 'next/router';
-import Image from 'next/image';
 
 export default function AvatarImg({artists}) { 
   const router = useRouter();
@@ -22,7 +21,7 @@ export default function AvatarImg({artists}) {
             key={index} 
           >
             <div className="flex flex-row justify-center">
-              {avatarArtist && <Image src={avatarArtist}
+              {avatarArtist && <img src={avatarArtist}
                 alt="imagen de artista" 
                 className={classNames(
                   "object-cover cursor-pointer",
@@ -32,7 +31,7 @@ export default function AvatarImg({artists}) {
                 )}                
                 onClick={() => router.push(`/artist/${idArtist}`)}
               />}
-               {!avatarArtist && <Image src="/icons/noavatar.png"
+               {!avatarArtist && <img src="/icons/noavatar.png"
                 alt="imagen de artista" 
                 className={classNames(
                   "object-cover cursor-pointer",
