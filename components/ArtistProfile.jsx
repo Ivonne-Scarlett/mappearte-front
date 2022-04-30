@@ -17,6 +17,7 @@ import {
   DarkBlueCard,
   Footer,
   CodeQR,
+  CarouselProfile,
 } from "."; 
 
 
@@ -142,11 +143,24 @@ export default function Profile () {
         </div>
       </DarkBlueCard>
 
-      <OpacityCard className="mt-16 px-6 md:px-20 py-6 md:py-10">
+      <OpacityCard className="mt-36 px-6 md:px-20 pb-6 md:pb-10 ">
         <h3
           className={classNames(
-            "font-Mochiy font-extrabold text-2xl",
+            "font-Mochiy font-extrabold text-2xl tracking-wider",
             "ml-4 mb-16"
+          )}
+        >
+          Me han etiquetado
+        </h3>
+        {/* <GridIndex /> */}
+          <CarouselProfile artist={artist}/>
+      </OpacityCard>
+
+      <OpacityCard className="mt-28 px-6 md:px-20 pb-6 md:pb-10">
+        <h3
+          className={classNames(
+            "font-Mochiy font-extrabold text-2xl tracking-wider",
+            "ml-4 mb-6"
           )}
         >
           Mi portafolio
@@ -154,17 +168,7 @@ export default function Profile () {
         <GridProfile className="" />
       </OpacityCard>
 
-      <DarkBlueCard className="">
-        <h3
-          className={classNames(
-            "font-Mochiy font-extrabold text-2xl",
-            " mb-16"
-          )}
-        >
-          Me han etiquetado
-        </h3>
-        <GridIndex />
-      </DarkBlueCard>
+      
 
       <Footer />
     </>
