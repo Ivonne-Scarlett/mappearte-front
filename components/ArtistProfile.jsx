@@ -12,7 +12,6 @@ import {
   Nav,
   OpacityCard,
   ButtonEdit,
-  GridIndex,
   GridProfile,
   DarkBlueCard,
   Footer,
