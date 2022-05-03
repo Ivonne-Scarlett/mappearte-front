@@ -19,6 +19,7 @@ import SearchByArtist from "./SearchByArtist";
 import SearchByCategory from "./SearchByCategory";
 import ToggleSwitch from "./ToggleSwitch";
 import CodeQR from "./CodeQR";
+import CarouselProfile from "./CarouselProfile";
 
 export {
   AvatarImg,
@@ -42,4 +43,5 @@ export {
   SearchByCategory,
   ToggleSwitch,
   CodeQR,
+  CarouselProfile,
 };

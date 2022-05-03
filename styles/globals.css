@@ -31,3 +31,5 @@ a {
 #toggle-switch:checked::after {
   @apply transform scale-110 translate-x-6 md:translate-x-8
 }
+
+
