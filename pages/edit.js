@@ -2,9 +2,11 @@ import React, {useState, useEffect} from 'react';
 import Nav from '../components/Nav';
 import { useRouter } from 'next/router';
 
+import { getArtistById } from "../lib/api";
+import { getUserById } from "../lib/api";
 
 export default function Edit() {
-    const [role, setRole] = useState()
+  const [role, setRole] = useState()
   const [artist, setArtist] = useState();
   const [user, setUser] = useState();
   const router = useRouter();

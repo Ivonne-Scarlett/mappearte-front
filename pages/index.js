@@ -7,6 +7,7 @@ import GridIndex from '../components/GridIndex';
 import GridAvatar from '../components/GridAvatar';
 import Footer from '../components/Footer';
 
+
 export default function Home() {
 /*   const [searchArtist, setSearchArtist] = useState('')
   const [name, setName] = useState('');
@@ -79,7 +80,7 @@ export default function Home() {
             Lo Nuevo
           </h2>
           <GridIndex/>
-          {/* <GridProfile/> */}       
+
         </OpacityCard>
           
         <div 
