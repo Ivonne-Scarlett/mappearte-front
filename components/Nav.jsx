@@ -12,6 +12,12 @@ export default function Nav() {
   const [isMenuOpen, setMenuOpen] = useState(false);
   const [showDropdown, setShowDropdown] = useState(false);
   const [uploadTarget, setUploadTarget] = useState("");
+  const [token] = useState(() => { 
+    if (typeof window === "undefined") {
+      return false
+    }
+    return window.localStorage.getItem("token")
+  })
 
   const messageOk = () => {
     toast.success('Sesión terminada.', {
@@ -52,7 +58,7 @@ export default function Nav() {
   };
 
   useEffect(() => {
-    setUploadTarget(localStorage.getItem("token") ? "/upload" : "/Login");
+    setUploadTarget(token ? "/upload" : "/Login");
   }, []);
   const showMenu = () => {
     setMenuOpen(!isMenuOpen);
@@ -73,7 +79,7 @@ export default function Nav() {
           isMenuOpen ? "w-screen" : ""
         )}
       >
-        <Link href={"/"}>
+        <Link href={"/"} >
           <img
             src="/icons/logo.png"
             alt="Logotipo mappearte"
@@ -110,7 +116,7 @@ export default function Nav() {
             )}
           >
         <div className='flex'>       
-            <Link href={"/profile"}>
+            <Link href={"/profile"} passHref>
               <img
                 src="../icons/avatarIndex.png"
                 alt="avatar"
@@ -123,16 +129,19 @@ export default function Nav() {
                 )}
               />
             </Link>
-            <div className="cursor-pointer block md:hidden pl-2" onClick={onDropdownClick}>
-              ▼
+            {token ? (<div className="cursor-pointer block md:hidden pl-2" onClick={onDropdownClick}>
+              {/* ▼ */}
+              <img src="../icons/logout2.png" alt="icono de salida"/>
               <div
-                onClick={logout}
-                className={classNames(
-                  showDropdown || "invisible")}
-              >
-                Salir
-              </div>
+              onClick={logout}
+              className={classNames(
+                showDropdown || "invisible")}
+            >
+              Salir
             </div>
+            
+            </div>
+            ) : <div></div> }
              </div>
             <ButtonToGo
               bgColor="Cyan"
@@ -154,7 +163,7 @@ export default function Nav() {
                 )}
                 key={`menuItem-${index}`}
               >
-                <Link href={link}>
+                <Link href={link} passHref>
                   <a
                     className={classNames(
                       "hover:decoration-lime-400 hover:text-lime-400",
@@ -180,7 +189,7 @@ export default function Nav() {
               Subir Foto
             </ButtonToGo>
           </ul>
-          <Link href={"/profile"}>
+          <Link href={"/profile"} passHref>
             <img
               src="../icons/avatarIndex.png"
               alt="Imagen de perfil"
@@ -192,16 +201,19 @@ export default function Nav() {
               )}
             />
           </Link>
+          {token ? (
           <div className="cursor-pointer hidden md:block justify-items-end pl-2 mt-4" onClick={onDropdownClick}>
-            ▼
-            <div
+            <img src="../icons/logout2.png" alt="icono de salida"/>
+              <div
               onClick={logout}
               className={classNames(
                 showDropdown || "invisible")}
             >
               Salir
             </div>
+            
           </div>
+          ) : <div></div> }
         </div>
       </div>
     </div>

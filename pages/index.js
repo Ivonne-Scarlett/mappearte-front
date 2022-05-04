@@ -3,9 +3,7 @@ import classNames from 'classnames';
 import Nav from "../components/Nav"
 import Hero from '../components/Hero';
 import OpacityCard from '../components/OpacityCard';
-import DarkBlueCard from '../components/DarkBlueCard';
 import GridIndex from '../components/GridIndex';
-import GridProfile from '../components/GridProfile';
 import GridAvatar from '../components/GridAvatar';
 import Footer from '../components/Footer';
 import UploadImg from '../components/UploadImages';
@@ -80,7 +78,7 @@ export default function Home() {
             Lo Nuevo
           </h2>
           <GridIndex/>
-          {/* <GridProfile/> */}       
+
         </OpacityCard>
           
         <div 
@@ -96,14 +94,6 @@ export default function Home() {
           </h2>
           <GridAvatar />
         </div>
-
-
-
-        <UploadImg />
-
-
-
-
 
       <Footer />
 

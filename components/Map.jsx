@@ -5,7 +5,7 @@ import spray from '../public/icons/spray.png'
 import usePlacesAutocomplete, {getGeocode, getLatLng} from 'use-places-autocomplete'
 import { Combobox, ComboboxInput, ComboboxPopover, ComboboxList, ComboboxOption } from '@reach/combobox'
 import '@reach/combobox/styles.css'
-import { getMural } from '../lib/api'
+import { getStreetart } from '../lib/api';
 
 const libraries = ['places']
 const mapContainerStyle = {width: '100vw', height: '100vh'}
@@ -28,8 +28,11 @@ export default function Map () {
   const [selected, setSelected] = useState(null)
 
   useEffect(() => {
-    getMural().then((response) => {
+    getStreetart()
+    .then(response => {
       console.log(response)
+      const streetArt = response?.data?.streetArt?.slice(0, 14);
+      console.log(streetArt);
     })
   }, [])
 

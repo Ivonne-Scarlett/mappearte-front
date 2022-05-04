@@ -41,7 +41,7 @@ export default function Profile () {
           setUser(users);
           }, {})
         }
-      }, []
+      }, [router]
     )
 
   const defaultImage = "/icons/noavatar.png";

@@ -57,8 +57,12 @@ export default function RegisterArtistForm() {
   }
 
   const router = useRouter();
-  const { register, handleSubmit, errors } = useForm();
-
+  const { register, handleSubmit, errors, watch } = useForm({defaultValues:{
+    isGraffiti:false,
+    isSticker:false,
+    isMural:false
+  }});
+  
   const onSubmit = async(dataRegister) => {
     const artist = await registerArtist(dataRegister)
     console.log('data register', dataRegister)
@@ -96,24 +100,22 @@ export default function RegisterArtistForm() {
               </label>
           
               <div className="flex flex-row mt-1 w-full">
-                <Category 
-                  className='rounded-l-lg'
-                  name='Sticker'
-                  value='isSticker'
-                  register= {register("isSticker")} 
-              
+                <Category
+                  className="rounded-l-lg"
+                  name="Sticker"
+                  value={watch("isSticker")}
+                  register={register("isSticker")}
                 />
-                <Category 
-                  name='Mural'
-                  value='isMural'
-                  register= {register("isMural")} 
-              
+                <Category
+                  name="Mural"
+                  value={watch("isMural")}
+                  register={register("isMural")}
                 />
-                <Category 
-                  className='rounded-r-md'
-                  name='Grafitti'
-                  value='isGraffiti'
-                  register= {register("isGraffiti")}               
+                <Category
+                  className="rounded-r-md"
+                  name="Grafitti"
+                  value={watch("isGraffiti")}
+                  register={register("isGraffiti")}
                 />
               </div>
            </div>

@@ -18,6 +18,8 @@ import OpacityCard from "./OpacityCard";
 import SearchByArtist from "./SearchByArtist";
 import SearchByCategory from "./SearchByCategory";
 import ToggleSwitch from "./ToggleSwitch";
+import CodeQR from "./CodeQR";
+import CarouselProfile from "./CarouselProfile";
 
 export {
   AvatarImg,
@@ -39,5 +41,7 @@ export {
   OpacityCard,
   SearchByArtist,
   SearchByCategory,
-  ToggleSwitch
+  ToggleSwitch,
+  CodeQR,
+  CarouselProfile,
 };

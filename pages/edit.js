@@ -1,11 +1,17 @@
-import React from 'react';
-import Nav from '../components/Nav';
+import React, { useState, useEffect} from 'react';
+import { useRouter } from 'next/router';
 
+import { getUserById } from "../lib/api";
+import { getArtistById } from "../lib/api";
 
-export default function edit() {
-    const [role, setRole] = useState()
+import ArtistEdit from "../components/form/ArtistEdit";
+import UserEdit from "../components/form/UserEdit"; 
+
+export default function Edit() {
+  const [role, setRole] = useState()
   const [artist, setArtist] = useState();
   const [user, setUser] = useState();
+  const [isArtist, setIsArtist] = useState(false)
   const router = useRouter();
 
   useEffect( () => {
@@ -20,20 +26,22 @@ export default function edit() {
 
       if (role === 'artist') {
         getArtistById(id).then( ({artists}) => {
-          setArtist(artists);
+          setIsArtist(artists);
         }, {})
       } else if (role === "user"){
         getUserById(id).then( ({users})  =>{
         setUser(users);
         }, {})
       }
-    }, []
+    }, [router]
   )
 
   return (
     <>
-      <Nav/>
-        <h1>Edit</h1>     
+
+      {isArtist && <ArtistEdit/>}
+      {!isArtist && <UserEdit/>}
+           
     </>
   )
 }

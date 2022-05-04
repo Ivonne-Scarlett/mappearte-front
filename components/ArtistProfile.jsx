@@ -1,19 +1,26 @@
 import React, { useState, useEffect } from "react";
 import classNames from "classnames";
 import { useRouter } from "next/router";
+import { useRef, forwardRef } from "react";
+import ReactToPrint from "react-to-print";
+import { saveAs } from "file-saver";
 
 import { getUserById } from "../lib/api";
 import { getArtistById } from "../lib/api";
+import { getArtByArtistId } from '../lib/api';
 
 import {
   Nav,
   OpacityCard,
   ButtonEdit,
-  GridIndex,
   GridProfile,
   DarkBlueCard,
   Footer,
+  CodeQR,
+  CarouselProfile,
 } from "."; 
+
+const defaultImage = "/icons/noavatar.png";
 
 export default function Profile () {
   const [role, setRole] = useState()
@@ -21,6 +28,16 @@ export default function Profile () {
   const [isArtist, setIsArtist] = useState(false)
   const [user, setUser] = useState();
   const router = useRouter();
+  const qrRef = useRef();
+
+  const [allArtbyArtist, setAllArtbyArtist] = useState([]);
+
+  const onDownload = () => {
+    const canva = document.getElementsByTagName("canvas")[0];
+    canva.toBlob((blob) => {
+      saveAs(blob, "qr-code.png");
+    });
+  };
 
   useEffect( () => {
     const id = localStorage.getItem("id");
@@ -36,15 +53,23 @@ export default function Profile () {
           setArtist(artists);
           setIsArtist(true); 
         }, {})
+        getArtByArtistId(id)
+        .then(response => {
+            const dataImg = response.data
+            const streetArt = dataImg.streetart
+            setAllArtbyArtist(streetArt)
+            console.log('responseArtbyArtist:',streetArt)
+        }, [])
       } else if (role === "user"){
         getUserById(id).then( ({users})  =>{
-          console.log('Antes del set: ',users);
+          // console.log('Antes del set: ',users);
         setUser(users);
         }, {})
       }
-    }, []
+    }, [router]
   )
   const defaultImage = "/icons/noavatar.png";
+
   
   return (
     <>
@@ -97,43 +122,69 @@ export default function Profile () {
       </div>
         
       <DarkBlueCard 
-        className="grid grid-cols-1 md:grid-cols-3 gap-4 place-items-stretch mt-20"
+        className="grid grid-cols-1 md:grid-cols-3 gap-4 place-items-stretch mt-20
+        border border-orangeP"
       >
-        <div className="bg-pink-400 md:span-1 h-40 w-100 flex justify-center">
-          <div className="bg-gray-600 h-20 w-20">qr</div>
+        <div className="md:span-1 h-50 w-100 flex justify-center">
+          <div className="h-25 w-25 flex flex-col place-content-center">
+            <CodeQR
+              artist={artist}
+              ref={qrRef}
+              options={{
+                width: 400
+              }}
+            />
+            <div className="flex flex-row place-content-center hover:text-orangeP bg-orangeP hover:bg-backgroundP hover:border hover:border-orangeP">
+              <ReactToPrint
+                trigger={() => {
+                  return <button></button>;
+                }}
+                content={() => qrRef.current}
+              />
+              <button 
+              className="p-3" 
+              onClick={onDownload}>
+                Descargar
+              </button>
+            </div>
+          </div>
         </div>
-        <div className="w-100 md:col-span-2 align-center h-40"> 
+        <div className="w-100 md:col-span-2 align-center mx-3 p-1 h-40"> 
+          <h2 className="bg-orangeP text-2xl text-center mb-6">
+            Acerca de mi:</h2>
           <h3 
-            className="text-2xl text-center"
+            className="text-xl text-center"
           >
-            {artist?.resume}
+            {artist?.resume || "Cuentanos sobre tu trayectoria"}
           </h3>
         </div>
       </DarkBlueCard>
 
-      <OpacityCard className="mt-16 px-6 md:px-20 py-6 md:py-10">
+      {/* <OpacityCard className="mt-36 px-6 md:px-20 pb-6 md:pb-10 ">
         <h3
           className={classNames(
-            "font-Mochiy font-extrabold text-2xl",
+            "font-Mochiy font-extrabold text-2xl tracking-wider",
             "ml-4 mb-16"
-          )}
-        >
-          Mi portafolio
-        </h3>
-        <GridProfile className="" />
-      </OpacityCard>
-
-      <DarkBlueCard className="">
-        <h3
-          className={classNames(
-            "font-Mochiy font-extrabold text-2xl",
-            " mb-16"
           )}
         >
           Me han etiquetado
         </h3>
-        <GridIndex />
-      </DarkBlueCard>
+          <CarouselProfile streetArtbyArtist={allArtbyArtist}/>
+      </OpacityCard> */}
+
+      <OpacityCard className="mt-28 px-6 md:px-20 pb-6 md:pb-10">
+        <h3
+          className={classNames(
+            "font-Mochiy font-extrabold text-2xl tracking-wider",
+            "ml-4 mb-6"
+          )}
+        >
+          Mi portafolio
+        </h3>
+        <GridProfile streetArtbyArtist={allArtbyArtist} />
+      </OpacityCard>
+
+      
 
       <Footer />
     </>

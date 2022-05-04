@@ -1,24 +1,26 @@
 import React, {useState, useEffect} from 'react';
 import classNames from 'classnames';
-import Image from 'next/image';
-import { getArtist } from '../lib/api';
 
-export default function GridIndex({ images }) {
-  const [murals, setMurals] =  useState([])
+import { getArtistById, getStreetart } from '../lib/api';
+
+export default function GridIndex() {
+  const [streetArt, setStreetArt] =  useState([])
   const [showModal, setShowModal] = useState(false); 
   const [imgShowData, setImgShowData] = useState('');
-  console.log(imgShowData)
-  const isImageClicked = (imageData) => {      
-      setImgShowData(imageData)
+  
+  const isImageClicked = (imageData) => {   
+    getArtistById(imageData.artistId[0]).then(response => {
+      setImgShowData({...imageData, artist:response.artists})
+      setShowModal(true)
+    })
   } 
 
   useEffect(() => {
-    getArtist()
+    getStreetart()
     .then(response => {
-      const countImages = response.artists.length
-      const imageInitial = countImages - 12
-      const murals = response.artists.slice(imageInitial, countImages);
-      setMurals(murals);
+      console.log(response)
+      const streetArt = response?.data?.streetArt?.slice(0, 14);
+      setStreetArt(streetArt);
     })
   }, [])
 
@@ -46,7 +48,7 @@ export default function GridIndex({ images }) {
                           type="button"
                           onClick={() => setShowModal(false)}
                         >
-                          <Image 
+                          <img 
                           src='/icons/cancel.png' 
                           alt='boton de cerrar' 
                           width='15px' 
@@ -56,13 +58,14 @@ export default function GridIndex({ images }) {
                       </div>
                       <div className="relative px-6 flex-auto pb-6">
                         <img 
-                          src={imgShowData.bgImg} 
+                          src={imgShowData.muralImg} 
+                          alt=""
                           style={{width:'100%'}} 
                           className="border border-solid border-borange"
                         /> 
                         <div className='bg-[#17c7c7] text-sm'>
-                          <h3 className='pt-2 px-6'>{imgShowData.artist}</h3> 
-                          <p className='pb-2 px-6'>{imgShowData.city}</p>  
+                          <h3 className='pt-2 px-6'>{imgShowData.artist.artist}</h3> 
+                          <p className='pb-2 px-6'>{imgShowData.address}</p>  
                         </div>        
                       </div> 
                     </div>
@@ -83,18 +86,19 @@ export default function GridIndex({ images }) {
                       type="button"
                       onClick={() => setShowModal(false)}
                     >
-                      <Image src='/icons/cancel.png' alt='boton de cerrar' width='15px' height='15px'/>
+                      <img src='/icons/cancel.png' alt='boton de cerrar' width='15px' height='15px'/>
                     </button>
                   </div>
                   <div className="px-6 pb-6">
                     <img 
-                      src={imgShowData.bgImg} 
+                      src={imgShowData.muralImg} 
+                      alt=""
                       style={{width:'100%'}} 
                       className="border border-solid border-white"
                     /> 
                       <div className='bg-[#17c7c7] text-sm border border-solid border-white'>
-                        <h3 className='pt-2 px-6'>{imgShowData.artist}</h3> 
-                        <p className='pb-2 px-6'>{imgShowData.city}</p>  
+                        <h3 className='pt-2 px-6'>{imgShowData.artist.artist}</h3> 
+                        <p className='pb-2 px-6'>{imgShowData.address}</p>  
                       </div>        
                   </div> 
                 </div>
@@ -103,7 +107,7 @@ export default function GridIndex({ images }) {
           ) : null}   
         </div>
         <div className="grid grid-cols-3 md:grid-cols-5 gap-2 md:grid-row-5 max-w-1/2 max-h-3/4">
-          {murals.map((image, index) => (
+          {streetArt?.map((image, index) => (
             <div className={classNames(
                 'h-36',
                 "cursor-pointer",
@@ -118,11 +122,10 @@ export default function GridIndex({ images }) {
               )}
                 key={index}
                 onClick={()=>{
-                  setShowModal(true)
                   isImageClicked(image)
                 }}
               >
-                <img src={image.bgImg} className={classNames('w-full h-full object-cover')}/>
+                <img src={image.muralImg} alt="" className={classNames('w-full h-full object-cover')}/>
             </div>
           ))}              
         </div>        
