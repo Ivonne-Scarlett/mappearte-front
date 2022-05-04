@@ -18,7 +18,8 @@ export default function GridIndex() {
   useEffect(() => {
     getStreetart()
     .then(response => {
-      const streetArt = response.data.streetart.slice(0, 14);
+      console.log(response)
+      const streetArt = response?.data?.streetArt?.slice(0, 14);
       setStreetArt(streetArt);
     })
   }, [])
@@ -106,7 +107,7 @@ export default function GridIndex() {
           ) : null}   
         </div>
         <div className="grid grid-cols-3 md:grid-cols-5 gap-2 md:grid-row-5 max-w-1/2 max-h-3/4">
-          {streetArt.map((image, index) => (
+          {streetArt?.map((image, index) => (
             <div className={classNames(
                 'h-36',
                 "cursor-pointer",
