@@ -1,57 +1,22 @@
-import Image from "next/image";
 import { useState } from "react";
 import Swipe from "react-easy-swipe";
 import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
 
 
-export default function CarouselProfile({artist}) {
-  const images = [
-    {
-      "src":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRcbjG50JGpow9OBuuFMh5Vw1CPDuPFokahgg&usqp=CAU",
-      "caption": "San Francisco"
-    },
-    {
-      "src":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFC-50_0SY-eBf8V0Fthpka-20GVslwclimx_XP5AUtQYZ_48hUu_cloPKHYwvub3O1v8&usqp=CAU",
-      "caption": "San Francisco"
-    },
-    {
-      "src":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRcbjG50JGpow9OBuuFMh5Vw1CPDuPFokahgg&usqp=CAU",
-      "caption": "San Francisco"
-    },
-    {
-      "src":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRV_lCI-85knTISG5XODn3BizdlomWoUfcdcdaim71scOOiq9Q1jh6qUl5W9Ynw02Q_pQ4&usqp=CAU",
-      "caption": "San Francisco"
-    },
-    {
-      "src":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFC-50_0SY-eBf8V0Fthpka-20GVslwclimx_XP5AUtQYZ_48hUu_cloPKHYwvub3O1v8&usqp=CAU",
-      "caption": "San Francisco"
-    },
-    {
-      "src":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3aKYCfyiH2yYuS4F_EP6sLZ_TDa3pu8CQVXPA3PCspBOsYWfPB3UIYAiaeSCozbBf4Xw&usqp=CAU",
-      "caption": "San Francisco"
-    },
-    {
-      "src":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZEeeZrlLjSnYe4zeDytqA73BCspVy_01I_BUUkAHq--irQ1fNc4_VVIkJLu66RvUQTP0&usqp=CAU",
-      "caption": "San Francisco"
-    },
-  ]
+export default function CarouselProfile({streetArtbyArtist}) {
 
-  console.log(artist)
   const [currentSlide, setCurrentSlide] = useState(0);
   const handleNextSlide = () => {
-    let newSlide = currentSlide === images.length - 1 ? 0 : currentSlide + 1;
+    let newSlide = currentSlide === streetArtbyArtist.length - 1 ? 0 : currentSlide + 1;
     setCurrentSlide(newSlide);
   };
 
   const handlePrevSlide = () => {
-    let newSlide = currentSlide === 0 ? images.length - 1 : currentSlide - 1;
+    let newSlide = currentSlide === 0 ? streetArtbyArtist.length - 1 : currentSlide - 1;
     setCurrentSlide(newSlide);
   };
   
   return (
-    // <div>
-    //   <p>Carousel</p>        
-    // </div>
     <div className="relative">
       <AiOutlineLeft
         onClick={handlePrevSlide}
@@ -65,8 +30,7 @@ export default function CarouselProfile({artist}) {
           className="relative z-10 w-full h-full"
         >
           
-          {images.map((image, index) => {
-            console.log('images',image.src)
+          {streetArtbyArtist.map((image, index) => {
             if (index === currentSlide) {
               return (
                 <div className="w-full h-full">
@@ -76,7 +40,7 @@ export default function CarouselProfile({artist}) {
                     objectFit="contain"
                     className="animate-fadeIn w-full h-full object-fill"
                     alt="image"
-                    src={image.src}
+                    src={image.muralImg}
                   />
                 </div>
               );
@@ -90,7 +54,7 @@ export default function CarouselProfile({artist}) {
       />
 
       <div className="relative flex justify-center p-2">
-        {images.map((_, index) => {
+        {streetArtbyArtist.map((_, index) => {
           return (
             <div
               className={

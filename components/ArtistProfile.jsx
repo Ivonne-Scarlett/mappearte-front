@@ -7,6 +7,7 @@ import { saveAs } from "file-saver";
 
 import { getUserById } from "../lib/api";
 import { getArtistById } from "../lib/api";
+import { getArtByArtistId } from '../lib/api';
 
 import {
   Nav,
@@ -29,6 +30,8 @@ export default function Profile () {
   const router = useRouter();
   const qrRef = useRef();
 
+  const [allArtbyArtist, setAllArtbyArtist] = useState([]);
+
   const onDownload = () => {
     const canva = document.getElementsByTagName("canvas")[0];
     canva.toBlob((blob) => {
@@ -50,15 +53,23 @@ export default function Profile () {
           setArtist(artists);
           setIsArtist(true); 
         }, {})
+        getArtByArtistId(id)
+        .then(response => {
+            const dataImg = response.data
+            const streetArt = dataImg.streetart
+            setAllArtbyArtist(streetArt)
+            console.log('responseArtbyArtist:',streetArt)
+        }, [])
       } else if (role === "user"){
         getUserById(id).then( ({users})  =>{
-          console.log('Antes del set: ',users);
+          // console.log('Antes del set: ',users);
         setUser(users);
         }, {})
       }
     }, [router]
   )
   const defaultImage = "/icons/noavatar.png";
+
   
   return (
     <>
@@ -152,7 +163,7 @@ export default function Profile () {
           Me han etiquetado
         </h3>
         {/* <GridIndex /> */}
-          <CarouselProfile artist={artist}/>
+          <CarouselProfile streetArtbyArtist={allArtbyArtist}/>
       </OpacityCard>
 
       <OpacityCard className="mt-28 px-6 md:px-20 pb-6 md:pb-10">
@@ -164,7 +175,7 @@ export default function Profile () {
         >
           Mi portafolio
         </h3>
-        <GridProfile className="" />
+        <GridProfile streetArtbyArtist={allArtbyArtist} />
       </OpacityCard>
 
       
