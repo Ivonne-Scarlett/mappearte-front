@@ -44,7 +44,7 @@ export default function UploadImg() {
   }
 
   const [uppy, setUppy] = useState();
-  const [isUploadingFile, ç] = useState(false);
+  const [isUploadingFile, setIsUploadingFile] = useState(false);
   const [imageUrl, setImageUrl] = useState();
 
   const onCompleteUploadFiles = (assembly) => {

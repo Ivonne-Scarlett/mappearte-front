@@ -4,12 +4,14 @@ import { useRef, forwardRef } from "react";
 import ReactToPrint from "react-to-print";
 import { saveAs } from "file-saver";
 
+const front_URL = "http://localhost:3000";
+
 export default function CodeQR({props, ref, artist}) {
   const { Canvas } = useQRCode();
   return (
     <div ref={ref}>
       <Canvas
-        text={`http://localhost:3000/artist/${artist?._id}/next-qrcode`}
+        text={`${front_URL}/artist/${artist?._id}/next-qrcode`}
         props={props}
         options={{
           type: 'image/jpeg',
