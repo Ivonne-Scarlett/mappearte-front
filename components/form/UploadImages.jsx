@@ -18,7 +18,6 @@ import {
   OpacityCard
  } from '../index';
 
-
 export default function UploadImg() {
   const messageFail = () => {
     toast.warn('Revisa la información', {
@@ -45,7 +44,7 @@ export default function UploadImg() {
   }
 
   const [uppy, setUppy] = useState();
-  const [isUploadingFile, setIsUploadingFile] = useState(false);
+  const [isUploadingFile, ç] = useState(false);
   const [imageUrl, setImageUrl] = useState();
 
   const onCompleteUploadFiles = (assembly) => {

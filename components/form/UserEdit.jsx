@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import Uppy from "@uppy/core";
+import Transloadit from "@uppy/transloadit";
 import classNames from "classnames";
 import { useForm } from "react-hook-form";
 import { ToastContainer, toast } from "react-toastify";
@@ -15,7 +17,7 @@ import {
   Footer
 } from "../index"; 
 
-export default function ArtistEdit () {
+export default function UserEdit () {
   const messageFail = () => {
     toast.warn("Error al guardar la información", {
       position: "top-right",
@@ -39,7 +41,7 @@ export default function ArtistEdit () {
     />;
   };
   const messageOk = () => {
-    toast.success("Edición exitosa.", {
+    toast.success("Edición exitosa", {
       position: "top-right",
       autoClose: 3000,
       hideProgressBar: false,
@@ -124,9 +126,12 @@ export default function ArtistEdit () {
       )}
     >
     </div>
+
       <DarkBlueCard>
-      <div className="flex justify-center mt-2 mb-8">
-        <h3 className="font-bold text-xl text-gray-400 mt-2 font-Mali">
+      <div 
+      className="flex justify-center mt-2 mb-8">
+        <h3 
+        className="font-bold text-xl text-gray-400 mt-2 font-Mali">
           { user?.user || "userName" }
         </h3>
       </div>
@@ -144,7 +149,11 @@ export default function ArtistEdit () {
             )}
           />
         </div>
-        <div className="flex flex-row mx-auto mt-1 md:w-2/3">
+        <div className="flex flex-row mx-auto mb-6 md:w-2/3">
+          <InputFile/>
+        </div>
+        
+        <div className="flex flex-row mx-auto mt-6 md:w-2/3">
           <Category
             className="rounded-l-lg"
             name="Sticker"
