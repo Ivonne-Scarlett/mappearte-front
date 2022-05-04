@@ -4,7 +4,6 @@ import classNames from 'classnames';
 import { getArtistById, getStreetart } from '../lib/api';
 
 export default function GridIndex() {
-  const [murals, setMurals] =  useState([])
   const [streetArt, setStreetArt] =  useState([])
   const [showModal, setShowModal] = useState(false); 
   const [imgShowData, setImgShowData] = useState('');
