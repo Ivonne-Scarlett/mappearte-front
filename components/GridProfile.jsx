@@ -16,7 +16,7 @@ export default function GridProfile({ streetArtbyArtist}) {
         "columns-2 lg:columns-3",
         "py-6 md:py-10", 
         )}>
-        {streetArtbyArtist.map((mural, index)=> {
+        {streetArtbyArtist?.map((mural, index)=> {
           return(
             <div className={classNames(
               "break-inside-avoid-column",        
