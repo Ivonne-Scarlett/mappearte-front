@@ -5,7 +5,7 @@ import spray from '../public/icons/spray.png'
 import usePlacesAutocomplete, {getGeocode, getLatLng} from 'use-places-autocomplete'
 import { Combobox, ComboboxInput, ComboboxPopover, ComboboxList, ComboboxOption } from '@reach/combobox'
 import '@reach/combobox/styles.css'
-import { getStreetart } from '../lib/api';
+import { getArtistById, getStreetart } from '../lib/api';
 
 const libraries = ['places']
 const mapContainerStyle = {width: '100vw', height: '100vh'}
@@ -32,7 +32,7 @@ export default function Map () {
     .then(response => {
       console.log(response)
       const streetArt = response?.data?.streetArt?.slice(0, 14);
-      console.log(streetArt);
+      setMarkers(streetArt);
     })
   }, [])
 
@@ -81,6 +81,12 @@ export default function Map () {
   //     return <div>Loading...</div>
   //   }
 
+  const onPointClick = (pointData) => {
+    getArtistById(pointData.artistId[0]).then(response => {
+      setSelected({...pointData, artist:response.artists})
+    })
+  }
+  console.log(selected)
   return(
       <div>
         <h1 className='absolute z-10'>Mappearte</h1>
@@ -95,13 +101,12 @@ export default function Map () {
           mapContainerStyle={mapContainerStyle}
           options={options}
           streetViewControl={true}
-          onClick={onMapClick}
           onLoad={onMapLoad}
           >
             {markers.map((marker) => (
               <Marker
-                key={marker.time.toISOString()}
-                position={{lat: marker.lat, lng: marker.lng}}
+                key={marker._id}
+                position={{lat: parseFloat(marker.lat), lng: parseFloat(marker.lng)}}
                 icon={{
                   url: spray,
                   scaledSize: new window.google.maps.Size(30, 30),
@@ -109,20 +114,20 @@ export default function Map () {
                   anchor: new window.google.maps.Point(15, 15)
                 }}
                 onClick={() => {
-                  setSelected(marker)
+                  onPointClick(marker)
                 }}
               />
             ))}
 
             {selected ? (
             <InfoWindow
-              position={{ lat: selected.lat, lng: selected.lng}}
+              position={{ lat: parseFloat(selected.lat), lng: parseFloat(selected.lng)}}
               onCloseClick={() => {
                 setSelected(null)
               }}
             >
               <div>
-                <h2>Artista:</h2>
+                <h2>Artista: {selected.artist.artist}</h2>
                 <p>Dirección:</p>
               </div>
             </InfoWindow>

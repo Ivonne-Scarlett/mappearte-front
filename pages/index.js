@@ -6,7 +6,6 @@ import OpacityCard from '../components/OpacityCard';
 import GridIndex from '../components/GridIndex';
 import GridAvatar from '../components/GridAvatar';
 import Footer from '../components/Footer';
-import UploadImg from '../components/UploadImages';
 import Map from '../components/Map';
 
 export default function Home() {
