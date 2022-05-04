@@ -18,7 +18,6 @@ import {
   OpacityCard
  } from '../index';
 
-
 export default function UploadImg() {
   const messageFail = () => {
     toast.warn('Revisa la información', {
