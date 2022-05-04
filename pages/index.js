@@ -9,6 +9,7 @@ import GridProfile from '../components/GridProfile';
 import GridAvatar from '../components/GridAvatar';
 import Footer from '../components/Footer';
 import UploadImg from '../components/UploadImages';
+import Map from '../components/Map';
 
 export default function Home() {
 /*   const [searchArtist, setSearchArtist] = useState('')
@@ -64,11 +65,8 @@ export default function Home() {
             'w-10/12',
           )}
         >
-          <h5 
-          className='text-gray-900'
-          >
-            Soy el mapa
-          </h5>
+          <Map/>
+          
         </div>
       </div>
       

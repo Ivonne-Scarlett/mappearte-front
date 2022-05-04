@@ -2,9 +2,10 @@ import React, { useState, useEffect, useCallback, useRef } from 'react'
 import { useLoadScript, GoogleMap, Marker, InfoWindow } from '@react-google-maps/api'
 import mapStyles from './mapStyles'
 import spray from '../public/icons/spray.png'
-import usePlacesAutocomplete, {getGeocode, getLatlng} from 'use-places-autocomplete'
+import usePlacesAutocomplete, {getGeocode, getLatLng} from 'use-places-autocomplete'
 import { Combobox, ComboboxInput, ComboboxPopover, ComboboxList, ComboboxOption } from '@reach/combobox'
 import '@reach/combobox/styles.css'
+import { getMural } from '../lib/api'
 
 const libraries = ['places']
 const mapContainerStyle = {width: '100vw', height: '100vh'}
@@ -25,6 +26,12 @@ export default function Map () {
   // const [currentLocation, setCurrentLocation] = useState(null)
   const [markers, setMarkers] = useState([])
   const [selected, setSelected] = useState(null)
+
+  useEffect(() => {
+    getMural().then((response) => {
+      console.log(response)
+    })
+  }, [])
 
   const onMapClick = useCallback((event) => {
     setMarkers((current) => [
@@ -158,7 +165,7 @@ return (
         clearSuggestions()
         try {
           const results = await getGeocode({address})
-          const {lat, lng } = await getLatlng(results[0])
+          const {lat, lng } = await getLatLng(results[0])
           panTo({lat, lng})
         } catch (error) {
           console.log('error')
