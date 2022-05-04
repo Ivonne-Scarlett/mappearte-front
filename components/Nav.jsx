@@ -5,10 +5,16 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 import ButtonToGo from "../components/ButtonToGo";
+import { getUserById } from "../lib/api";
+import { getArtistById } from "../lib/api";
 
 const menuItems = require("../config/nav.json");
+const defaultImage = "/icons/noavatar.png";
 
 export default function Nav() {
+  const [role, setRole] = useState()
+  const [artist, setArtist] = useState();
+  const [user, setUser] = useState();
   const [isMenuOpen, setMenuOpen] = useState(false);
   const [showDropdown, setShowDropdown] = useState(false);
   const [uploadTarget, setUploadTarget] = useState("");
@@ -56,6 +62,25 @@ export default function Nav() {
     }, 3500);
     
   };
+
+  useEffect( () => {
+    const id = localStorage.getItem("id");
+    const role = localStorage.getItem("role");
+    const token = localStorage.getItem("token");
+
+      setRole(role);
+      if (role === 'artist') {
+        getArtistById(id).then( ({artists}) => {
+          setArtist(artists);
+        }, {})
+      } else if (role === "user"){
+        getUserById(id).then( ({users})  =>{
+          console.log('Antes del set: ',users);
+        setUser(users);
+        }, {})
+      }
+    }, []
+  )
 
   useEffect(() => {
     setUploadTarget(token ? "/upload" : "/Login");
@@ -118,11 +143,11 @@ export default function Nav() {
         <div className='flex'>       
             <Link href={"/profile"} passHref>
               <img
-                src="../icons/avatarIndex.png"
+                src={ artist?.imgArtist || user?.imgUser || defaultImage }
                 alt="avatar"
                 className={classNames(
                   "cursor-pointer",
-                  "outline outline-2 outline-offset-2 outline-black hover:outline-violet-600 invert",
+                  "outline outline-2 outline-offset-2 outline-orangeP hover:outline-greenP",
                   "rounded-full w-6 h-6",
                   "ml-2",
                   "block md:hidden"
@@ -191,11 +216,11 @@ export default function Nav() {
           </ul>
           <Link href={"/profile"} passHref>
             <img
-              src="../icons/avatarIndex.png"
+              src={ artist?.imgArtist || user?.imgUser || defaultImage }
               alt="Imagen de perfil"
               className={classNames(
                 "cursor-pointer ",
-                "outline outline-2 outline-offset-2 outline-black hover:outline-violet-600 invert",
+                "outline outline-2 outline-offset-2 outline-orangeP hover:outline-greenP",
                 "ml-4 rounded-full w-6 h-6",
                 "hidden md:block"
               )}
