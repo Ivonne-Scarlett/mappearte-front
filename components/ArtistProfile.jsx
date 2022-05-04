@@ -153,7 +153,7 @@ export default function Profile () {
         </div>
       </DarkBlueCard>
 
-      <OpacityCard className="mt-36 px-6 md:px-20 pb-6 md:pb-10 ">
+      {/* <OpacityCard className="mt-36 px-6 md:px-20 pb-6 md:pb-10 ">
         <h3
           className={classNames(
             "font-Mochiy font-extrabold text-2xl tracking-wider",
@@ -162,9 +162,8 @@ export default function Profile () {
         >
           Me han etiquetado
         </h3>
-        {/* <GridIndex /> */}
           <CarouselProfile streetArtbyArtist={allArtbyArtist}/>
-      </OpacityCard>
+      </OpacityCard> */}
 
       <OpacityCard className="mt-28 px-6 md:px-20 pb-6 md:pb-10">
         <h3
