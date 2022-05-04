@@ -69,7 +69,10 @@ export default function Upload() {
         type: file.type,
         data: file,
       });
-      uppy.upload();
+      uppy.upload().then(result => {
+        console.log(result)
+        setValue('muralImg', result.successful[0].uploadURL)
+      });
     }
   };
 
@@ -102,7 +105,7 @@ export default function Upload() {
     setUppy(uppyInstance);
   }, []);
  
-  const { register, handleSubmit, errors, watch } = useForm({defaultValues:{
+  const { register, handleSubmit, errors, watch, setValue } = useForm({defaultValues:{
     isGraffiti:false,
     isSticker:false,
     isMural:false
