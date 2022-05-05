@@ -8,7 +8,7 @@ import '@reach/combobox/styles.css'
 import { getArtistById, getStreetart } from '../lib/api';
 
 const libraries = ['places']
-const mapContainerStyle = {width: '100vw', height: '100vh'}
+const mapContainerStyle = {width: '100vh', height: '32rem'}
 const center = {lat: 19.43270444524167, lng: -99.13318543974893}
 const options = {
   styles: mapStyles, //TODO: Verificar por que no funciona el estilo del mapa(Colores)
@@ -88,10 +88,10 @@ export default function Map () {
   }
   console.log(selected)
   return(
-      <div>
-        <h1 className='absolute z-10'>Mappearte</h1>
+      <div >
+        <h1 className='absolute z-10 text-[#04032E]'>Mappearte</h1>
 
-        <Search panTo={panTo} />
+        <Search panTo={panTo} className='text-black' />
         <Locate panTo={panTo}/>
 
           <GoogleMap
@@ -102,6 +102,7 @@ export default function Map () {
           options={options}
           streetViewControl={true}
           onLoad={onMapLoad}
+          //className='h-[8rem] w-full'
           >
             {markers.map((marker) => (
               <Marker
@@ -127,8 +128,19 @@ export default function Map () {
               }}
             >
               <div>
-                <h2>Artista: {selected.artist.artist}</h2>
-                <p>Dirección:</p>
+                <h2 className="text-black text-3xl font-normal">
+                  <span className="text-black text-3xl font-light">Artista: </span> 
+                  {selected.artist.artist}
+                </h2>
+                <p className="text-black text-xl">Dirección: {selected.address}</p>
+                <div>
+                  <img 
+                    src={selected.muralImg} 
+                    alt="imagen"
+                    style={{width:'100%'}} 
+                    className="border border-solid border-white"
+                  /> 
+                </div>
               </div>
             </InfoWindow>
             ) : null}
@@ -188,9 +200,10 @@ return (
       }}
       disabled={!ready}
       placeholder='Busca una dirección'
+      className="text-black font-normal w-[18rem] bg-slate-200"
     />
     <ComboboxPopover>
-      <ComboboxList>
+      <ComboboxList className="text-black font-normal">
         {status === 'OK' && data.map(({id, description}) => (
           <ComboboxOption key={id} value={description} />
         ))}
