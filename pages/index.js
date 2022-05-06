@@ -58,7 +58,6 @@ export default function Home() {
         <div 
           className={classNames(
             'flex justify-center',
-            'bg-gray-300',
             'h-[32rem]',
             'w-full',
             'mx-6 md:mx-20 my-6 md:my-10',
@@ -88,7 +87,7 @@ export default function Home() {
           className={classNames(
               'font-Mochiy font-semibold',
               'text-2xl text-gray-100',
-              'py-2 px-6 md:px-20',
+              'py-2 px-6 md:px-20 mt-16',
               'tracking-wider',
               'relative'
             )}

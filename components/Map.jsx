@@ -8,7 +8,7 @@ import '@reach/combobox/styles.css'
 import { getArtistById, getStreetart } from '../lib/api';
 
 const libraries = ['places']
-const mapContainerStyle = {width:'100vh', height:'32rem'}
+const mapContainerStyle = {width:'90vw', height:'32rem'}
 const center = {lat: 19.43270444524167, lng: -99.13318543974893}
 const options = {
   styles: mapStyles, //TODO: Verificar por que no funciona el estilo del mapa(Colores)
@@ -200,7 +200,7 @@ return (
       }}
       disabled={!ready}
       placeholder='Busca una dirección'
-      className="text-black font-normal w-[8rem] md:w-[18rem] bg-lime-200"
+      className="text-black font-normal w-[10rem] md:w-[18rem] bg-lime-200"
     />
     <ComboboxPopover>
       <ComboboxList className="text-black font-normal">
