@@ -18,7 +18,7 @@ import {
   Footer,
   CodeQR,
   CarouselProfile,
-} from "."; 
+} from "./index"; 
 
 const defaultImage = "/icons/noavatar.png";
 

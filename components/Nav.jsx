@@ -99,7 +99,6 @@ export default function Nav() {
       <div
         className={classNames(
           "flex justify-between items-start",
-          "md:mt-2",
           isMenuOpen ? "w-screen" : ""
         )}
       >
@@ -107,7 +106,7 @@ export default function Nav() {
           <img
             src="/icons/logo.png"
             alt="Logotipo mappearte"
-            className={classNames("w-32 md:w-40 lg:w-44", "cursor-pointer")}
+            className={classNames("w-32 md:w-40 lg:w-44", "md:mt-2", "cursor-pointer")}
           />
         </Link>
         <button className="" onClick={showMenu}>
@@ -115,7 +114,7 @@ export default function Nav() {
             src="/icons/menu.png"
             alt="Icono de menu"
             className={classNames(
-              "absolute right-8 mt-2",
+              "absolute right-8 ",
               "cursor-pointer justify-center",
               "md:hidden"
             )}
