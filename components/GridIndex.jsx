@@ -105,7 +105,7 @@ export default function GridIndex() {
             </>
           ) : null}   
         </div>
-        <div className="grid grid-cols-3 md:grid-cols-5 gap-2 md:grid-row-5 max-w-1/2 max-h-3/4">
+        <div className="grid grid-cols-3 md:grid-cols-5 gap-4 md:grid-row-5 max-w-1/2 max-h-3/4">
           {streetArt?.map((image, index) => (
             <div className={classNames(
                 'h-36',

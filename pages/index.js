@@ -43,9 +43,10 @@ export default function Home() {
       <h1 
       className={classNames(
         'font-Mochiy font-semibold',
-        'mt-20 mb-8', 
+        'mt-28', 
         'py-2 px-6 md:px-20',
         'text-2xl text-gray-200',
+        'tracking-wider'
         )}
       >
         Encuentra arte cerca de ti:
@@ -57,13 +58,12 @@ export default function Home() {
         <div 
           className={classNames(
             'flex justify-center',
-            'bg-gray-300',
-            'h-96',
-            'w-10/12',
+            'h-[32rem]',
+            'w-full',
+            'mx-6 md:mx-20 my-6 md:my-10',
           )}
         >
-          <Map/>
-          
+          <Map/>          
         </div>
       </div>
       
@@ -72,6 +72,7 @@ export default function Home() {
           className={classNames(
               'font-Mochiy font-semibold',
               'text-2xl text-gray-100',
+              'tracking-wider',
             )}
           >
             Lo Nuevo
@@ -86,7 +87,9 @@ export default function Home() {
           className={classNames(
               'font-Mochiy font-semibold',
               'text-2xl text-gray-100',
-              'py-2 px-6 md:px-20',
+              'py-2 px-6 md:px-20 mt-16',
+              'tracking-wider',
+              'relative'
             )}
           >
             Conoce a los artistas
