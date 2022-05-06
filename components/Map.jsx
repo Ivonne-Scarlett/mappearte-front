@@ -8,7 +8,7 @@ import '@reach/combobox/styles.css'
 import { getArtistById, getStreetart } from '../lib/api';
 
 const libraries = ['places']
-const mapContainerStyle = {width: '100vh', height: '32rem'}
+const mapContainerStyle = {width:'100vh', height:'32rem'}
 const center = {lat: 19.43270444524167, lng: -99.13318543974893}
 const options = {
   styles: mapStyles, //TODO: Verificar por que no funciona el estilo del mapa(Colores)
@@ -102,7 +102,7 @@ export default function Map () {
           options={options}
           streetViewControl={true}
           onLoad={onMapLoad}
-          //className='h-[8rem] w-full'
+          className='w-full'
           >
             {markers.map((marker) => (
               <Marker

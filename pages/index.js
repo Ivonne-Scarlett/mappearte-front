@@ -64,8 +64,7 @@ export default function Home() {
             'mx-6 md:mx-20 my-6 md:my-10',
           )}
         >
-          <Map/>
-          
+          <Map/>          
         </div>
       </div>
       
