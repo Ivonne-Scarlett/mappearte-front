@@ -123,7 +123,7 @@ export default function ArtistEdit() {
       });
       uppy.upload().then(result => {
         console.log(result)
-        setValue('muralImg', result.successful[0].uploadURL)
+        setValue('imgArtist', result.successful[0].uploadURL)
       });
     }
   };

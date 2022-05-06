@@ -117,7 +117,7 @@ export default function UserEdit () {
       });
       uppy.upload().then(result => {
         console.log(result)
-        setValue('muralImg', result.successful[0].uploadURL)
+        setValue('imgUser', result.successful[0].uploadURL)
       });
     }
   };
