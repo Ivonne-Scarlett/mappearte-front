@@ -152,20 +152,19 @@ export default function Nav() {
                 )}
               />
             </Link>
-            {token ? (<div className="cursor-pointer block md:hidden pl-2" onClick={onDropdownClick}>
-              {/* ▼ */}
-              <img src="../icons/logout2.png" alt="icono de salida"/>
-              <div
-              onClick={logout}
-              className={classNames(
-                showDropdown || "invisible")}
+            {token ? (<div 
+            onClick={logout} 
+            className={classNames(
+              "cursor-pointer block md:hidden pl-4" 
+              || "invisible"
+            )} 
             >
-              Salir
-            </div>
-            
+              <img 
+              src="../icons/logout2.png" 
+              alt="icono de salida"/>
             </div>
             ) : <div></div> }
-             </div>
+            </div>
             <ButtonToGo
               bgColor="Cyan"
               borderColor="Cyan"
@@ -223,18 +222,20 @@ export default function Nav() {
                 "hidden md:block"
               )}
             />
-          </Link>
+          </Link>  
           {token ? (
-          <div className="cursor-pointer hidden md:block justify-items-end pl-2 mt-4" onClick={onDropdownClick}>
-            <img src="../icons/logout2.png" alt="icono de salida"/>
-              <div
-              onClick={logout}
-              className={classNames(
-                showDropdown || "invisible")}
-            >
-              Salir
-            </div>
-            
+          <div 
+          onClick={logout}
+          className={classNames(
+            "cursor-pointer justify-items-end", 
+            "pl-4 ", 
+            "hidden md:block"|| "invisible"
+          )} 
+             >
+            <img 
+            src="../icons/logout2.png" 
+            alt="icono de salida"
+            /> 
           </div>
           ) : <div></div> }
         </div>
