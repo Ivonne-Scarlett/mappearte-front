@@ -103,9 +103,10 @@ export default function Profile () {
             " mb-16"
           )}
         >
-          Fotos que he encontrado
+          Portafolio del artista
         </h3>
-        <GridIndex />
+        
+        
       </DarkBlueCard>
 
       <Footer />

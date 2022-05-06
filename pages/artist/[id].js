@@ -6,23 +6,30 @@ import { useQRCode } from 'next-qrcode';
 import {
   Nav,
   Footer,
-  GridIndex,
   GridProfile,
   DarkBlueCard,
   OpacityCard,
 } from "../../components";
 
 import { getArtistById } from "../../lib/api";
+import { getArtByArtistId } from '../../lib/api';
 
 export default function ProfileArtist() {
   const router = useRouter();
   const { id } = router.query;
   const [artist, setArtist] = useState([]);
+  const [allArtbyArtist, setAllArtbyArtist] = useState([]);
   const { Canvas } = useQRCode();
   useEffect(() => {
     getArtistById(id).then(({ artists }) => {
       setArtist(artists);
     });
+    getArtByArtistId(id)
+      .then(response => {
+        const dataImg = response.data
+        const streetArt = dataImg.streetArt
+        setAllArtbyArtist(streetArt)
+    }, [])
   }, [id]);
   
   const defaultImage = "/icons/noavatar.png";
@@ -91,38 +98,26 @@ export default function ProfileArtist() {
         </div>
         <div className="w-100 md:col-span-2 align-center mx-3 mb:ml-3 p-1 h-40"> 
           <h2 className="bg-orangeP text-2xl text-center mb-6 mb:ml-3">
-            Acerca de mi:</h2>
+            Información que el artista ha colocado:</h2>
           <h3 
             className="text-xl text-center"
           >
-            {artist?.resume || "Cuentanos sobre tu trayectoria"}
+            {artist?.resume || "Esta ha sido mi trayectoria..."}
           </h3>
         </div>
       </DarkBlueCard>
 
-      <div className="mx-6 md:mx-20 my-6 md:my-10 mt-20 mb-20">
+      <div className="mx-6 md:mx-20 my-6 md:my-10 mt-20 mb-20 h-screen">
         <h3
           className={classNames(
             "font-Mochiy font-extrabold text-2xl",
-            "ml-4 mb-16"
+            "ml-4 mb-4 mt-32 tracking-wider"
           )}
         >
-          Mis Fotos
+          Portafolio del artista
         </h3>
-        <GridProfile className="" />
+        <GridProfile streetArtbyArtist={allArtbyArtist}/>
       </div>
-
-      <DarkBlueCard className="mt-20 mb-20">
-        <h3
-          className={classNames(
-            "font-Mochiy font-extrabold text-2xl",
-            "ml-4 mb-16"
-          )}
-        >
-          He sido etiquetado{" "}
-        </h3>
-        <GridIndex />
-      </DarkBlueCard>
 
       <Footer />
     </>
