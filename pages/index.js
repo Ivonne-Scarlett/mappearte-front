@@ -90,6 +90,7 @@ export default function Home() {
               'text-2xl text-gray-100',
               'py-2 px-6 md:px-20',
               'tracking-wider',
+              'relative'
             )}
           >
             Conoce a los artistas

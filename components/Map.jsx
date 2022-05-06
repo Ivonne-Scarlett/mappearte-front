@@ -88,12 +88,7 @@ export default function Map () {
   }
   console.log(selected)
   return(
-      <div >
-        <h1 className='absolute z-10 text-[#04032E]'>Mappearte</h1>
-
-        <Search panTo={panTo} className='text-black' />
-        <Locate panTo={panTo}/>
-
+      <div>
           <GoogleMap
           id='map'
           center={center}
@@ -104,6 +99,10 @@ export default function Map () {
           onLoad={onMapLoad}
           className='w-full'
           >
+            <h1 className='absolute z-10 text-[#04032E] hidden md:block right-4'>Mappearte</h1>
+            <Search panTo={panTo} className='text-black' />
+            <Locate panTo={panTo}/>
+
             {markers.map((marker) => (
               <Marker
                 key={marker._id}
@@ -117,6 +116,7 @@ export default function Map () {
                 onClick={() => {
                   onPointClick(marker)
                 }}
+                
               />
             ))}
 
@@ -152,7 +152,7 @@ export default function Map () {
 function Locate({panTo}) {
 return ( 
   <button
-    className='absolute top-75 right-16 bg-transparent border-0 h-12 z-10'
+    className='absolute bg-transparent border-0 h-12 z-10'
     onClick={() => {
       navigator.geolocation.getCurrentPosition(
         (position) => {
@@ -178,7 +178,7 @@ const { ready, value, suggestions: {status, data}, setValue, clearSuggestions} =
 })
 
 return (
-  <div className='absolute top-75 left-2/4 -translate-x-1/2 w-full max-w-md z-10'>
+  <div className='absolute left-2/4 -translate-x-1/2 z-10'>
     <Combobox
       onSelect={async (address) => {
         setValue(address, false)
@@ -200,7 +200,7 @@ return (
       }}
       disabled={!ready}
       placeholder='Busca una dirección'
-      className="text-black font-normal w-[18rem] bg-slate-200"
+      className="text-black font-normal w-[8rem] md:w-[18rem] bg-lime-200"
     />
     <ComboboxPopover>
       <ComboboxList className="text-black font-normal">
