@@ -8,7 +8,6 @@ export default function AvatarImg({artists}) {
   return (
     <div className={classNames(
       "grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-7",
-      "",
       )}>
       {artists.map((artists, index)=> {
         let avatarArtist = artists.imgArtist

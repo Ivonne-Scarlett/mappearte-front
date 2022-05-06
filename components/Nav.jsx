@@ -5,10 +5,16 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 import ButtonToGo from "../components/ButtonToGo";
+import { getUserById } from "../lib/api";
+import { getArtistById } from "../lib/api";
 
 const menuItems = require("../config/nav.json");
+const defaultImage = "/icons/noavatar.png";
 
 export default function Nav() {
+  const [role, setRole] = useState()
+  const [artist, setArtist] = useState();
+  const [user, setUser] = useState();
   const [isMenuOpen, setMenuOpen] = useState(false);
   const [showDropdown, setShowDropdown] = useState(false);
   const [uploadTarget, setUploadTarget] = useState("");
@@ -57,6 +63,24 @@ export default function Nav() {
     
   };
 
+  useEffect( () => {
+    const id = localStorage.getItem("id");
+    const role = localStorage.getItem("role");
+    const token = localStorage.getItem("token");
+
+      setRole(role);
+      if (role === 'artist') {
+        getArtistById(id).then( ({artists}) => {
+          setArtist(artists);
+        }, {})
+      } else if (role === "user"){
+        getUserById(id).then( ({users})  =>{
+        setUser(users);
+        }, {})
+      }
+    }, []
+  )
+
   useEffect(() => {
     setUploadTarget(token ? "/upload" : "/Login");
   }, []);
@@ -75,7 +99,6 @@ export default function Nav() {
       <div
         className={classNames(
           "flex justify-between items-start",
-          "md:mt-2",
           isMenuOpen ? "w-screen" : ""
         )}
       >
@@ -83,7 +106,7 @@ export default function Nav() {
           <img
             src="/icons/logo.png"
             alt="Logotipo mappearte"
-            className={classNames("w-32 md:w-40 lg:w-44", "cursor-pointer")}
+            className={classNames("w-32 md:w-40 lg:w-44", "md:mt-2", "cursor-pointer")}
           />
         </Link>
         <button className="" onClick={showMenu}>
@@ -91,7 +114,7 @@ export default function Nav() {
             src="/icons/menu.png"
             alt="Icono de menu"
             className={classNames(
-              "absolute right-8 mt-2",
+              "absolute right-8 ",
               "cursor-pointer justify-center",
               "md:hidden"
             )}
@@ -118,31 +141,30 @@ export default function Nav() {
         <div className='flex'>       
             <Link href={"/profile"} passHref>
               <img
-                src="../icons/avatarIndex.png"
+                src={ artist?.imgArtist || user?.imgUser || defaultImage }
                 alt="avatar"
                 className={classNames(
                   "cursor-pointer",
-                  "outline outline-2 outline-offset-2 outline-black hover:outline-violet-600 invert",
+                  "outline outline-2 outline-offset-2 outline-orangeP hover:outline-greenP",
                   "rounded-full w-6 h-6",
                   "ml-2",
                   "block md:hidden"
                 )}
               />
             </Link>
-            {token ? (<div className="cursor-pointer block md:hidden pl-2" onClick={onDropdownClick}>
-              {/* ▼ */}
-              <img src="../icons/logout2.png" alt="icono de salida"/>
-              <div
-              onClick={logout}
-              className={classNames(
-                showDropdown || "invisible")}
+            {token ? (<div 
+            onClick={logout} 
+            className={classNames(
+              "cursor-pointer block md:hidden pl-4" 
+              || "invisible"
+            )} 
             >
-              Salir
-            </div>
-            
+              <img 
+              src="../icons/logout2.png" 
+              alt="icono de salida"/>
             </div>
             ) : <div></div> }
-             </div>
+            </div>
             <ButtonToGo
               bgColor="Cyan"
               borderColor="Cyan"
@@ -191,27 +213,29 @@ export default function Nav() {
           </ul>
           <Link href={"/profile"} passHref>
             <img
-              src="../icons/avatarIndex.png"
+              src={ artist?.imgArtist || user?.imgUser || defaultImage }
               alt="Imagen de perfil"
               className={classNames(
                 "cursor-pointer ",
-                "outline outline-2 outline-offset-2 outline-black hover:outline-violet-600 invert",
+                "outline outline-2 outline-offset-2 outline-orangeP hover:outline-greenP",
                 "ml-4 rounded-full w-6 h-6",
                 "hidden md:block"
               )}
             />
-          </Link>
+          </Link>  
           {token ? (
-          <div className="cursor-pointer hidden md:block justify-items-end pl-2 mt-4" onClick={onDropdownClick}>
-            <img src="../icons/logout2.png" alt="icono de salida"/>
-              <div
-              onClick={logout}
-              className={classNames(
-                showDropdown || "invisible")}
-            >
-              Salir
-            </div>
-            
+          <div 
+          onClick={logout}
+          className={classNames(
+            "cursor-pointer justify-items-end", 
+            "pl-4 ", 
+            "hidden md:block"|| "invisible"
+          )} 
+             >
+            <img 
+            src="../icons/logout2.png" 
+            alt="icono de salida"
+            /> 
           </div>
           ) : <div></div> }
         </div>

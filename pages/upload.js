@@ -1,14 +1,13 @@
 import { React, useState, useEffect } from 'react';
 import classNames from 'classnames';
 import { useRouter } from 'next/router';
-import Uppy from "@uppy/core";
 import { useForm } from "react-hook-form";
-import Transloadit from "@uppy/transloadit";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Uppy from "@uppy/core";
+import Transloadit from "@uppy/transloadit";
 
-import { getUserById } from "../lib/api";
-import { getArtistById } from "../lib/api";
+import { getUserById, getArtistById } from "../lib/api";
 
 import {
   Nav,
@@ -32,15 +31,15 @@ export default function Upload() {
     });  
   }
 
-  const messageOk = () => {
-    toast.success('Tu foto se ha guardado.', {
-      position: "top-right",
-      autoClose: 3000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
+const messageOk = () => {
+  toast.success('Tu foto se ha guardado.', {
+    position: "top-right",
+    autoClose: 3000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
     });
   }
 

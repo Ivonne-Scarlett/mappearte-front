@@ -18,7 +18,6 @@ export default function GridIndex() {
   useEffect(() => {
     getStreetart()
     .then(response => {
-      console.log(response)
       const streetArt = response?.data?.streetArt?.slice(0, 14);
       setStreetArt(streetArt);
     })

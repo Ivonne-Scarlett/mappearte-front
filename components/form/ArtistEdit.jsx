@@ -3,6 +3,8 @@ import classNames from "classnames";
 import { useForm } from "react-hook-form";
 import { ToastContainer, toast } from "react-toastify";
 import { useRouter } from "next/router";
+import Uppy from "@uppy/core";
+import Transloadit from "@uppy/transloadit";
 
 import { getUserById, getArtistById, patchArtist } from "../../lib/api";
 
@@ -68,9 +70,11 @@ export default function ArtistEdit() {
   const [artistID, setArtistID] = useState();
   const [isArtist, setIsArtist] = useState(false);
   const [user, setUser] = useState();
+  const [uppy, setUppy] = useState();
+  const [isUploadingFile, setIsUploadingFile] = useState(false);
+  const [imageUrl, setImageUrl] = useState();
   const router = useRouter();
-  const { register, handleSubmit, errors, setValue, watch } = useForm();
-
+  
   useEffect(() => {
     const id = localStorage.getItem("id");
     const role = localStorage.getItem("role");
@@ -100,6 +104,52 @@ export default function ArtistEdit() {
     }
   }, [] 
   );
+
+  const onCompleteUploadFiles = (assembly) => {
+    const image = assembly.results?.compress_image[0].ssl_url;
+    setImageUrl(image);
+    setIsUploadingFile(false);
+  };
+
+  const onFileInputChange = (event) => {
+    setIsUploadingFile(true);
+    const file = Array.from(event.target.files)[0] || null;
+    if (file) {
+      uppy.reset();
+      uppy.addFile({
+        name: file.name,
+        type: file.type,
+        data: file,
+      });
+      uppy.upload().then(result => {
+        console.log(result)
+        setValue('imgArtist', result.successful[0].uploadURL)
+      });
+    }
+  };
+
+  useEffect(() => {
+    const uppyInstance = new Uppy({
+      restrictions: {
+        maxNumberOfFiles: 1,
+      },
+    })
+    .use(Transloadit, {
+      params: {
+        auth: { key: process.env.NEXT_PUBLIC_TRANSLOADIT_AUTH_KEY },
+        template_id: process.env.NEXT_PUBLIC_TRANSLOADIT_TEMPLATE_ID,
+      },
+      waitForEncoding: true,
+    })
+    .on("transloadit:complete", onCompleteUploadFiles);
+    setUppy(uppyInstance);
+  }, []);
+ 
+  const { register, handleSubmit, errors, watch, setValue } = useForm({defaultValues:{
+    isGraffiti:false,
+    isSticker:false,
+    isMural:false
+  }});
 
   const onSubmit = async (dataRegister) => {
     const artist = await patchArtist(artistID, dataRegister)
@@ -180,8 +230,16 @@ export default function ArtistEdit() {
           <label className="my-2">
             Cambia tu imagen 
           </label>
-          <InputFile/>
+          <InputFile
+          id='file'
+          name='file'
+          type='file'
+          accept='image/png, image/jpeg'
+          onChange={onFileInputChange}
+          register= {register("imgArtist")} 
+          />
         </div>
+
         <div className="flex flex-col col-span-3 ">
           <Input
             label="Acerca de mi:"
