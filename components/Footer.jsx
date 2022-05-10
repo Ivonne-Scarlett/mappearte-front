@@ -40,9 +40,12 @@ export default function Footer({className}) {
           'flex flex-col',
           'my-5 md:mt-4'
         )}>
-          <a className={classNames(
+          <a 
+            href={"avisoprivacidad"}
+            className={classNames(
             'text-center md:text-right',
-            'my-1 md:mt-3' 
+            'my-1 md:mt-3',
+            'cursor-pointer' 
           )}>
             Aviso de privacidad
           </a>
