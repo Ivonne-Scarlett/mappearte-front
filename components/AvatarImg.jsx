@@ -25,7 +25,10 @@ export default function AvatarImg({artists}) {
                 className={classNames(
                   "object-cover cursor-pointer",
                   "rounded-full border-2 border-solid border-borange",
-                  "w-24 h-24 md:w-28 md:h-28 lg:w-40 lg:h-40 2xl:w-60 2xl:h-60",
+                  "w-24 h-24", 
+                  "md:w-28 md:h-28",
+                  "lg:w-40 lg:h-40",
+                  "2xl:w-48 2xl:h-48",
                   "my-3 md:my-5 lg:my-8"
                 )}                
                 onClick={() => router.push(`/artist/${idArtist}`)}
