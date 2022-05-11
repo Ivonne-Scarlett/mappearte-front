@@ -64,7 +64,7 @@ export default function ProfileArtist() {
                 "w-24 h-24 justify-center",
                 "md:w-32 md:h-32",
                 "lg:w-40 lg:h-40",
-                "2xl:w-60 2xl:h-60"
+                "2xl:w-40 2xl:h-40"
               )}
             />
           </div>
@@ -107,7 +107,7 @@ export default function ProfileArtist() {
         </div>
       </DarkBlueCard>
 
-      <div className="mx-6 md:mx-20 my-6 md:my-10 mt-20 mb-20 h-screen">
+      <div className="mx-6 md:mx-20 my-6 md:my-10 mt-20 mb-20 min-h-screen">
         <h3
           className={classNames(
             "font-Mochiy font-extrabold text-2xl",

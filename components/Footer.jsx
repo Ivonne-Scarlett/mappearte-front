@@ -24,7 +24,7 @@ export default function Footer({className}) {
           <Link href={"/"}><img src='/icons/logoDesktop.png' alt='Logotipo' className='w-[40px]' /></Link>
           <Link href={"/"}><img src='/icons/MappeArteDesktop.png' alt='MappeArte brand' className='pl-1 w-[120px] hidden md:block' /></Link>
         </div>
-        <div className='text-sm mt-4 md:mt-0'>
+        <div className='text-sm mt-3 md:mt-0'>
           <p className='text-center'>Creado por:</p>
           <div className='flex flex-row justify-between mt-2'>
             {
