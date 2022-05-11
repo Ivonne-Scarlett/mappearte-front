@@ -30,7 +30,7 @@ export default function Footer({className}) {
             {
               CreatedBy.map((koder, index) => (
                 <a href={koder.linkedIn} key={index} className='pr-2' target="_blank" rel="noopener noreferrer">
-                  <img src={koder.img} alt={koder.alt} width={koder.width} height={koder.height} className='hover:bg-white' />
+                  <img src={koder.img} alt={koder.alt} width={koder.width} height={koder.height} className='hover:bg-gradient-to-r from-[#043BFF] via-pinkP to-greenP' />
                 </a>
               ))
             }
