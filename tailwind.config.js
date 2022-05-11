@@ -10,7 +10,8 @@ module.exports = {
         "artist":"url('https://media.istockphoto.com/photos/holographic-iridescent-background-unicorn-colorful-rainbow-foil-picture-id1302561463?b=1&k=20&m=1302561463&s=170667a&w=0&h=eJuXSxGSikh7IB7GalNDItwKlYGmV37daFono6QiK6c=')",
         "artistRegister": "url('/img/registro-fondo.jpg')",
         'loginBlur': "url('/img/login-blur.jpg')",
-        'loginFondo': "url('/img/login-fondo.jpg')"
+        'loginFondo': "url('/img/login-fondo.jpg')",
+        'privacidad': "url('/img/privacidad.jpg')"
       }, 
       fontFamily: {
         'Mali': ['Mali', 'cursive'],

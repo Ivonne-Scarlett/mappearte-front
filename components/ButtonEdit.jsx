@@ -10,7 +10,7 @@ export default function ButtonEdit({route}) {
     className={classNames(
       'cursor-pointer',
       'transition duration-500 ease-in-out delay-75',
-      'rounded-full w-10',
+      'rounded-full w-8',
       'hover:bg-backgroundP/30 hover:invert'
     )}
     onClick={onClick}
