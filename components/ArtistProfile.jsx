@@ -99,8 +99,10 @@ export default function Profile () {
                 "rounded-full border-2 border-solid border-orangeP",
                 "w-24 h-24 justify-center",
                 "md:w-32 md:h-32",
-                "lg:w-40 lg:h-40 z-0",
-                "2xl:w-60 2xl:h-60"
+                /* "lg:w-40 lg:h-40 z-0",
+                "2xl:w-60 2xl:h-60" */
+                "lg:w-40 lg:h-40",
+                "2xl:w-40 2xl:h-40"
               )}
             />
           </div>
@@ -171,7 +173,7 @@ export default function Profile () {
           <CarouselProfile streetArtbyArtist={allArtbyArtist}/>
       </OpacityCard> */}
 
-      <OpacityCard className="mt-28 px-6 md:px-20 pb-6 md:pb-10">
+      <OpacityCard className="mt-28 px-6 md:px-20 pb-6 md:pb-10 min-h-screen">
         <h3
           className={classNames(
             "font-Mochiy font-extrabold text-2xl tracking-wider",

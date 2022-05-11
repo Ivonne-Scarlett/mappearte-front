@@ -1,6 +1,7 @@
 import React from 'react';
 import {useState} from 'react';
 import classNames from 'classnames';
+import Link from "next/link";
 
 import RegisterArtistForm from '../components/form/RegisterArtistForm';
 import RegisterUserForm from '../components/form/RegisterUserForm';
@@ -27,8 +28,8 @@ export default function Login() {
           "flex flex-col justify-evenly"
         )}>
           <div className="flex flex-col justify-between items-center ">
-            <img src='/icons/logoDesktop.png' alt='Logotipo' className='w-[40px] md:w-[50px] mb-2' />
-            <img src='/icons/MappeArteDesktop.png' alt='MappeArte brand' className='pl-1 w-[120px] md:w-[150px]' /> 
+            <Link href={"/"} ><img src='/icons/logoDesktop.png' alt='Logotipo' className='w-[40px] md:w-[50px] mb-2 cursor-pointer' /></Link>
+            <Link href={"/"} ><img src='/icons/MappeArteDesktop.png' alt='MappeArte brand' className='pl-1 w-[120px] md:w-[150px] cursor-pointer' /></Link>
           </div>
           <div>
             <ToggleSwitch onClick={isChangeToogle}/>

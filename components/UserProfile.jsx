@@ -62,7 +62,7 @@ export default function Profile () {
           className={classNames(
             "h-64 w-64 lg:h-72 lg:w-72",
             "justify-center",
-            " absolute flex flex-col align-middle"
+            "absolute flex flex-col align-middle",
           )}
         >
           <div className="flex justify-center mt-3">
@@ -95,14 +95,14 @@ export default function Profile () {
         </div>
       </div>
 
-      <DarkBlueCard className="">
+      <DarkBlueCard className="min-h-screen">
         <h3
           className={classNames(
             "font-Mochiy font-extrabold text-2xl",
-            " mb-16"
+            "tracking-wider mb-16"
           )}
         >
-          Portafolio del artista
+          Mis aportaciones artísticas
         </h3>
         
         

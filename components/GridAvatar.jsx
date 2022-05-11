@@ -40,7 +40,7 @@ export default function GridAvatar() {
                   className={classNames(
                     "object-cover cursor-pointer",
                     "rounded-full border-2 border-solid border-white",
-                    "w-20 h-20 md:w-20 md:h-20 lg:w-40 lg:h-40 2xl:w-60 2xl:h-60",
+                    "w-20 h-20 md:w-20 md:h-20 lg:w-40 lg:h-40 2xl:w-44 2xl:h-44",
                     "my-3 md:my-5 lg:my-8",
                     "mx-3 md:mx-5 lg:mx-8"
                   )}
