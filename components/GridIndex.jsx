@@ -63,7 +63,7 @@ export default function GridIndex() {
                           className="border border-solid border-borange"
                         /> 
                         <div className='bg-[#17c7c7] text-sm'>
-                          <h3 className='pt-2 px-6'>{imgShowData.artist.artist}</h3> 
+                          <h3 className='pt-2 px-6'>{imgShowData.artist?.artist ? imgShowData.artist?.artist : 'Job'}</h3> 
                           <p className='pb-2 px-6'>{imgShowData.address}</p>  
                         </div>        
                       </div> 
@@ -96,7 +96,7 @@ export default function GridIndex() {
                       className="border border-solid border-white"
                     /> 
                       <div className='bg-[#17c7c7] text-sm border border-solid border-white'>
-                        <h3 className='pt-2 px-6'>{imgShowData.artist.artist}</h3> 
+                        <h3 className='pt-2 px-6'>{imgShowData.artist?.artist ? imgShowData.artist?.artist : 'Job'}</h3> 
                         <p className='pb-2 px-6'>{imgShowData.address}</p>  
                       </div>        
                   </div> 

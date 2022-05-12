@@ -44,32 +44,16 @@ export default function Profile () {
             }, {})
           getArtByUserId(id)
             .then(response => {
-                const dataAll = response.data.userArt
-                console.log('responseArtByUser:',dataAll)
-                setDataAllImg(dataAll)
-
-                // dataAll.filter( userFilter => { 
-                //   console.log('userFilter',userFilter)                
-                //   const valueId = userFilter.userId.toString()
-                //   console.log('valueID',valueId)
-                //   console.log(typeof valueId)
-                //   const idUser = id
-                //   console.log('id',idUser)
-                //   console.log(typeof idUser)
-                //   if( id === valueId ){
-                //     return setDataAllImg(userFilter)
-                //   }                
-                // }) 
-                            
+                const dataAll = response.data.userArt               
+                let filterByUser = dataAll.filter( userFilter => id === userFilter.userId.toString()) 
+                setDataAllImg(filterByUser)            
             }, [])
         }
       }, [router]
     )
 
   const defaultImage = "/icons/noavatar.png";
-  
-  //console.log('dataAllImg',dataAllImg)
-  
+    
   
   return (
     <>
