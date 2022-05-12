@@ -86,7 +86,7 @@ export default function Profile () {
         <OpacityCard
           className={classNames(
             "h-64 w-64 lg:h-72 lg:w-72",
-            "justify-center",
+            "justify-center z-0",
             " absolute flex flex-col align-middle"
           )}
         >
@@ -99,6 +99,8 @@ export default function Profile () {
                 "rounded-full border-2 border-solid border-orangeP",
                 "w-24 h-24 justify-center",
                 "md:w-32 md:h-32",
+                /* "lg:w-40 lg:h-40 z-0",
+                "2xl:w-60 2xl:h-60" */
                 "lg:w-40 lg:h-40",
                 "2xl:w-40 2xl:h-40"
               )}

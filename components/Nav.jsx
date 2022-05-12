@@ -124,7 +124,7 @@ export default function Nav() {
           className={classNames(
             "flex flex-col md:flex-row items-center",
             isMenuOpen
-              ? "mt-12 pt-4 md:pt-0 bg-backgroundP/60 backdrop-blur-md w-full"
+              ? "mt-12 pt-4 z-50 md:pt-0 bg-backgroundP/60 backdrop-blur-md w-full"
               : ""
           )}
         >
@@ -133,7 +133,7 @@ export default function Nav() {
               "ml-3 md:ml-0",
               "items-start md:items-center",
               "list-none",
-              "h-auto w-60 md:w-80",
+              "h-auto w-60 md:w-60",
               "md:flex md:flex-row",
               isMenuOpen ? "block md:hidden" : "hidden md:block"
             )}
@@ -171,12 +171,13 @@ export default function Nav() {
               className={classNames(
                 "cursor-pointer",
                 "text-xs px-2 py-2 mr-4",
-                "w-1/3 hidden md:block"
+                " hidden md:block"
               )}
               route={uploadTarget}
             >
               Subir Foto
             </ButtonToGo>
+            
             {menuItems.map(({ link, label }, index) => (
               <li
                 className={classNames(
