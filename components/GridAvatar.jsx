@@ -44,6 +44,7 @@ export default function GridAvatar() {
                     "my-3 md:my-5 lg:my-8",
                     "mx-3 md:mx-5 lg:mx-8"
                   )}
+                  passHref
                 />
               </Link>
             </div>

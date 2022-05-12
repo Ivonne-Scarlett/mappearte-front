@@ -21,8 +21,8 @@ export default function Footer({className}) {
           'flex flex-row items-center',
           'mt-6 md:mt-0'
         )}>
-          <Link href={"/"}><img src='/icons/logoDesktop.png' alt='Logotipo' className='w-[40px]' /></Link>
-          <Link href={"/"}><img src='/icons/MappeArteDesktop.png' alt='MappeArte brand' className='pl-1 w-[120px] hidden md:block' /></Link>
+          <Link href={"/"}><img src='/icons/logoDesktop.png' alt='Logotipo' className='w-[40px]'  passHref/></Link>
+          <Link href={"/"}><img src='/icons/MappeArteDesktop.png' alt='MappeArte brand' className='pl-1 w-[120px] hidden md:block' passHref /></Link>
         </div>
         <div className='text-sm mt-3 md:mt-0'>
           <p className='text-center'>Creado por:</p>
