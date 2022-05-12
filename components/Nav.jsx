@@ -18,7 +18,13 @@ export default function Nav() {
   const [isMenuOpen, setMenuOpen] = useState(false);
   const [showDropdown, setShowDropdown] = useState(false);
   const [uploadTarget, setUploadTarget] = useState("");
-  const [token, setToken] = useState();
+  const [token] = useState(() => { 
+    if (typeof window === "undefined") {
+      return false
+    }
+    return window.localStorage.getItem("token")
+  })
+
 
 
   const messageOk = () => {
@@ -63,7 +69,7 @@ export default function Nav() {
     const id = localStorage.getItem("id");
     const role = localStorage.getItem("role");
     const token = localStorage.getItem("token");
-    setToken(token);
+    
 
       setRole(role);
       if (role === 'artist') {
@@ -130,7 +136,7 @@ export default function Nav() {
               "ml-3 md:ml-0",
               "items-start md:items-center",
               "list-none",
-              "h-auto w-60 md:w-60",
+              "h-auto w-60 md:w-80",
               "md:flex md:flex-row",
               isMenuOpen ? "block md:hidden" : "hidden md:block"
             )}

@@ -197,18 +197,25 @@ export default function UserEdit () {
             )}
           />
         </div>
+        
         <div className="flex flex-row mx-auto mb-6 md:w-2/3">
-          <InputFile
-          id='file'
-          name='file'
-          type='file'
-          accept='image/png, image/jpeg'
-          onChange={onFileInputChange}
-          register= {register("imgUser")} 
-          />
+          <div className="w-full">
+            <InputFile
+            id='file'
+            name='file'
+            type='file'
+            accept='image/png, image/jpeg'
+            onChange={onFileInputChange}
+            register= {register("imgUser")} 
+            />
+          </div>
         </div>
         
-        <div className="flex flex-row mx-auto mt-6 md:w-2/3">
+        <div className="flex flex-col mx-auto mt-6 md:w-2/3">
+        <label className="my-2">
+          Categoria:
+        </label>
+        <div className="flex flex-row mx-auto w-full ">
           <Category
             className="rounded-l-lg"
             name="Sticker"
@@ -226,6 +233,7 @@ export default function UserEdit () {
             value={watch("isGraffitti")}
             register={register("isGraffitti")}
           />
+        </div>
         </div>
         <div className='flex ' >
           <ButtonSend

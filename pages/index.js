@@ -7,6 +7,8 @@ import GridIndex from '../components/GridIndex';
 import GridAvatar from '../components/GridAvatar';
 import Footer from '../components/Footer';
 import Map from '../components/Map';
+import Link from "next/link";
+
 
 export default function Home() {
 /*   const [searchArtist, setSearchArtist] = useState('')
@@ -35,8 +37,11 @@ export default function Home() {
               "font-extrabold font-Mali"
             )}
             >
-              Únete a la comunidad Mappearte y ayúdanos en nuestra misión de difusión del arte urbano en México.
+              Únete a la comunidad Mappearte y ayúdanos en nuestra misión de difundir el arte urbano en México.
             </h1>
+            <Link href={"/register"}>
+            <p className='cursor-pointer pt-4 text-center text-lg font-bold tracking-wider text-greenP hover:text-pinkP'>Registrate aquí</p></Link>
+            
         </OpacityCard> 
       </Hero>
 

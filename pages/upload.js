@@ -7,7 +7,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import Uppy from "@uppy/core";
 import Transloadit from "@uppy/transloadit";
 
-import { getUserById, getArtistById } from "../lib/api";
+import { getUserById, getArtistById, registerPhoto } from "../lib/api";
 
 import {
   Nav,
@@ -15,7 +15,8 @@ import {
   InputFile,
   OpacityCard,
   ButtonSend,
-  Category
+  Category,
+  MapUpload
 } from '../components'
 
 export default function Upload() {
@@ -76,17 +77,22 @@ const messageOk = () => {
   };
 
   const onSubmit = async(dataRegister) => {
-    const user = await registerUser(dataRegister)
-    if (save.ok) {
+    const uploadPhoto = await registerPhoto(dataRegister);
+    if (uploadPhoto.ok) {
       messageOk()      
       setTimeout(function(){
-        router.push('/Login')
+        router.push('/')
       }, 3500);
     } else {
       messageFail()
     }
    }
 
+
+  const setLatLng = (lat, lng) => {
+   setValue('lat', lat)
+   setValue('lng', lng)
+  }
   useEffect(() => {
     const uppyInstance = new Uppy({
       restrictions: {
@@ -195,7 +201,7 @@ const messageOk = () => {
             />
             <Input 
             label='Dirección:'
-            placeholder='ejemplo: Calle A #1, Del. B'
+            placeholder='ejemplo: Calle A #1, Ciudad'
             name='address'
             className='my-4'
             register= {register("address")} 
@@ -204,7 +210,9 @@ const messageOk = () => {
           <div 
           className='md:col-span-1 align-center '>
             <div className='bg-white w-100 text-black h-72'>
-              Mapa
+              <MapUpload 
+                setLatLng={setLatLng} 
+              />
             </div>
           </div>
           <div 

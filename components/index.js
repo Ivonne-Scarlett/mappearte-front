@@ -20,6 +20,7 @@ import SearchByCategory from "./SearchByCategory";
 import ToggleSwitch from "./ToggleSwitch";
 import CodeQR from "./CodeQR";
 import CarouselProfile from "./CarouselProfile";
+import MapUpload from "./MapUpload";
 
 export {
   AvatarImg,
@@ -44,4 +45,5 @@ export {
   ToggleSwitch,
   CodeQR,
   CarouselProfile,
+  MapUpload
 };

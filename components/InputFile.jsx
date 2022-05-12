@@ -31,7 +31,7 @@ export default function Input({name, id, value, accept, className, onChange, chi
         value={value} 
         name={name}
         accept={accept}
-        placeholder='Sellecciona tu Inmagen'
+        placeholder='Selecciona tu Imagen'
         onChange={onChange}
         />
         {children}

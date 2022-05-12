@@ -44,8 +44,10 @@ export default function Profile () {
             }, {})
           getArtByUserId(id)
             .then(response => {
-                const dataAll = response.data.userArt               
+                const dataAll = response.data.userArt    
+                console.log(dataAll)           
                 let filterByUser = dataAll.filter( userFilter => id === userFilter.userId.toString()) 
+                console.log(filterByUser)
                 setDataAllImg(filterByUser)            
             }, [])
         }

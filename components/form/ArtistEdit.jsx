@@ -227,9 +227,9 @@ export default function ArtistEdit() {
           </div>
           <Input label="Ciudad" name="city" register={register("city")} />
           
-          <label className="my-2">
+          {/* <label className="my-2">
             Cambia tu imagen 
-          </label>
+          </label> */}
           <InputFile
           id='file'
           name='file'
