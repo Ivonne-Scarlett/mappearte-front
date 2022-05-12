@@ -18,8 +18,11 @@ export default function GridIndex() {
   useEffect(() => {
     getStreetart()
     .then(response => {
-      const streetArt = response?.data?.streetArt?.slice(0, 14);
-      setStreetArt(streetArt);
+      const streetArt = response?.data?.streetArt      
+      const final = streetArt?.length      
+      const last14 = final - 14          
+      const dataImgGridIndex = streetArt.slice(last14, final)
+      setStreetArt(dataImgGridIndex)
     })
   }, [])
 
@@ -43,7 +46,7 @@ export default function GridIndex() {
                     >
                       <div className="flex items-center justify-end">
                         <button
-                          className="background-transparent pt-2 pr-1.5"
+                          className="pt-2 pr-1.5"
                           type="button"
                           onClick={() => setShowModal(false)}
                         >
