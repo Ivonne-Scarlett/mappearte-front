@@ -130,7 +130,7 @@ export default function Map () {
               <div>
                 <h2 className="text-black text-3xl font-normal">
                   <span className="text-black text-3xl font-light">Artista: </span> 
-                  {selected.artist.artist}
+                  {selected.artist?.artist ? selected.artist?.artist : 'Job'}
                 </h2>
                 <p className="text-black text-xl">Dirección: {selected.address}</p>
                 <div>
