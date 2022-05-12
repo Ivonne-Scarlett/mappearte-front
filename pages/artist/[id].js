@@ -27,7 +27,7 @@ export default function ProfileArtist() {
     getArtByArtistId(id)
       .then(response => {
         const dataImg = response.data
-        const streetArt = dataImg.streetArt
+        const streetArt = dataImg?.streetArt
         setAllArtbyArtist(streetArt)
     }, [])
   }, [id]);
@@ -56,7 +56,7 @@ export default function ProfileArtist() {
         >
           <div className="flex justify-center mt-3">
             <img
-              src={artist.imgArtist || defaultImage}
+              src={artist?.imgArtist || defaultImage}
               alt="Icono de perfil de usuario"
               className={classNames(
                 "bg-backgroundP object-cover", 
@@ -69,7 +69,7 @@ export default function ProfileArtist() {
             />
           </div>
           <div className="flex justify-center mt-2">
-            <h3 className="font-bold text-lg mt-4 font-Mali">{artist.artist}</h3>
+            <h3 className="font-bold text-lg mt-4 font-Mali">{artist?.artist}</h3>
           </div>
         </OpacityCard>
       </div>
@@ -80,7 +80,7 @@ export default function ProfileArtist() {
         <div className="md:span-1 h-50 w-100 flex justify-center">
           <div className="h-25 w-25 flex place-content-center">
             <Canvas
-              text={`http://localhost:3000/artist/${artist?._id}/next-qrcode`}
+              text={`https://mappearte-app.vercel.app/artist/${artist?._id}`}
               options={{
                 type: 'image/jpeg',
                 quality: 0.3,
