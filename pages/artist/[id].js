@@ -98,7 +98,7 @@ export default function ProfileArtist() {
         </div>
         <div className="w-100 md:col-span-2 align-center mx-3 mb:ml-3 p-1 h-40"> 
           <h2 className="bg-orangeP text-2xl text-center mb-6 mb:ml-3">
-            Información que el artista ha colocado:</h2>
+            Acerca de {artist?.artist}:</h2>
           <h3 
             className="text-xl text-center"
           >
