@@ -18,12 +18,8 @@ export default function Nav() {
   const [isMenuOpen, setMenuOpen] = useState(false);
   const [showDropdown, setShowDropdown] = useState(false);
   const [uploadTarget, setUploadTarget] = useState("");
-  const [token] = useState(() => { 
-    if (typeof window === "undefined") {
-      return false
-    }
-    return window.localStorage.getItem("token")
-  })
+  const [token, setToken] = useState();
+
 
   const messageOk = () => {
     toast.success('Sesión terminada.', {
@@ -67,6 +63,7 @@ export default function Nav() {
     const id = localStorage.getItem("id");
     const role = localStorage.getItem("role");
     const token = localStorage.getItem("token");
+    setToken(token);
 
       setRole(role);
       if (role === 'artist') {
@@ -139,7 +136,7 @@ export default function Nav() {
             )}
           >
         <div className='flex'>       
-            <Link href={"/profile"} passHref>
+            <Link href={"/profile"}>
               <img
                 src={ artist?.imgArtist || user?.imgUser || defaultImage }
                 alt="avatar"
@@ -186,7 +183,7 @@ export default function Nav() {
                 )}
                 key={`menuItem-${index}`}
               >
-                <Link href={link} passHref>
+                <Link href={link}>
                   <a
                     className={classNames(
                       "hover:decoration-lime-400 hover:text-lime-400",
@@ -212,7 +209,7 @@ export default function Nav() {
               Subir Foto
             </ButtonToGo>
           </ul>
-          <Link href={"/profile"} passHref>
+          <Link href={"/profile"}>
             <img
               src={ artist?.imgArtist || user?.imgUser || defaultImage }
               alt="Imagen de perfil"
