@@ -4,12 +4,14 @@ import { useRouter } from "next/router";
 
 import { getUserById } from "../lib/api";
 import { getArtistById } from "../lib/api";
+import { getArtByUserId } from '../lib/api';
 
 import {
   Nav,
   OpacityCard,
   ButtonEdit,
   GridIndex,
+  GridProfile,
   DarkBlueCard,
   Footer,
 } from "../components"; 
@@ -19,6 +21,7 @@ export default function Profile () {
     const [artist, setArtist] = useState();
     const [isArtist, setIsArtist] = useState(false)
     const [user, setUser] = useState();
+    const [dataAllImg, setDataAllImg] = useState();
     const router = useRouter();
   
     useEffect( () => {
@@ -37,13 +40,36 @@ export default function Profile () {
           }, {})
         } else if (role === "user"){
           getUserById(id).then( ({users})  =>{
-          setUser(users);
-          }, {})
+            setUser(users);
+            }, {})
+          getArtByUserId(id)
+            .then(response => {
+                const dataAll = response.data.userArt
+                console.log('responseArtByUser:',dataAll)
+                setDataAllImg(dataAll)
+
+                // dataAll.filter( userFilter => { 
+                //   console.log('userFilter',userFilter)                
+                //   const valueId = userFilter.userId.toString()
+                //   console.log('valueID',valueId)
+                //   console.log(typeof valueId)
+                //   const idUser = id
+                //   console.log('id',idUser)
+                //   console.log(typeof idUser)
+                //   if( id === valueId ){
+                //     return setDataAllImg(userFilter)
+                //   }                
+                // }) 
+                            
+            }, [])
         }
       }, [router]
     )
 
   const defaultImage = "/icons/noavatar.png";
+  
+  //console.log('dataAllImg',dataAllImg)
+  
   
   return (
     <>
@@ -75,7 +101,7 @@ export default function Profile () {
                 "w-24 h-24 justify-center",
                 "md:w-32 md:h-32",
                 "lg:w-40 lg:h-40",
-                "2xl:w-60 2xl:h-60"
+                "2xl:w-40 2xl:h-40"
               )}
             />
           </div>
@@ -104,6 +130,7 @@ export default function Profile () {
         >
           Mis aportaciones artísticas
         </h3>
+        <GridProfile streetArtbyArtist={dataAllImg}/>
         
         
       </DarkBlueCard>
