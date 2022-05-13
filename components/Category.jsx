@@ -6,31 +6,28 @@ export default function Category({ className, name, type = 'checkbox', register,
   const [selectedOptions, setSelectedOptiones] = useState();
 
   return (
-    
-    <div className={classNames(
-      'bg-gradient-to-b from-gray-200 to-gray-400 backdrop-blur-md',
-      'pt-2 px-4 w-full md:h-10 border border-gray-400',
-      'text-sm font-medium text-white',
-      'hover:border hover:border-orange-500',
-      'placeholder: text-white',
-      {
-        'bg-gradient-to-b from-orange-300 to-orange-700 backdrop-blur-md text-gray-200': value
-      },
-      { className }
+      <label className={classNames(
+        'bg-white',
+        'border-[1.6px] border-solid border-white',
+        'cursor-pointer',
+        'flex justify-center items-center',
+        'h-10',
+        'rounded-md',
+        'text-sm font-medium text-gray-400',
+        'w-full',
+        'hover:border-pink-500',
+        {
+          'border-pink-500 bg-gradient-to-br from-pink-300 via-pink-500 to-pink-800 text-white': value
+        },
+        className
       )}>
-      
-      <input className={classNames('')}
-        placeholder= {name}
-        name={name}
-        type={type}
-
-        {...register}
-              
-      />
-      <label className='pl-0 md:pl-1'>
+        <input className={classNames('appearance-none')}
+          placeholder= {name}
+          name={name}
+          type={type}
+          {...register}
+        />  
         {name}
       </label>
-    </div>
-      
   )
 }
