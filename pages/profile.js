@@ -30,8 +30,7 @@ export default function Profile () {
         }, {})
       } else if (role === "user"){
         getUserById(id).then( ({users})  =>{
-          console.log('Antes del set: ',users);
-        setUser(users);
+          setUser(users);
         }, {})
       }
     }, [router]

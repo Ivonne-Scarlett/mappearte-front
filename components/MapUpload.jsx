@@ -110,7 +110,6 @@ return (
         } catch (error) {
           console.log('error')
         }
-        console.log(address)
       }}
     > 
     <ComboboxInput

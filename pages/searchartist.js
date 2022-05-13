@@ -44,10 +44,9 @@ export default function Searchartist() {
       //dataValueInput = inputValue.toLowerCase()
       return valueName.toLowerCase().includes(inputValue)
     })   
-    //setFiltered(filterResult)
+
     if (!filterResult) {
       messageFail()
-      console.log('resultado nulo en filterResult')
     } else {
       setFiltered(filterResult)
     }   

@@ -117,7 +117,6 @@ export default function UserEdit () {
         data: file,
       });
       uppy.upload().then(result => {
-        console.log(result)
         setValue('imgUser', result.successful[0].uploadURL)
       });
     }

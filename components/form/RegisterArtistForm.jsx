@@ -65,10 +65,8 @@ export default function RegisterArtistForm() {
   
   const onSubmit = async(dataRegister) => {
     const artist = await registerArtist(dataRegister)
-    console.log('data register', dataRegister)
     if (artist.ok) {
-      messageOk()   
-      console.log('artist.ok', artist.ok)   
+      messageOk()     
       setTimeout(function(){
         router.push('/Login')
       }, 3500);      

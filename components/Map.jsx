@@ -31,7 +31,6 @@ export default function Map () {
   useEffect(() => {
     getStreetart()
     .then(response => {
-      console.log(response)
       const streetArt = response?.data?.streetArt;
       setMarkers(streetArt);
     })
@@ -87,7 +86,7 @@ export default function Map () {
       setSelected({...pointData, artist:response.artists})
     })
   }
-  console.log(selected)
+ 
   return(
       <div>
           <GoogleMap
@@ -196,7 +195,7 @@ return (
         } catch (error) {
           console.log('error')
         }
-        console.log(address)
+      
       }}
     > 
     <ComboboxInput

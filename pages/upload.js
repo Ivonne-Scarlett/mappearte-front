@@ -54,9 +54,9 @@ const messageOk = () => {
  
   
   const onCompleteUploadFiles = (assembly) => {
-    const image = assembly.results?.compress_image[0].ssl_url;
-    setImageUrl(image);
-    setIsUploadingFile(false);
+    const imageURL = assembly.results.compress_image[0].ssl_url
+    setImageUrl(imageURL);
+    setIsUploadingFile(false)
   };
   
   const onFileInputChange = (event) => {
@@ -69,15 +69,33 @@ const messageOk = () => {
         type: file.type,
         data: file,
       });
-      uppy.upload().then(result => {
-        console.log(result)
-        setValue('muralImg', result.successful[0].uploadURL)
+      uppy.upload().then(result => {        
+        //const imageArtist = result.successful[0].uploadURL        
       });
     }
   };
 
   const onSubmit = async(dataRegister) => {
-    const uploadPhoto = await registerPhoto(dataRegister);
+    const artistId = window.localStorage.getItem('id')
+    let type = 'mural'
+    const {isMural,isSticker,isGraffiti,address,lat,lng} = dataRegister
+    if(isSticker){
+      type = 'sticker'
+    }else if(isGraffiti){
+      type = 'isGraffiti'
+    }
+
+    let datArtistRegister = {
+      type,
+      artistId:[artistId],
+      muralImg:imageUrl,
+      address,
+      lat, 
+      lng
+      }
+
+  
+    const uploadPhoto = await registerPhoto(datArtistRegister);    
     if (uploadPhoto.ok) {
       messageOk()      
       setTimeout(function(){
@@ -162,6 +180,13 @@ const messageOk = () => {
           <div 
           className='md:col-span-1'
           >
+            <InputFile
+            id='file'
+            name='file'
+            type='file'
+            accept='image/png, image/jpeg'
+            onChange={onFileInputChange}
+            />
             <Input 
             label='Nombre del artísta:'
             placeholder='ejemplo: MexiArt'
@@ -192,13 +217,7 @@ const messageOk = () => {
               register={register("isGraffiti")}
             />
             </div>
-            <InputFile
-            id='file'
-            name='file'
-            type='file'
-            accept='image/png, image/jpeg'
-            onChange={onFileInputChange}
-            />
+            
             <Input 
             label='Dirección:'
             placeholder='ejemplo: Calle A #1, Ciudad'
@@ -213,6 +232,7 @@ const messageOk = () => {
               <MapUpload 
                 setLatLng={setLatLng} 
               />
+
             </div>
           </div>
           <div 

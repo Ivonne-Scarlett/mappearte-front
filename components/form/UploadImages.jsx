@@ -123,6 +123,15 @@ const onFileInputChange = (event) => {
       alt='Sube tu arte'
       className='mx-auto'
       />
+        <div>
+          <InputFile
+            id='file'
+            name='file'
+            type='file'
+            accept='image/png, image/jpeg'
+            onChange={onFileInputChange}
+          />
+        </div>
       <div>
         <Input
           label='Nombre del artísta:'
@@ -154,15 +163,7 @@ const onFileInputChange = (event) => {
             />
           </div>
         </div>
-        <div>
-        <InputFile
-          id='file'
-          name='file'
-          type='file'
-          accept='image/png, image/jpeg'
-          onChange={onFileInputChange}
-        />
-      </div>
+        
       <div>
         <Input
         label='Ubicación:'

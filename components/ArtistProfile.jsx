@@ -54,7 +54,7 @@ export default function Profile () {
           setIsArtist(true); 
         }, {})
         getArtByArtistId(id)
-        .then(response => {
+        .then(response => {          
             const dataImg = response.data
             const streetArt = dataImg.streetArt
             setAllArtbyArtist(streetArt)

@@ -7,7 +7,6 @@ export default function GridProfile({ streetArtbyArtist}) {
     const [imgShowData, setImgShowData] = useState('');
 
     const isImageClicked = (imageData) => {
-      console.log('Data de la imagen: ',imageData)
       setImgShowData(imageData);
     } 
 

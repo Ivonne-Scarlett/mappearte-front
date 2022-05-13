@@ -94,11 +94,9 @@ export default function ArtistEdit() {
         setValue("isSticker", artists.isSticker);
         setValue("isMural", artists.isMural);
         setValue("isGraffiti", artists.isGraffiti);
-        console.log(artists);
       }, {});
     } else if (role === "user") {
       getUserById(id).then(({ users }) => {
-        console.log("Antes del set: ", users);
         setUser(users);
       }, {});
     }
@@ -122,7 +120,6 @@ export default function ArtistEdit() {
         data: file,
       });
       uppy.upload().then(result => {
-        console.log(result)
         setValue('imgArtist', result.successful[0].uploadURL)
       });
     }
