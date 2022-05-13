@@ -3,7 +3,6 @@ import React, { useState, useEffect } from "react";
 import classNames from "classnames";
 import Link from "next/link";
 import { getArtist } from "../lib/api";
-import { useSpring, animated } from 'react-spring';
 
 export default function GridAvatar() {
   const [artists, setArtist] = useState([]);
@@ -17,24 +16,16 @@ export default function GridAvatar() {
     });
   }, []);
 
-  const styles = useSpring({
-    loop: true,
-    cancel: true,
-    from: { rotateZ: 0 },
-    to: { rotateZ: 180 },
-  })
-
   return (
     <div className={classNames(
       "items-center justify-center",
       "w-full flex ",
-      "bg-red-100", 
       "px-6 md:px-20",
-      "py-6 md:py-10",      
+      "py-6 md:py-10", 
+      "mt-16 md:mt-24"     
     )}>
       <div 
-        className={classNames(
-          "bg-pink-900 border-2 border-solid border-white",          
+        className={classNames(         
           "grid grid-cols-3 md:grid-cols-5 grid-rows-3", 
           "2xl:gap-x-20",
           'lg:max-w-screen-xl', 'w-full',
@@ -44,7 +35,7 @@ export default function GridAvatar() {
         {artists.map(({ imgArtist: avatar, _id: artistId }, index) => {
           const artistImage = avatar || "/icons/noavatar.png";
           return (
-            <animated.div style={styles} 
+            <div
               className={classNames(
                 'flex flex-row justify-center',
                 'odd:w-20 even:w-10 odd:h-20 even:h-10',
@@ -53,7 +44,8 @@ export default function GridAvatar() {
                 'break-inside-avoid',
                 'break-inside-avoid-column',
                 'break-inside-avoid-page',
-                'mb-8'
+                'mb-8',
+                
                 )}
               key={index}
             >
@@ -65,11 +57,11 @@ export default function GridAvatar() {
                     "object-cover cursor-pointer",
                     "rounded-full border-2 border-solid border-white",
                     "w-full h-full",
-                   
+                    'animate-pulse animate-[bounce_4s_infinite]',
                   )}
                 />
               </Link>
-            </animated.div>
+            </div>
           );
         })}
       </div>
