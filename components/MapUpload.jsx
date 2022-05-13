@@ -14,7 +14,8 @@ const options = {
   styles: mapStyles,
   disableDefaultUI: true,
   zoomControl: false,
-  fullscreenControl: false
+  fullscreenControl: false,
+  clickableIcons: false
 }
 const icon = '../icons/spray.png' //TODO: Verificar si usar este o el import de la linea 4
 
@@ -119,8 +120,7 @@ return (
       }}
       disabled={!ready}
       placeholder='Busca una dirección'
-      className="text-black font-normal w-[10rem] md:w-[18rem] bg-lime-200 mt-4 md:pl-4 border-2 border-backgroundP rounded-lg"
-    />
+      className="placeholder:text-slate-200 text-white font-normal w-[10rem] md:w-[18rem] bg-cyan-600 mt-4 md:pl-4 border-2 border-backgroundP rounded-lg"    />
     <ComboboxPopover>
       <ComboboxList className="text-black font-normal">
         {status === 'OK' && data.map(({id, description}) => (
