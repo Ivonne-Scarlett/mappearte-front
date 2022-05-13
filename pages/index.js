@@ -11,16 +11,7 @@ import Link from "next/link";
 
 
 export default function Home() {
-/*   const [searchArtist, setSearchArtist] = useState('')
-  const [name, setName] = useState('');
-  
-  function handleChange(e) {
-    setName(e.target.value);
-  }
-  function handleSearchArtist(event) {
-    setSearchArtist(event.target.value)
-  } */
-  
+
   return (
     <>
       <Nav/>
