@@ -95,25 +95,24 @@ export default function Nav() {
     <div
       className={classNames(
         "w-full fixed top-0 left-0 md:h-20",
-        "bg-backgroundP bg-opacity-90",
-        "py-2 px-6 md:px-20 h-14"
+        "bg-backgroundP bg-opacity-80",
+        "py-2 px-6 md:px-20 h-14",
+        "md:flex"
       )}
     >
       <div
         className={classNames(
-          "flex justify-between items-center",
+          "flex justify-between items-start md:items-center md:w-full",
           isMenuOpen ? "w-screen" : ""
         )}
       >
-        <div className='flex self-center'>
-          <Link href={"/"} >
-            <img
-              src="/icons/logo.png"
-              alt="Logotipo mappearte"
-              className={classNames("w-32 md:w-40 lg:w-44", "cursor-pointer self-center")}
-            />
-          </Link>
-        </div>
+        <Link href={"/"} >
+          <img
+            src="/icons/logo.png"
+            alt="Logotipo mappearte"
+            className={classNames("w-32 md:w-40 lg:w-44", "cursor-pointer")}
+          />
+        </Link>
         <button className="" onClick={showMenu}>
           <img
             src="/icons/menu.png"
@@ -151,9 +150,10 @@ export default function Nav() {
                 className={classNames(
                   "cursor-pointer",
                   "outline outline-2 outline-offset-2 outline-orangeP hover:outline-greenP",
-                  "rounded-full w-6 h-6",
-                  "ml-2",
-                  "block md:hidden"
+                  "rounded-full w-8 h-8",
+                  "mx-2",
+                  "block md:hidden",
+                  "object-cover"
                 )}
               />
             </Link>
@@ -224,8 +224,9 @@ export default function Nav() {
               className={classNames(
                 "cursor-pointer ",
                 "outline outline-2 outline-offset-2 outline-orangeP hover:outline-greenP",
-                "ml-4 rounded-full w-6 h-6",
-                "hidden md:block"
+                "mx-4 rounded-full w-8 md:w-11 h-8 md:h-11",
+                "hidden md:block",
+                "object-cover"
               )}
             />
           </Link>  
