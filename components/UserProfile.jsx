@@ -2,9 +2,7 @@ import React, { useState, useEffect } from "react";
 import classNames from "classnames";
 import { useRouter } from "next/router";
 
-import { getUserById } from "../lib/api";
-import { getArtistById } from "../lib/api";
-import { getArtByUserId } from '../lib/api';
+import { getUserById, getArtistById, getArtByUserId } from "../lib/api";
 
 import {
   Nav,
@@ -45,10 +43,10 @@ export default function Profile () {
           getArtByUserId(id)
             .then(response => {
                 const dataAll = response.data.userArt    
-                console.log(dataAll)           
-                let filterByUser = dataAll.filter( userFilter => id === userFilter.userId.toString()) 
-                console.log(filterByUser)
-                setDataAllImg(filterByUser)            
+                //console.log('dataall',dataAll)           
+                // let filterByUser = dataAll.filter( userFilter => id === userFilter.userId.toString()) 
+                // console.log('filter',filterByUser)
+                setDataAllImg(dataAll)            
             }, [])
         }
       }, [router]
@@ -116,7 +114,7 @@ export default function Profile () {
         >
           Mis aportaciones artísticas
         </h3>
-        <GridProfile streetArtbyArtist={dataAllImg}/>
+          <GridProfile streetArtbyArtist={dataAllImg}/>
         
         
       </DarkBlueCard>
