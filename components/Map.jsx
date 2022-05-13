@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback, useRef } from 'react'
-import { useLoadScript, GoogleMap, Marker, InfoWindow } from '@react-google-maps/api'
+import { useLoadScript, GoogleMap, Marker, InfoWindow, MarkerClusterer } from '@react-google-maps/api'
 import mapStyles from './mapStyles'
 import spray from '../public/icons/spray.png'
 import usePlacesAutocomplete, {getGeocode, getLatLng} from 'use-places-autocomplete'
@@ -11,10 +11,11 @@ const libraries = ['places']
 const mapContainerStyle = {width:'90vw', height:'32rem'}
 const center = {lat: 19.43270444524167, lng: -99.13318543974893}
 const options = {
-  styles: mapStyles, //TODO: Verificar por que no funciona el estilo del mapa(Colores)
+  styles: mapStyles,
   disableDefaultUI: true,
   zoomControl: false,
-  fullscreenControl: false
+  fullscreenControl: false,
+  clickableIcons: false
 }
 const icon = '../icons/spray.png' //TODO: Verificar si usar este o el import de la linea 4
 
@@ -103,7 +104,9 @@ export default function Map () {
             <Search panTo={panTo} className='text-black' />
             <Locate panTo={panTo}/>
 
-            {markers.map((marker) => (
+          <MarkerClusterer>
+            {(clusterer) => 
+              markers.map((marker) => (
               <Marker
                 key={marker._id}
                 position={{lat: parseFloat(marker.lat), lng: parseFloat(marker.lng)}}
@@ -116,9 +119,12 @@ export default function Map () {
                 onClick={() => {
                   onPointClick(marker)
                 }}
-                
+                clusterer={clusterer}
               />
-            ))}
+            ))
+            }
+            
+            </MarkerClusterer>
 
             {selected ? (
             <InfoWindow
@@ -200,7 +206,7 @@ return (
       }}
       disabled={!ready}
       placeholder='Busca una dirección'
-      className="text-black font-normal w-[10rem] md:w-[18rem] bg-lime-200 mt-4 md:pl-4 border-2 border-backgroundP rounded-lg"
+      className="placeholder:text-slate-200 text-white font-normal w-[10rem] md:w-[18rem] bg-cyan-600 mt-4 md:pl-4 border-2 border-backgroundP rounded-lg"
     />
     <ComboboxPopover>
       <ComboboxList className="text-black font-normal">
