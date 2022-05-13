@@ -2,6 +2,7 @@ import classNames from 'classnames'
 import React from 'react'
 
 export default function Input({ label, type = 'text',name, placeholder, className,register, error, required }) {
+  console.log(className)
   return (
     <div className='my-2'>
       <label
@@ -20,7 +21,7 @@ export default function Input({ label, type = 'text',name, placeholder, classNam
           'rounded-md w-full',
           'placeholder-shown:border-gray-500',
           'valid:border-green-500 invalid:border-red-600',
-          { className }
+          className
         )}
         placeholder={placeholder}
         name={name}

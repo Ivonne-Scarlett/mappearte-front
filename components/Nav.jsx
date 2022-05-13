@@ -95,23 +95,25 @@ export default function Nav() {
     <div
       className={classNames(
         "w-full fixed top-0 left-0 md:h-20",
-        "bg-backgroundP bg-opacity-80",
+        "bg-backgroundP bg-opacity-90",
         "py-2 px-6 md:px-20 h-14"
       )}
     >
       <div
         className={classNames(
-          "flex justify-between items-start",
+          "flex justify-between items-center",
           isMenuOpen ? "w-screen" : ""
         )}
       >
-        <Link href={"/"} >
-          <img
-            src="/icons/logo.png"
-            alt="Logotipo mappearte"
-            className={classNames("w-32 md:w-40 lg:w-44", "md:mt-2", "cursor-pointer")}
-          />
-        </Link>
+        <div className='flex self-center'>
+          <Link href={"/"} >
+            <img
+              src="/icons/logo.png"
+              alt="Logotipo mappearte"
+              className={classNames("w-32 md:w-40 lg:w-44", "cursor-pointer self-center")}
+            />
+          </Link>
+        </div>
         <button className="" onClick={showMenu}>
           <img
             src="/icons/menu.png"

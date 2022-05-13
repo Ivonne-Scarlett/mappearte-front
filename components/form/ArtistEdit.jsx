@@ -242,10 +242,11 @@ export default function ArtistEdit() {
 
         <div className="flex flex-col col-span-3 ">
           <Input
+            className='h-16'
             label="Acerca de mi:"
             name="resume"
             register={register("resume")}
-          />
+          />         
           
           <ButtonSend
             className="mx-auto mt-12 md:w-1/3"
