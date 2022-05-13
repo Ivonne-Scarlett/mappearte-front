@@ -97,7 +97,7 @@ export default function Nav() {
         "w-full fixed top-0 left-0 md:h-20",
         "bg-backgroundP bg-opacity-80",
         "py-2 px-6 md:px-20 h-14",
-        "md:flex"
+        "md:flex z-[100]"
       )}
     >
       <div
