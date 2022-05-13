@@ -56,9 +56,8 @@ export default function Profile () {
         getArtByArtistId(id)
         .then(response => {
             const dataImg = response.data
-            const streetArt = dataImg.streetart
+            const streetArt = dataImg.streetArt
             setAllArtbyArtist(streetArt)
-            console.log('responseArtbyArtist:',streetArt)
         }, [])
       } else if (role === "user"){
         getUserById(id).then( ({users})  =>{
