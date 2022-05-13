@@ -18,8 +18,11 @@ export default function GridIndex() {
   useEffect(() => {
     getStreetart()
     .then(response => {
-      const streetArt = response?.data?.streetArt?.slice(0, 14);
-      setStreetArt(streetArt);
+      const streetArt = response?.data?.streetArt      
+      const final = streetArt?.length      
+      const last14 = final - 14          
+      const dataImgGridIndex = streetArt.slice(last14, final)
+      setStreetArt(dataImgGridIndex)
     })
   }, [])
 
@@ -43,16 +46,11 @@ export default function GridIndex() {
                     >
                       <div className="flex items-center justify-end">
                         <button
-                          className="background-transparent pt-2 pr-1.5"
+                          className="pt-2 pr-1.5"
                           type="button"
                           onClick={() => setShowModal(false)}
-                        >
-                          <img 
-                          src='/icons/cancel.png' 
-                          alt='boton de cerrar' 
-                          width='15px' 
-                          height='15px'
-                          className='p-4'/>
+                        >                          
+                          <p className='text-sm mb-1 mr-2 text-slate-400'>Cerrar</p>
                         </button>
                       </div>
                       <div className="relative px-6 flex-auto pb-6">
@@ -60,9 +58,9 @@ export default function GridIndex() {
                           src={imgShowData.muralImg} 
                           alt=""
                           style={{width:'100%'}} 
-                          className="border border-solid border-borange"
+                          className="border border-solid border-white"
                         /> 
-                        <div className='bg-[#17c7c7] text-sm'>
+                        <div className='bg-[#17c7c7] text-sm border border-solid border-white'>
                           <h3 className='pt-2 px-6'>{imgShowData.artist?.artist ? imgShowData.artist?.artist : 'Job'}</h3> 
                           <p className='pb-2 px-6'>{imgShowData.address}</p>  
                         </div>        

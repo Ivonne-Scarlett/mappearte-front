@@ -4,14 +4,14 @@ import { useRef, forwardRef } from "react";
 import ReactToPrint from "react-to-print";
 import { saveAs } from "file-saver";
 
-const front_URL = "https://mappearte.vercel.app/";
+const front_URL = "https://mappearte-app.vercel.app";
 
 export default function CodeQR({props, ref, artist}) {
   const { Canvas } = useQRCode();
   return (
     <div ref={ref}>
       <Canvas
-        text={`${front_URL}/artist/${artist?._id}/next-qrcode`}
+        text={`${front_URL}/artist/${artist?._id}`}
         props={props}
         options={{
           type: 'image/jpeg',
